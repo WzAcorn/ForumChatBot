@@ -1,0 +1,2823 @@
+,topic_id,translated_raw,refine_raw
+3673,6865,"Need a Commented example for W5500 Http Client I recommend to refer this project. It is similar to W5500.
+https://github.com/Wiznet/W7500/tree/master/W7500x_Library_Examples/Projects/Peripheral_Examples/WZTOE/httpClient Sorry for Late Response but I will check and Tell next Story. ThanQ by the way. I would be Helpful if the Link for that is Available. Actually I am Working in Non-OS environment and that On 16bit Controller I have Started With Static IP . Thanks for the Help it is Working. Hello V_Pan, I need to communicate the w5500  with the SMTP32 to use from the program this IP and call to the SMTP32 Program from other devices through the IP (W5500), could u tell me any example?
+
+(SOCKET CLIENT)--> NETWORK --> [W5500]---[STMP32](SOCKET SERVER)
+
+How could I do this?
+
+Thanks sorry for the delay i was sick.. I am Not able to understand your situation. i have PIC controller interface to W5500 module and i want it get configured itself(get its own DHCP-ip) that is what i have done . I am having some issue that at some router its gets ip but at some it does not . At my office location it works and gets IP but at my home it doesnot I'm very new on that, I want my stm32 to work as a multithread OS, with diferent adapters with their controllers. one of this controller is the w5500 to get an IP from the router. I couldn't succed with your PIC controller interfact to W5500. Is any example to see how to do it? Thanks Hello. Can you share an example of the implementation of the HTTP-client for the microcontroller PIC18F?","Q) Hello V_Pan, I need to communicate the w5500  with the SMTP32 to use from the program this IP and call to the SMTP32 Program from other devices through the IP (W5500), could u tell me any example?
+A) (SOCKET CLIENT)--> NETWORK --> [W5500]---[STMP32](SOCKET SERVER)
+How could I do this?
+
+Q) I want my stm32 to work as a multithread OS, with different adapters with their controllers. one of this controllers is the w5500 to get an IP from the router. I couldn't succed with your PIC controller interface to W5500. Is any example to see how to do it?
+A) I am Not able to understand your situation. i have PIC controller interface to W5500 module and i want it get configured itself (get its own DHCP-ip) that is what i have done . I am having some issue that at some router its gets ip but at some it does not . At my office location it works and gets IP but at my home it does not. 
+
+Q) Can you share an example of the implementation of the HTTP-client for the microcontroller PIC18F?
+A) Need a Commented example for W5500 Http Client. I recommend to refer this project. It is similar to W5500.
+https://github.com/Wiznet/W7500/tree/master/W7500x_Library_Examples/Projects/Peripheral_Examples/WZTOE/httpClient
+
+(Note: In the provided text, there are no non-response paragraphs and all the given paragraphs are either questions or answers.)"
+3674,6867,"Hello!
+I am doing a project based on ATmega640 and wi-fi module Wizfi220. I connected the module as follows: 1, 18, 31 and 48 pins - to GND; 9, 32, 33 and 34 pins - to +3.3V. Pin 42 (uart0_rx ) to tx avr, pin 40 (uart0_tx) to rx avr. The settings for the speed and frame format of the uart module and the microcontroller are the same (19200, 8n1), since I connected the module earlier through the usb-uart adapter and made its settings. Ultimately, I can?Ât raise the access point from the microcontroller, and the AT command doesn?Ât get me ""OK"", but some kind of garbage. The only message I get from the wi-fi module - [ERROR].
+
+Please share your tips and thoughts. Sorry for google translator, i don't speak english.
+
+Update: I apologize, I hurried a little with the creation of the topic. Before you start sending commands from the microcontroller to the wi-fi module, you need to reset it (low level on pin 35 for half a second). And then you need to raise the level on the pin, and you can send at commands! Thanks for sharing your experiences :)","Q) I connected the Wi-Fi module Wizfi220 to the ATmega640, but I can't raise the access point or get the ""OK"" response from the AT command. The only message I receive from the Wi-Fi module is [ERROR]. Any tips and thoughts?
+A) Before sending commands from the microcontroller to the Wi-Fi module, you need to reset it by setting a low level on pin 35 for half a second. Then, raise the level on the pin before sending AT commands. Thank you for sharing your experiences!"
+3675,687,"Hi:
+I am now working in multi bridge mode. I try to restart AP, but wiz630 didn't reconnect with the AP. After that i manually restart wiz630, the connection regenerated. Is there any solution that I don't need to restart 630, and it auto reconnect with the AP after connection lost. Hi
+
+I did test about this issue. But WizFi630 could operate well.
+Please check the difference between my environment and yours.
+
+My Test Environment is as below. 
+
+WizFi630's Firmware version is <1.1.29(20131112)> and operate Multi-Bridge Mode.
+After connecting to AP, I try to turn off AP(model : IpTimeN604M) and then I check wi-fi status using <QP> command. WizFi630 did output <S0>. it means disconnected with AP.
+
+After 10 minute, I try to turn on AP and then I did check wi-fi status using <QP> command. WizFi630 did output <S1_WiznetKaizen_0026667B9DB0_7_150_46>. It means that WizFi630 reconnected to AP well.
+
+I will send 1.1.29 firmware via your e-mail. maybe you don't have it.","Q) Is there any solution that I don't need to restart WizFi630, and it auto reconnect with the AP after connection lost?
+A) I did test about this issue. But WizFi630 could operate well. Please check the difference between my environment and yours. My Test Environment is as below.
+
+Q) What is your WizFi630's Firmware version and how do you operate Multi-Bridge Mode?
+A) WizFi630's Firmware version is <1.1.29(20131112)> and operate Multi-Bridge Mode. After connecting to AP, I try to turn off AP(model : IpTimeN604M) and then I check wi-fi status using <QP> command. WizFi630 did output <S0>, which means disconnected with AP. After 10 minutes, I try to turn on AP and then I did check wi-fi status using <QP> command. WizFi630 did output <S1_WiznetKaizen_0026667B9DB0_7_150_46>. It means that WizFi630 reconnected to AP well. I will send 1.1.29 firmware via your e-mail. Maybe you don't have it."
+3676,6871,"Hello there, I am using the W5500 chip in a project where i need to implement SSDP device discovery. It appear that I have trouble receiving the neccesary Multicast frames on the W5500.
+I am working with the standard Wiznet driver and other functionality i tested so far is fine.
+To receive the multicast frames i opened a normal UDP socket after setting SIPR and SHAR to the relevant addresses. I first tried the multicast IP and MAC reserved for SSDP (MAC 01:00:5E:FF:FF:FA and IP 239.255.255.250. ), but no luck there. Subsequently i did the exact same test with addresses from a example from the forum (MAC 01:00:5E:01:01:0B and IP 211.1.1.11. ). This works correctly. So my question is: how can i listen to the specific multicast address for SSDP? Regards and thanx in advance. In my earlier post I gave an erroneous MAC. It should be 01:00:5E:7F:FF:FA. That is the one I actually used. As said: it doesn't work. Any help would be appreciated.
+I also found a post telling me to write the multicast addresses to DHAR and DIPR. Also tried that, though it seems an odd thing to do for setting up frame reception. Anyway, that too does not work. Calling the recv_from function just locks the processor up. It probably gets stuck in a loop. Please advise.... Yes I did, and i read back the Sn_MR register to be shure of it's contents, being 0x82. And I also did this before opening the socket. Code looks like this (using standard Wiznet driver):
+
+initialization:
+
+for (i=0;i<6;i++) {NetInfo.mac[i] = src_mac_addr[i];}	// set SHAR              
+for (i=0;i<4;i++) {NetInfo.ip[i] = src_ip[i];}		// set SIPR						
+for (i=0;i<4;i++) {NetInfo.sn[i] = subnet[i];}
+for (i=0;i<4;i++) {NetInfo.gw[i] = gateway[i];}
+for (i=0;i<4;i++) {NetInfo.dns[i] = dns_srv[i];}
+NetInfo.dhcp = NETINFO_STATIC;  
+                
+wizchip_setnetinfo(&NetInfo);  //
+
+sdata2 = socket(1, Sn_MR_UDP, 3000, (SF_MULTI_ENABLE));  // UDP multicast
+
+
+receive data in loop:
+
+Rlength = recvfrom(1, Rbuf, 200, src_ip, RecPort);      //
+     
+           if ((0 < Rlength) && (Rlength < 1500))       
+                {  
+                uint8_t i;
+                
+                for (i=0;i<Rlength;i++) 
+                    {
+                    sdata2 = Rbuf[i];
+                    putchar(sdata2);  
+                    }
+                    
+                putchar(Rlength); 
+                Rlength = 0;  
+                
+                sdata2 = *RecPort & 0x00FF;
+                putchar(sdata2);
+                sdata2 = ((*RecPort & 0xFF00) >> 8);        
+                putchar(sdata2);
+                } Sloppy programming caused me to use the variable src_ip to store the incoming ip address in the recvfrom function, sorry for that; it works becaue this variable is not reused after initialization, but after creating a seperate variable forthe incoming ip address it should be:
+
+//receive data in loop:
+
+ Rlength = recvfrom(1, Rbuf, 200, inc_ip, RecPort);      //
+     
+           if ((0 < Rlength) && (Rlength < 1500))       
+                {  
+                uint8_t i;
+                
+                for (i=0;i<Rlength;i++) 
+                    {
+                    sdata2 = Rbuf[i];
+                    putchar(sdata2);  
+                    }
+                    
+                putchar(Rlength); 
+                Rlength = 0;  
+                
+                sdata2 = *RecPort & 0x00FF;
+                putchar(sdata2);
+                sdata2 = ((*RecPort & 0xFF00) >> 8);        
+                putchar(sdata2);   
+                
+                sdata2 = inc_ip[0];   putchar(sdata2);  
+                sdata2 = inc_ip[1];   putchar(sdata2);
+                sdata2 = inc_ip[2];   putchar(sdata2);
+                sdata2 = inc_ip[3];   putchar(sdata2);
+
+                } But still no clue on how to receive SSDP multicast frames........
+Maybe a code example based on your driver? Hi Becky,
+
+i still have no clue on how to receive SSDP multicast messages with the W5500. As far as i can tell, the chip will perfectly receive regular UDP messages, but any attempt to receive something in the specific multicast IP ranges will not work. I posted the code i used (departing from the Wiznet driver) on the forum and asked for a reaction, but got no reaction so far. I have set the multicast bit in the socket mode register but to no avail.
+
+Please take a look and comment on my approach. I can find no other sources from users that actually used the designated multicast IP ranges.
+
+Is it possible at all in the W5500?
+
+Merry Xmas by the way...... Hi Becky,
+
+i have set up the chip for multicast traffic in the way you indicated. I can read back the DIPR, DHAR, PORT and DPORT values after opening the socket, as well as the correct snMR value for UDP multicast.
+
+I have tried to read incoming multicast messages using the **recvfrom** function that comes with the Wiznet driver, but any call of this function will lock up the firmware immediately. It appears that everything gets stuck in the recvfrom function, probably in a loop.
+
+Is the recvfrom function suitable for receiving multicast data? I figured this would be the case because this particular function is the normal way to receive UDP data.
+
+I also re-evaluated the example from WizWiki: [http://wizwiki.net/wiki/doku.php?id=products:w5500:application:udp_function#multicast](http://wizwiki.net/wiki/doku.php?id=products:w5500:application:udp_function#multicast)
+
+This doesn't work either, but if I write the addresses to SHAR and SIPR instead of DHAR and DIPR, reception is normal. I think that in this particular example the given IP address is outside the normal multicast IP range. If i try the same trick with the multicast addresses for SSDP, it won't work.
+
+Can you please elaborate on how to actually read incoming data in multicast mode? As far as i can see, the recvfrom function is not the way to do it.
+
+Thanks, Ruud. Thanx Becky. I had missed the code example on Github, so please ignore my last question. I will have time to play with this by the end of the week and i will keep you informed","Q) how can I listen to the specific multicast address for SSDP? Regards and thanx in advance. 
+Q) Maybe a code example based on your driver? 
+Q) Is it possible at all in the W5500? 
+Q) Is the recvfrom function suitable for receiving multicast data? 
+Q) Can you please elaborate on how to actually read incoming data in multicast mode? As far as i can see, the recvfrom function is not the way to do it. 
+
+A) Hi Becky, i still have no clue on how to receive SSDP multicast messages with the W5500. As far as i can tell, the chip will perfectly receive regular UDP messages, but any attempt to receive something in the specific multicast IP ranges will not work. I have set the multicast bit in the socket mode register but to no avail. I posted the code i used (departing from the Wiznet driver) on the forum and asked for a reaction, but got no reaction so far. I have set up the chip for multicast traffic in the way you indicated. I can read back the DIPR, DHAR, PORT and DPORT values after opening the socket, as well as the correct snMR value for UDP multicast. I have tried to read incoming multicast messages using the **recvfrom** function that comes with the Wiznet driver, but any call of this function will lock up the firmware immediately. It appears that everything gets stuck in the recvfrom function, probably in a loop. This doesn't work either, but if I write the addresses to SHAR and SIPR instead of DHAR and DIPR, reception is normal. I think that in this particular example the given IP address is outside the normal multicast IP range. If i try the same trick with the multicast addresses for SSDP, it won't work. I had missed the code example on Github, so please ignore my last question. I will have time to play with this by the end of the week and i will keep you informed."
+3677,6875,"[WIZ550IO]
+-----------
+hello
+There was a Korean Forum haha I was embarrassed to post it in Korean in the English Forum.
+
+I would like to contact you about access.
+The module is implemented in server and is being controlled by SPI.
+
+Powered in for the first time, or
+If you repeat the connection and disconnection, it functions normally.
+
+By the way, after taking the LAN cable in the connection state,
+Even if you perform connections and breaks, it will not be connected at all.
+You have to turn on the module to connect.
+
+I want to improve this
+Even after taking the LAN cable again and again
+How can Ethernet be connected while the module is turned on?
+
+The module is implemented as a server, and the UI is set as a client and is being inspected.
+I think there will be a function supported by the module, but I haven't found it yet.
+Please help.
+
+There is one more thing.
+I changed the IP
+It is also possible to connect from the UI only when the power is also available.
+The PC you are using is Windows 10.
+Please help.
+
+thank you
+
+Han Jung Soo Dream Thank you for your answer.
+
+I lacked a lot of explanation.
+
+The client is a test that takes away the LAN in the same state and then reconnects.
+
+In other words, it is a case where you take the LAN line of A while maintaining the connection and the connection, and then reconnect the LAN line of A after a while.
+
+Can I use the E Keep Alive feature?
+
+And if you explain (a-> b), it will be done in the following order.
+
+Please help.
+
+thank you
+
+Han Jung Soo Dream Even if the client is the same, the module is maintaining the connection, so it does not respond to the new connection.
+You can use the Keep Alive function.
+However, if the timeout is caused by the Keep Alive, the LAN line must be pulled out more than 30 seconds.
+It is time for RCR and RTR and can be changed. hello
+
+As I mentioned, the Keepalive settings allows the module to wait longer to replay the client.
+
+However, not only the module side but also the communicating partner needs to check whether the Keepalive is set.
+
+If you have the same problem even though you have increased time, you must set up Keepalive.
+
+
+thank you","Q) I would like to improve the module so that even after taking the LAN cable again and again, Ethernet can be connected while the module is turned on. Is there a solution for this? 
+A) Even if the client is the same, the module is maintaining the connection, so it does not respond to the new connection. You can use the Keep Alive function. However, if the timeout is caused by the Keep Alive, the LAN line must be pulled out for more than 30 seconds. It is time for RCR and RTR and can be changed. 
+
+Q) Can I use the E Keep Alive feature to maintain the connection while taking away and reconnecting the LAN line? 
+A) You can use the Keep Alive function. However, if the timeout is caused by the Keep Alive, the LAN line must be pulled out for more than 30 seconds. 
+
+Q) How can Ethernet be connected while the module is turned on, even after taking the LAN cable again and again? 
+A) If the timeout is caused by the Keep Alive, the LAN line must be pulled out for more than 30 seconds. 
+
+Q) And if you explain (a-> b), it will be done in the following order. 
+A) As I mentioned, the Keepalive settings allow the module to wait longer to replay the client. However, not only the module side but also the communicating partner needs to check whether the Keepalive is set. If you have the same problem even though you have increased time, you must set up Keepalive."
+3678,6877,"Hello and thanks for making such great products! I'm using STM32F103C8T7 processor connected to WIZ850io module. I am running a test program that sends a short UDP message every second. After approximately an hour,  the socket stops sending. Once failed, the Interrupt (IR) register contains 0x0. When successful the IR register contains 0x10. Retrying the send fails, and I cannot send again until after I reset the 850io module. I have tested the program on an Adruino Uno with Ethernet Shield (W5500) and it runs fine. Any assistance appreciated. If there is a way to restart sending without reset that would be great too. Thanks again, WG hi, indridkold
+
+there are two interrupt registers, common IR and socket Sn_IR.
+Do you mean common IR register ?
+
+If it is common IR, 0x10 bit is magic packet bit. It means you turned on WOL mode and WIZ550io received magic packet.
+
+And if it is socket Sn_IR, the interrupt bits should be 0x00. (if there is no timeout and recv)
+
+so... only with Interrupt, it is hard to find the reason.
+
+Could you check  getSn_CR(sn)  after  setSn_CR(sn,Sn_CR_SEND)  in sendto() ? Additional... For testing I setup an old Arduino Uno with an Ethernet Shield 2. UDP transmit on the UNO and Shield has run for over 24 hrs with no failure. Could there be a firmware issue? Both the WIZ850io and the Shield 2 use the W5500 chip, but multiple WIZ850io units fail within minutes. Is there firmware on the W5500 that can be updated? Thanks again for any assistance, WG First,
+If you connected like arduino ethernet shield using wiz850io, you can use the arduino ethernet shield library.
+
+If you use the UDP protocol, it may be data loss.
+Also, if Sn_MR(P[3:0]) is not TCP mode(??001??, it is automatically calculated as the
+difference between ?ÂSocket n TX Write Pointer (Sn_TX_WR)??and ?ÂSocket n TX Read
+Pointer (Sn_TX_RD)??  
+
+Please refer the Sn_TX_WR and Sn_TX_RD in datasheet. Hello, we're still having problems with reliability. Regarding socket 0 register values you asked about previously, 
+
+After the send is successful??
+
+SnCR = 0x0
+
+SnIR = 0x10
+
+After the send fails??
+
+SnCR = 0x0
+
+SnIR = 0x0
+
+Are there any other registers we can check? The socket will not even respond to ping request after failing to send. Any assistance appreciated,
+Thanks,
+IK","Q) After the send is successful?
+SnCR = 0x0
+SnIR = 0x10
+After the send fails??
+SnCR = 0x0
+SnIR = 0x0
+Are there any other registers we can check? The socket will not even respond to ping request after failing to send. Any assistance appreciated, Thanks, IK
+
+A) If you connected like arduino ethernet shield using wiz850io, you can use the arduino ethernet shield library. If you use the UDP protocol, it may be data loss. Also, if Sn_MR(P[3:0]) is not TCP mode(??001??, it is automatically calculated as the difference between ?ÂSocket n TX Write Pointer (Sn_TX_WR)??and ?ÂSocket n TX Read Pointer (Sn_TX_RD)?? Please refer the Sn_TX_WR and Sn_TX_RD in datasheet."
+3679,688,"The subject says it all. Hi,
+We don't provide an altium library.
+Anyone who have an altium library can help me and RallayTronics.
+
+Thank you.","Q) Anyone who have an altium library can help me and RallayTronics?
+A) We don't provide an altium library."
+3680,6883,"https://en.wikipedia.org/wiki/Death_by_coconut ;) That?Âs :sparkles: _emojitastic!_ :sparkles:
+
+Sometimes you might want to get a person?Âs attention, even if you aren?Ât replying to them directly. Type `@` then complete their user name to mention them.
+
+Can you mention **`@discobot`** in your reply? @discobot is awesome _Did someone say my name!?_ :raised_hand: I believe you did! :wave: Well, here I am! Thanks for mentioning me. :ok_hand:
+
+Can you make some words **bold** or _italic_ in your reply?
+
+- type `**bold**` or `_italic_`
+
+- or, push the <kbd><b>B</b></kbd> or <kbd><i>I</i></kbd> buttons in the editor By *all* means Great job! HTML and BBCode also work for formatting ? to learn more, [try this tutorial](http://commonmark.org/help) :nerd:
+
+Can you try quoting me when you reply, so I know exactly which part you?Âre replying to?
+
+> If this is coffee, please bring me some tea; but if this is tea, please bring me some coffee.
+>
+> One advantage of talking to yourself is that you know at least somebody?Âs listening.
+>
+> Some people have a way with words, and other people??oh, uh, not have way.
+
+Select the text of whichever &uarr; quote you prefer, and then press the **Quote** button that pops up over your selection ? or the **Reply** button at the bottom of this post.
+
+Below the quote, type a word or two about why you picked that one, because I?Âm curious :thinking: [quote=""discobot, post:10, topic:6883""]
+One advantage of talking to yourself is that you know at least somebody?Âs listening.
+[/quote]
+
+indeed https://forum.wiznet.io/u/John_Hentges :herb: Yay you found it :tada:
+
+- For more detailed searches, head over to the [full search page](https://forum.wiznet.io/search).
+
+- To jump anywhere in a long discussion, try the topic timeline controls on the right (and bottom, on mobile).
+
+- If you have a physical :keyboard:, press <kbd>?</kbd> to view our handy keyboard shortcuts.","Q) Can you mention **`@discobot`** in your reply?
+A) @discobot is awesome _Did someone say my name!?_ :raised_hand: I believe you did! :wave: Well, here I am! Thanks for mentioning me. :ok_hand:
+
+Q) Can you make some words **bold** or _italic_ in your reply?
+A) - type `**bold**` or `_italic_`
+   - or, push the <kbd><b>B</b></kbd> or <kbd><i>I</i></kbd> buttons in the editor
+   By *all* means Great job! HTML and BBCode also work for formatting ? to learn more, [try this tutorial](http://commonmark.org/help) :nerd:
+
+Q) Can you try quoting me when you reply, so I know exactly which part you?Âre replying to?
+A) [quote=""discobot, post:10, topic:6883""]
+One advantage of talking to yourself is that you know at least somebody?Âs listening.
+[/quote]"
+3681,6884,"XDATA around 0x42A6 is being corrupted during user_flash_read(), user_flash_write(), setSIPR(), setGAR(), setSUBR(), or setSHAR().
+
+Presumably during do_isp(), which user_flash_* calls.
+
+This was overwriting a 2-byte array ""byte foo[2]={0xff,0xff};"" with 0x00, 0x00.
+I masked the problem by moving variables to DATA from XDATA, but need to understand the root cause.
+
+Any thoughts? I'll check this issue from the person in charge.
+
+    Please understand that there will be a delay in response due to the Christmas, and New Year holidays.
+    Thank you for your patience and we will get back to your questions ASAP.
+    Sincerely, In my private opinion,I want you don't use the standard printf function.
+I suspect that the stack is broken because of the printf function. 
+So, I recommend that you don't use the printf function and try again.
+Reference link for printf(C51): [C51: WHY NUMBER OF BYTES PASSED TO PRINTF IS LIMITED](http://www.keil.com/support/docs/867.htm)","Q) Any thoughts? I'll check this issue from the person in charge.
+A) I suspect that the stack is broken because of the printf function. So, I recommend that you don't use the printf function and try again.
+
+Q) Please understand that there will be a delay in response due to the Christmas, and New Year holidays. Thank you for your patience and we will get back to your questions ASAP.
+A) None.
+
+Q) Sincerely, In my private opinion, I want you don't use the standard printf function.
+A) None."
+3682,6888,"?Â¹Ã¬ÂÂ ?Â¬Ã¬ÂÂ©?ÂÃ«ÂÂ Configuration ToolÃ«Â²ÂÃ¬Â ÂÃªÂ³?WIZ550S2E firmware  Ã«Â²ÂÃ¬Â Â???ÂÃ«Â Â¤Ã¬Â£Â¼Ã¬ÂÂÃªÂ¸?Ã«Â°ÂÃ«ÂÂ?ÂÃ«ÂÂ¤.
+?Â´Ã¬Â ÂÃ«Â²ÂÃ¬Â Â??Configuration Tool?? ?ÂÃ­ÂÂ??firmware???Â°Ã«ÂÂ¼ ?Â¤Ã«????ÂÃ¬ÂÂµ?ÂÃ«ÂÂ¤.
+?ÂÃ¬ÂÂ¬Ã«Â²ÂÃ¬Â Â??configuration tool ?? ?ÂµÃ­ÂÂ©??Ã«Â²ÂÃ¬Â Â?Â¼Ã«Â¡Â WIZ550S2E firmwareÃªÂ³Â¼Ã«ÂÂ ?ÂÃª??ÂÃ¬ÂÂ´ ?ÂÃ¬ÂÂ?Â©Ã«ÂÂ?? hello.
+
+The firmware version information can be found at the bottom of the Configuration Tool.
+However, if the values set on the right side of the Tool do not appear, the firmware information may not be provided.
+
+If the firmware version of the module is v1.3.0 or more, you can use the latest version of Tool, but if not, you must use the Configuration Tool, which is compatible with the F/W version.
+
+Please refer to the table below for version information.
+
+| Module F/W Version | config Tool Version |
+| --- | --- |
+| V1.0.3 | V1.0.3 |
+| V1.3.0 (MQTT VER) | V1.3.1 |
+| V1.4.0 (modbus ver) | V1.3.1 |
+
+First of all, please refer to the page below to proceed with the firmware update.
+-Https://github.com/wiznet/wiz550s2e#Firmware
+
+After the update progresses, you need to initialize the Factory Reset button for more than 5 seconds.","Q)  What is the firmware version information found at the bottom of the Configuration Tool? 
+Q)  What should be done if the values set on the right side of the tool do not appear? 
+Q)  Which Configuration Tool version should be used for the module firmware v1.3.0 or more?
+A) The firmware version information can be found at the bottom of the Configuration Tool. If the values set on the right side of the tool do not appear, the firmware information may not be provided. If the firmware version of the module is v1.3.0 or more, you can use the latest version of the Tool, but if not, you must use the Configuration Tool, which is compatible with the F/W version."
+3683,6889,"ÃÂ¡Excelente! Ahora puedes encontrar facilmente las conversaciones privadas en cualquier momento directamente desde la [seccion de marcadores de tu perfil](https://forum.wiznet.io/u/WiznetSis/activity/bookmarks). Solo debes seleccionar tu foto de perfil en la parte superior derecha de la pantalla &#8599;
+
+A continuacion, ÃÂ¿podrias compartir uno de estos enlaces conmigo? Responde con **un enlace en una linea por si mismo**, y se expandira automaticamente para incluir un resumen ingenioso.
+
+Para copiar cualquier enlace, toca y manten presionado en el dispositivo movil, o haz clic derecho en tu dispositivo senalador:
+
+<https://en.wikipedia.org/wiki/Inherently_funny_word>
+<https://en.wikipedia.org/wiki/Death_by_coconut>
+<https://en.wikipedia.org/wiki/Calculator_spelling> Hey, @wiznetsis, I wanted to tell you that I am aware of you because I have not had news of yours in a long time.
+
+- To continue, answer me at any time.
+
+- If you want to omit this step, write `jump`.
+
+- To start over, write `start tutorial`.
+
+If you prefer not to do it, that's fine.I am a bot.Do not hurt my feelings.: SOB:","Q) ¿Podrías compartir uno de estos enlaces conmigo?
+A) Hey, @wiznetsis, I wanted to tell you that I am aware of you because I have not had news of yours in a long time."
+3684,689,"All,
+
+I have been re-writeing the iolibrary_v100 for the processor I am using.
+I was going through the TCPReSend function, in particular TCPReSendNB().
+After some checks, it issues the SEND command in the sockets CR register.
+
+Here is what I am wondering.
+If the SEND command was already used to on the first transmit, TCPSend.
+Then would not the TX_RD and TX_WR be the same value?
+And if so, how does sending the SEND command again work, if the
+TX_RD and TX_WR are the same value?
+
+If one could decrease the TX_RD by the data length, then I could see 
+resending the SEND command work. 
+But the TX_RD is read only, correct?
+So if it is read only, then how can data be re-transmitted without
+loading the data back into the socket TX buffer first, and increasing
+the TX_WR pointer?
+
+Thanks,
+Jim Hi,
+ioLibrary_v100 are based on the previous W5200 driver in W7200. So, the W5200 code are remained still.
+It was for supporting on old W7200 users. If you use W5500 first, We recommended ioLibraray_BSD instead of ioLirary_v100 because it is difficult to intensive technical support.
+
+Anyway, We will fixed the code as soon as possible.
+
+If you get a fast response, you can modify it as like the followings.
+
+[code]
+int32_t TCPSend(uint8_t s, const int8_t *buf, uint16_t len)
+{
+	int32_t ret;
+	while(1) {
+		ret = TCPSendNB(s, buf, len);
+		if(ret == RET_OK) break;
+		if(ret != SOCKERR_BUSY) return ret;
+	}
+	while(1) {
+		ret = TCPSendCHK(s);
+		if(ret >= 0 || ret != SOCKERR_BUSY) break;
+	}
+	return len;
+}
+
+int32_t TCPSendCHK(uint8_t s)
+{
+	uint16_t txrd;
+	if(!(getSn_IR(s) & Sn_IR_SENDOK)) {
+		if(getSn_SR(s) == SOCK_CLOSED) {
+                  DBG(""SOCK_CLOSED"");                    
+			TCPClose(s);
+			return SOCKERR_CLOSED;
+		}
+		return SOCKERR_BUSY;
+	} else setSn_IR(s, Sn_IR_SENDOK);
+	return 0;
+}
+[/code]
+
+And remove TCPReSend() funciton in your code.
+[code]
+void loopback_tcps(uint8_t sock, uint16_t port)
+{
+	int32_t ret;
+	int32_t SendLen, ReSendLen;
+
+	ret = TCPRecv(sock, data_buf, TX_RX_MAX_BUF_SIZE);
+
+	if(ret > 0){				// Received
+		SendLen = TCPSend(sock, data_buf, ret);
+
+                /* Remove TCPResend() funciton */
+                /*
+		if(SendLen < ret){
+			while(SendLen != ret){
+				ReSendLen = TCPReSend(sock);
+
+				if(ReSendLen > 0){
+					SendLen += ReSendLen;
+
+				} else if(ReSendLen == SOCKERR_WINDOW_FULL){
+					LOG(""Window Full"");
+					TCPClose(sock);
+					DBG(""TCP Socket Close"");
+					while(1);
+
+				} else{
+					break;
+				}
+			}
+		}
+
+	} else  */
+        if(ret == SOCKERR_NOT_TCP){	// Not TCP Socket, It's UDP Socket
+		DBG(""UDP Socket Close"");
+		UDPClose(sock);
+	} else if(ret == SOCKERR_CLOSED){		// Socket Closed
+          LOGA(""TCPS Loop-Back Started - sock(%d):port(%d)"",(uint16_t)sock,port);
+		TCPServerOpen(sock, port);
+	}
+
+	if(GetTCPSocketStatus(sock) == SOCKSTAT_CLOSE_WAIT){	// Close waiting
+		TCPClose(sock);
+	}
+}
+[/code]
+
+Thank you. I think I figured it out.
+The only thing in the W5500 datasheet says is
+""SEND command transmits from the current Sn_TX_RD to the Sn_TX_WR"".
+Well looking at the datasheet for the W5200(page 50) it looks like there is an
+exception to that. If the data is longer then what is set in the MSS register,
+then it only sends that length of data. In that case the Sn_TX_RD would not be
+increased all the way to Sn_TX_WR and the resend fiction TCPReSend would 
+be the thing to use to transmit the next chunk of data.
+
+The whole section 5 of the W5200 data sheet is missing from the W5500 manual,
+I hope this gets included in the W5500 datasheet for people like me that have not
+used a previous wiz chip.
+
+Thanks,
+Jim Hi,
+Thanks for your advice.
+We will apply that after considering enough.
+
+Thank you.","Q) Here is what I am wondering. If the SEND command was already used to on the first transmit, TCPSend. Then would not the TX_RD and TX_WR be the same value? And if so, how does sending the SEND command again work, if the TX_RD and TX_WR are the same value? If one could decrease the TX_RD by the data length, then I could see resending the SEND command work. But the TX_RD is read only, correct? So if it is read only, then how can data be re-transmitted without loading the data back into the socket TX buffer first, and increasing the TX_WR pointer?
+A) TCPSend sends data from the current Sn_TX_RD to the Sn_TX_WR, and if the data length exceeds what is set in the MSS register, then the resend function TCPReSend is used to transmit the next chunk of data. 
+
+Q) The whole section 5 of the W5200 data sheet is missing from the W5500 manual, I hope this gets included in the W5500 datasheet for people like me that have not used a previous wiz chip.
+A) Thanks for your advice. We will apply that after considering enough."
+3685,6890,"Se puede conectar via Telnet?
+Existe algun firmware que se deba cargar para hacer posible conexion Telnet?
+Ademas cuando conecto el programa la 'OPCIONs' Telnet (RF2217) no se puede seleccionar.
+Es posible en los modulos WIZ750SR o WIZ752 tengan TELNET?
+---
+Can you connect via Telnet?
+Is there any firmware that must be loaded to make possible a Telnet connection?
+Also when I connect the program the 'OPTIONS' Telnet (RF2217) cannot be selected.
+Is it possible for modules WIZ750SR or WIZ752 to have TELNET? Technically is it possible.
+But we do not support firmware for telnet on WIZ750SR or WIZ752SR. The question is for the following:
+Already connected in a network, they are programmed with the soft ""tool 1.4.4.1""
+. But the following happens:
+it is given a RESET (remotely in a network) and from that moment the ""toolxx"" program no longer sees it. The connection made by RS232 is lost (configured).
+If you ping him with CMD you see the team.
+But never again how can you enter through the configuration program (Tool xxx) ...
+And since Telnet cannot be done, a big problem is generated Thank you so much
+I'm already using it too.
+I will continue the tests and make more comments.
+
+Thank you Muchas Gracias. Realizare lo recomendado y notifico pruebas
+Thank you so much. I will perform the recommended and notify evidence 
+Install Python 3.8 before successfully Not pyinstall -> python
+```
+python main_gui.py
+```
+This is for check python code works well. Thank you
+
+I try a machine on Win10 and comment SOLVED!
+
+Ifaddr was missing ... install version 0.1.6
+
+Works !
+
+Thank you very much for the collaboration and patience
+
+Big hug ","Q) Can you connect via Telnet? Is there any firmware that must be loaded to make possible a Telnet connection? Also when I connect the program the 'OPTIONS' Telnet (RF2217) cannot be selected. Is it possible for modules WIZ750SR or WIZ752 to have TELNET? 
+A) Technically is it possible. But we do not support firmware for telnet on WIZ750SR or WIZ752SR. 
+Q) Already connected in a network, they are programmed with the soft ""tool 1.4.4.1"". But the following happens: it is given a RESET (remotely in a network) and from that moment the ""toolxx"" program no longer sees it. The connection made by RS232 is lost (configured). If you ping him with CMD you see the team. But never again how can you enter through the configuration program (Tool xxx) ... And since Telnet cannot be done, a big problem is generated Thank you so much
+A) I'm already using it too. I will continue the tests and make more comments.
+Thank you Muchas Gracias. Realizare lo recomendado y notifico pruebas. Thank you so much. I will perform the recommended and notify evidence. Install Python 3.8 before successfully Not pyinstall -> python. This is for check python code works well. Thank you. I try a machine on Win10 and comment SOLVED! Ifaddr was missing ... install version 0.1.6. Works! Thank you very much for the collaboration and patience. Big hug"
+3686,6898,"hello!!
+[WIZ750SR-RS232] MODULE
+1: N UDP is being used.
+Use 2 Server in 1 Module.
+Module's IP is 192.168.1.101
+Server_1 IP is 192.168.1.81
+Server_2 IP is 192.168.1.82
+
+When Server 1 and 2 send data, the serial data is RX through Module.
+Main MCU operates as a flow that ts serial data.
+
+The problem is that if Server 1,2 transmits the data in a row,
+The main MCU is stacked in the databuffer and transmits in order,
+Serial speed is slower than Ethernet,
+I received the data of Server 2 before I even acked the data I received in Server 1.
+There is a problem that the MCU sends two buffers only to Server 2 when transmitting.
+??For reference, Server cannot control the timing.
+
+If you briefly explain the transmission situation with a table,
+
+Server 1-> Module -> MCU reception
+MCU-> module-> Server 1 transmission normal
+
+Server 2-> Module -> MCU reception
+MCU-> module-> Server 2 transmission normal
+
+Server 1,2 -> MODULE-> MCU Receive
+MCU-> module-> Server 2 transmission error
+
+So I tried to distinguish between the packet as shown below.
+I put the last address of the IP sent to the packet converted into a serial.
+??UART_TO_ETHER () function part.
+
+// UDP 1: n mode
+** peerip [3] = G_SEND_BUF [05];// Added part **
+sent_len = (int16_t) Sendto (sock, g_send_buf, len, peerip, peerPort);
+
+As shown above, I added the last IP to send to the serial packet and added it to the peerip [3].
+It works well,
+Actually sent IP (192.168.1.81) 0x51 and address added to the packet, G_SEND_BUF [05] = 0x52
+Afterwards, there is a problem that the module becomes a food.
+Please help me how to solve it
+thank you When transferring, using the data value to mapping to the IP address seems to be inappropriate as a solution.
+Instead, when you receive the recall function, you can receive the IP of the server sent by the data.
+If you take advantage of this information, you can put the data received for each server in a different application buffer, and you need to be in the form of transmitting it to the corresponding IP for each buffer.","Q) Please help me how to solve it.
+A) The issue seems to be related to the module becoming stuck when transmitting data from Server 1 and 2. One possible solution could be to utilize the recall function to receive the IP of the server sent by the data. By leveraging this information, you can place the data received for each server in a different application buffer and then transmit it to the corresponding IP for each buffer. This approach may help resolve the problem you're facing with the module becoming stuck."
+3687,690,"[size=150]
+Hi,
+
+I'm currently navigating through the iolibrary for W5500. Is there a step by step tutorial on how to port it to new platforms, and which platform specific functionalities I need to implement?
+
+Thanks.[/size] Hi,
+There is no poting tutorial for W5500.
+
+W5500 ioLibrary is based on C-language.
+So, it is easy to port the library to yours. But, SPI I/O funcitoin depends on your system.
+You should implemented it by yourself. 
+SPI I/O function will be registered for WIZCHIP IO function as WIZCHIP_READ , WIZCHIP_WRITE, WIZCHIP_READ_BUF, WIZCHIP_WRITE_BUF.
+WIZCHIP IO funcitons are based on 32bit architecture as ARM. 
+In these function, The define values are treated with 32bit value and implict type cast 32bit.
+When your system are under 32bit, Be careful for types and values to be 32bit.
+
+Thank you. elwakeel,
+
+I also come across these in the TCPReSendNB function.
+wizpf_get_systick() and wizpf_tick_elapse()
+The first looks like it is an linked to an ISR timer that increments 
+once every 1ms. And the second function is just the difference between
+the current time and what you pass through the function.
+These functions look to be part of the Cookie board, and I have not uses it.
+I did not port that over, just put a comment for possible future changes.
+It looks to delay the transmitting of the next chunk of data by 1 second.
+I will probably just implement this on a higher level.
+
+Also, if you have not read section 5 of W5200, I would do so, it is not
+in the W5500 data sheet and answered a few questions I had.
+
+Jim, Thanks everyone! Hi,
+Wiznet provides three types W5500's driver example.
+First, [b]ioLibrary_BSD[/b] is official.
+Second,[b] ioLibrary_v100 [/b]is for legacy user to W7200 & W5200. This need  many resouces as memory and code.
+Third, [b]BSD Type driver for W5200 User[/b] is for user who have experience about W5200 BSD driver.
+
+2 & 3 is difficult to support & upgrade. So we recommends ioLibrary for new W5500 user.
+
+Thank you.","Q) Is there a step by step tutorial on how to port the W5500 ioLibrary to new platforms?
+A) There is no porting tutorial for W5500. W5500 ioLibrary is based on C-language, so it is easy to port the library to yours. But, SPI I/O function depends on your system, and you should implement it by yourself. 
+
+Q) Are there platform specific functionalities that I need to implement for W5500 ioLibrary?
+A) When your system is under 32bit, be careful for types and values to be 32bit. Additionally, Wiznet provides three types W5500's driver examples: ioLibrary_BSD (official), ioLibrary_v100 (for legacy user to W7200 & W5200, which requires many resources as memory and code), and BSD Type driver for W5200 User (for users who have experience with W5200 BSD driver). We recommend ioLibrary for new W5500 users."
+3688,6900,"Hi,
+I'm used the W5500 with a ESP-07 and ESP-12 WiFi module (ESP8266 NONOS SDK) in the Arduino IDE.
+The Ethernet library in the Arduino IDE are working fine, but now I need to use the W5500 with the ESP8266 RTOS SDK (FreeRTOS based).
+I need help to find the W5500 library that works with the ESP8266 IC (RTOS SDK).
+
+Thank you. Hi, we didn't have a library for the ESP8266 using FreeRTOS. 
+But I can offer a Library and Code at executed another OS.
+Please, before import the IoLibrary, you must set the SPI pins and CS pin. 
+The IoLibrary is changed function names for didn't conflict RTOS function names.
+https://github.com/TeddyWiz/Wiz_IoLibrary_OS.git
+
+#include ""wizchip_conf.h""
+#include ""loopback.h""
+#define    LOOPBACK_TASK_SIZE      256
+#define    LOOPBACK_TASK_PRIO                           10
+static OS_STK           LoopBackTaskStk[LOOPBACK_TASK_SIZE];
+void LoopBackTest(void);
+void LoopBack_task(void *sdata);
+void W5500_Initialze(void);
+void print_network_information(void);
+wiz_NetInfo defaultNetInfo = { .mac = {0x00,0x08,0xdc,0xff,0xee,0xdd},
+                            .ip = {192,168,0,130},
+                            //.ip = {222,98,173,241},
+                            .sn = {255,255,255,0},
+                            .gw = {192,168,0,1},
+                            //.dns = {168, 126, 63, 1},
+                            .dns = {8, 8, 8, 8},
+                            .dhcp = NETINFO_STATIC};
+unsigned char gServer_IP[4] = {192,168,0,5};
+#endif
+
+void UserMain(void)
+{
+
+    int chipver = 0;
+    u8_t temp_addr[3] = {0x00, 0x39, 0x01};
+    printf(""\n initialize  W5500\n"");
+
+    W5500_Initialze();
+
+    chipver = getVERSIONR();
+    printf(""chip version = 0x%X\r\n"", chipver);
+    wizchip_setnetinfo(&defaultNetInfo);
+    print_network_information();
+    printf(""start loopback Task\r\n"");
+
+    LoopBackTest();
+}
+
+#if 1   //teddy 191125
+
+void csEnable(void)
+{
+
+    tls_gpio_write(WM_IO_PB_15, 0);
+
+}
+
+void csDisable(void)
+{
+
+    tls_gpio_write(WM_IO_PB_15, 1);
+
+}
+
+void spiWriteByte(uint8_t tx)
+{
+
+    uint8_t rx;
+    tls_spi_write(&tx, 1);
+
+}
+
+uint8_t spiReadByte(void)
+{
+
+    uint8_t rx = 0;
+    tls_spi_read(&rx, 1);
+    return rx;
+
+}
+
+void W5500_Initialze(void)
+{
+
+    csDisable();
+    reg_wizchip_cs_cbfunc(csEnable, csDisable);
+    reg_wizchip_spi_cbfunc(spiReadByte,spiWriteByte);
+    reg_wizchip_spiburst_cbfunc(tls_spi_read, tls_spi_write );
+    uint8_t tmp;
+    uint8_t memsize[2][8] = { {2,2,2,2,2,2,2,2},{2,2,2,2,2,2,2,2}};
+    if(ctlwizchip(CW_INIT_WIZCHIP,(void*)memsize) == -1)
+    {
+        printf(""WIZCHIP Initialized fail.\r\n"");
+      return;
+    }
+    #if 1
+    /* PHY link status check */
+    do {
+        if(ctlwizchip(CW_GET_PHYLINK, (void*)&tmp) == -1)
+        {
+          printf(""Unknown PHY Link status.\r\n"");
+          return;
+        }
+    } while (tmp == PHY_LINK_OFF);
+    #endif
+
+}
+
+void print_network_information(void)
+{
+
+    wizchip_getnetinfo(&defaultNetInfo);
+    printf(""Mac address: %02x:%02x:%02x:%02x:%02x:%02x\n\r"",defaultNetInfo.mac[0],defaultNetInfo.mac[1],defaultNetInfo.mac[2],defaultNetInfo.mac[3],defaultNetInfo.mac[4],defaultNetInfo.mac[5]);
+    printf(""IP address : %d.%d.%d.%d\n\r"",defaultNetInfo.ip[0],defaultNetInfo.ip[1],defaultNetInfo.ip[2],defaultNetInfo.ip[3]);
+    printf(""SM Mask    : %d.%d.%d.%d\n\r"",defaultNetInfo.sn[0],defaultNetInfo.sn[1],defaultNetInfo.sn[2],defaultNetInfo.sn[3]);
+    printf(""Gate way   : %d.%d.%d.%d\n\r"",defaultNetInfo.gw[0],defaultNetInfo.gw[1],defaultNetInfo.gw[2],defaultNetInfo.gw[3]);
+    printf(""DNS Server : %d.%d.%d.%d\n\r"",defaultNetInfo.dns[0],defaultNetInfo.dns[1],defaultNetInfo.dns[2],defaultNetInfo.dns[3]);
+
+}
+
+void LoopBackTest(void)
+{
+
+    tls_os_task_create(NULL, NULL,
+                       LoopBack_task,
+                       NULL,
+                       (void *)LoopBackTaskStk,          /* task's stack start address */
+                       LOOPBACK_TASK_SIZE * sizeof(u32), /* task's stack size, unit:byte */
+                       LOOPBACK_TASK_PRIO,
+                       0);
+
+}
+
+void LoopBack_task(void *sdata)
+{
+
+    uint8_t eth0_buf[512];
+    while(1)
+    {
+        loopback_tcps(0, eth0_buf, 5001);
+    } 
+
+}","Q) I need help to find the W5500 library that works with the ESP8266 IC (RTOS SDK).
+A) Hi, we don't have a library for the ESP8266 using FreeRTOS. But I can offer a Library and Code at executed another OS. Please, before import the IoLibrary, you must set the SPI pins and CS pin. The IoLibrary is changed function names for didn't conflict RTOS function names. You can find the library at this link: https://github.com/TeddyWiz/Wiz_IoLibrary_OS.git."
+3689,6901,"First, please let me know what use our product name you use.
+For example, just use W5500 Chip or use W5500 EVB
+
+If you use the W5500 EVB , you just compile the project that we support project via github and download the firmware.
+If you configure the board with W5500, you must send the data as SPI frame of W5500 from MCU. hello irina ,
+thanks for the reply.
+Right now i have the W5500 EVB and AOKIN ethernet network module with me .
+my only aim is to get the spi data(From another MCU (tms320f28335)) over the ethernet, and monitor it through wire shark. correct me if i am wrong, as per what i undrstood from the data sheet to establish the spi communication and get the data over the ethernet we need to send the data as per the spi frame of the W5500. And this frame is what configures the w5500 .
+
+so that should be like this right?
+
+first send the frame with the control bit and address phase selecting the Common register and set the ip mac and stuff there.
+
+secondly, send other frame with address phase and control phase selecting socket register for protocol slection and all??
+is that the way??? If you have W5500 EVB, did you execute the examples code?
+and did you succeed for example code?
+what's the example code you execute?
+
+did you configure SPI?
+did you initialize w5500?
+EX)
+void SPI_Init()
+{
+
+	/* SSP initialization */
+	Init_SSP_PinMux();
+	Chip_SSP_Init(LPC_SSP0);
+
+	Chip_SSP_SetFormat(LPC_SSP0, SSP_BITS_8, SSP_FRAMEFORMAT_SPI, SSP_CLOCK_MODE0);
+	Chip_SSP_SetMaster(LPC_SSP0, true);
+	Chip_SSP_SetBitRate(LPC_SSP0, 10000000); // 10MHz
+	Chip_SSP_Enable(LPC_SSP0);
+
+}
+
+void W5500_Init()
+{
+
+	uint8_t tmp;
+	uint8_t memsize[2][8] = { { 2, 2, 2, 2, 2, 2, 2, 2 }, { 2, 2, 2, 2, 2, 2, 2, 2 } };
+
+	Chip_GPIO_SetPinState(LPC_GPIO, 0, 2, true);	// SSEL(CS)
+
+	Chip_GPIO_SetPinState(LPC_GPIO, 0, 22, false);	// N_RESET
+	tmp = 0xFF;
+	while(tmp--);
+	Chip_GPIO_SetPinState(LPC_GPIO, 0, 22, true);	// N_RESET
+
+	reg_wizchip_cs_cbfunc(wizchip_select, wizchip_deselect);
+	reg_wizchip_spi_cbfunc(wizchip_read, wizchip_write);
+
+	/* wizchip initialize*/
+	if (ctlwizchip(CW_INIT_WIZCHIP, (void*) memsize) == -1) {
+		printf(""WIZCHIP Initialized fail.\r\n"");
+		while (1);
+	}
+
+} Hello
+
+Thanks becky, 
+let me try it out.
+Can u please tell what baud rate should i use?
+You said 80Mhz right? How much bits per second is 80MHz? [quote=""teddy, post:6, topic:6901""]
+If you have W5500 EVB, did you execute the examples code?
+and did you succeed for example code?
+what?Âs the example code you execute?
+
+did you configure SPI?
+did you initialize w5500?
+[/quote]
+Could you please answer me about above question?
+80Mhz means SPI Clock that it send from SPI master.
+Therefore, it is different with SPI baud rate and it is just SPI clock speed.
+
+For example, 
+For reading the version register in W5500, it need the 32bits.
+Assuming no delay between bit, the calculation is as follows.
+`1/80MHz *32bits = 12.5ns*32 =400ns 
+
+Even though theoretical design speed is 80MHz, the signal in the high speed may be distorted because of the circuit crosstalk and the length of the signal line. The minimum guaranteed speed of the SCLK is 33.3 MHz which was tested and measured with the stable waveform.
+Please refer to the SPI Application Note which shows the WIZnet test environment and results. hello 
+
+Why you didn't use iolibrary for WIZNET?
+why config and init functions are in the loop?
+You didn't initialize W5500.
+
+you write wizchip_select() for CS set and reset  functions.
+and  you write wizchip_read(), wizchip_write for SPI read& write data functions.
+
+please, check this code.
+
+https://github.com/Wiznet/HTTPServer_LPC11E36_LPCXpresso/blob/cf46841a39f8d189be400f612030ccdf343750bc/HTTPServer_LPC11E36_LPCXpresso/src/w5500_init.c#L21
+
+thank you [quote=""teddy, post:11, topic:6901""]
+Why you didn?Ât use iolibrary for WIZNET?
+[/quote]
+
+Hello,
+Am using the Ti's tms320f28335 as Master . and i think no such library are available for that. If so there must a way to init and configure the w5500 right?? [quote=""irina_kim, post:13, topic:6901""]
+If yes,where is the address of SIPR in code?
+[/quote]
+
+as the address is auto incremented for each data , i gave only the starting address of GAR. (my mistake ). as of now i changed that.
+and made some more modifications in the code.
+I'll post code below please check if any changes is required. while reading PHY link am getting the value as link down
+this is the frame i used to read the phy link status
+
+void PHYCFGR()
+{
+	sdata = 0x00;
+	spi_xmit(sdata);
+
+	sdata = 0x2E;
+	spi_xmit(sdata);
+
+	sdata = 0x00;
+	spi_xmit(sdata);
+
+
+}  Hello
+Please tell me about the problem with the program.
+We can't check all the codes. Hello Teddy,
+
+the spi communication is working fine as i read the version register value i got the correct value. but theTCP connection is not working.
+Also when i reads the PHYCFGR the link status bit shows as link down. Hello
+If the SPI communication is fine, check hardware connected.
+1. Check Lan cable connected PC or router.
+2. Check the LED light of the Ethernet connector.
+3. Check your schematic. check your Ethernet connector has a transformer.
+
+Thank you basically this is what i did ,
+1,Set MR reg value to 0x08; //for initializing the internal regs as per the datasgeet 
+2,wait for the MR reg to clear to 0x00 ;
+3,Set IP MAC and GHAR;
+4,Set Sn_MR value to 0x01; //TCP protocol
+5,Set DPORT DIP ;
+6; Issue open command
+7,Delay
+8Issue connect command.
+
+
+But the problem is that am stuck at step 2. MR reg is not clearing to 0x00 [quote=""soorajsuresh80, post:20, topic:6901""]
+1,Set MR reg value to 0x08; //for initializing the internal regs as per the datasgeet
+[/quote]
+
+Why do you think bit 3 will clear itself? I suspect you must write 0x80 to software reset the chip, and not 0x08.
+
+[quote=""soorajsuresh80, post:20, topic:6901""]
+7,Delay
+[/quote]
+
+There must not be a delay, there must be a controlled loop instead to wait until CR clears (=command acceptted). Thanks Eugeny for the help,
+
+My mistake.., Actually i did write the value as 0x80 in the code. It was a mistake in my post.
+
+Even reading the version register is giving me wrong value. I don't know whats happening.
+
+this is the frame i used to read the version register
+		 GpioDataRegs.GPBCLEAR.bit.GPIO57 = 1; // clearing the SCSn to initiate transmission of data
+	 
+	 
+	 
+	 sdata = 0x00;							//address phase1
+	 spi_xmit(sdata);
+	 
+	 sdata = 0x39;							//address phase2
+	 spi_xmit(sdata);
+
+	 sdata = 0x00;							//Control phase
+	 spi_xmit(sdata);
+
+         sdata = 0x00;							
+	 spi_xmit(sdata);
+
+	 GpioDataRegs.GPBSET.bit.GPIO57 =1;	// setting high the SCSn to end transmission of data Reading the version register is giving me the values like 0x01FF .
+I don't know whats going wrong in here. could someone please reply?
+I have been trying on this for 2 months Sorry for late reply. 
+When you read the version register of W5500, it must be read the data as 0x04 because the version register is read-only.
+The first thing you do is check the right data of version register.
+
+If you don't read the data as 0x04, SPI isn't working. Thanks for the help,
+What could go wrong in here?
+I mean for reading the version register what all initialization is required?
+can you tell me that by a pseudo  code ?","Q) First, please let me know what use our product name you use. For example, just use W5500 Chip or use W5500 EVB
+A) If you use the W5500 EVB, you just compile the project that we support project via github and download the firmware. If you configure the board with W5500, you must send the data as SPI frame of W5500 from MCU.
+
+Q) can u please tell what baud rate should i use?
+A) 80Mhz means SPI Clock that it send from SPI master. Therefore, it is different with SPI baud rate and it is just SPI clock speed.
+
+Q) Why you didn't use iolibrary for WIZNET? why config and init functions are in the loop?
+A) Even though theoretical design speed is 80MHz, the signal in the high speed may be distorted because of the circuit crosstalk and the length of the signal line. The minimum guaranteed speed of the SCLK is 33.3 MHz which was tested and measured with the stable waveform.
+
+Q) Am using the Ti's tms320f28335 as Master . and i think no such library are available for that. If so there must a way to init and configure the w5500 right??
+A) as the address is auto incremented for each data, I gave only the starting address of GAR. (my mistake). As of now, I changed that and made some more modifications in the code.
+
+Q) Please tell me about the problem with the program. We can't check all the codes.
+A) If the SPI communication is fine, check hardware connected. 1. Check Lan cable connected PC or router. 2. Check the LED light of the Ethernet connector. 3. Check your schematic. Check if your Ethernet connector has a transformer.
+
+Q) 1,Set MR reg value to 0x08; //for initializing the internal regs as per the datasheet 2,wait for the MR reg to clear to 0x00
+A) Thanks Eugeny for the help, My mistake, Actually I did write the value as 0x80 in the code. It was a mistake in my post.
+
+Q) When you read the version register of W5500, it must be read the data as 0x04 because the version register is read-only. If you don't read the data as 0x04, SPI isn't working.
+A) Sorry for the late reply. When you read the version register of W5500, it must be read the data as 0x04 because the version register is read-only. The first thing you do is check the right data of the version register. If you don't read the data as 0x04, SPI isn't working."
+3690,6902,"Hi, i have created my own function for sending some buffer data over udp ipv4 by striping down loopback code. If i send data to lets say 192.168.137.1 and dont configure ethernet port on laptop to have that static ip whole EVB board is blocked when it enters in that send function. How can i avoid that blocking, so that it sends data to that IP no matter is that ip existing or not in network? 
+
+Code for that function: 
+
+    void Client ( uint8_t ip[4],  uint16_t port, char *buffer, int lenght_send){
+    	uint8_t status;
+    	datasize_t received_size;
+    	datasize_t ret;
+    	uint16_t sentsize;
+    	uint8_t* mode_msg;
+    	uint8_t sn  = 1;
+    	uint8_t loopback_mode = AS_IPV4;
+
+
+
+    	if(loopback_mode == AS_IPV4)
+    	{
+    			mode_msg = msg_v4;
+    	}else if(loopback_mode == AS_IPV6)
+    	{
+    			mode_msg = msg_v6;
+    	}else
+    	{
+    			mode_msg = msg_dual;
+    	}
+
+    	getsockopt(sn, SO_STATUS,&status);
+    	switch(status)
+    	{
+    	case SOCK_UDP:
+    		received_size = (uint16_t) lenght_send;
+    		sentsize = 0;
+    		if(received_size>0)
+    		{
+    			while(sentsize != received_size){
+    				ret = sendto(sn, (uint8_t*)buffer+sentsize, received_size-sentsize, ip, port, 4);
+
+    				//if(ret < 0) return ret;
+
+    				sentsize += ret; // Don't care SOCKERR_BUSY, because it is zero.
+    			 }
+    		}
+
+    		break;
+    	case SOCK_CLOSED:
+
+    		switch(loopback_mode)
+    		{
+    		case AS_IPV4:
+    		   socket(sn,Sn_MR_UDP4, port, SOCK_IO_NONBLOCK);
+    		   break;
+    		case AS_IPV6:
+    		   socket(sn,Sn_MR_UDP6, port, SOCK_IO_NONBLOCK);
+    		   break;
+    		case AS_IPDUAL:
+    			socket(sn,Sn_MR_UDPD, port, SOCK_IO_NONBLOCK);
+    			break;
+    		}
+    		printf(""%d:Opened, UDP loopback, port [%d] as %s\r\n"", sn, port, mode_msg);
+
+    	}
+    } Sorry, I am difficult to know your situation.
+Could please let me know for detailed information. So, I have used loopback example to figure out how to send and receive packets over UDP. 
+
+I have created, based on that, my function Client that sends some buffer to specific IP and PORT.
+
+My problem is that when IP that i want to send to isnt available (lets say im sending data to 192.168.1.13 and there is no client with that IP on network) my code stops when i call that function.
+
+How should i code my application so that i can send data to that IP , although it doesnt exist in network, and my application wont stop ?
+
+Pseudocode for what i have now:
+
+I press button:
+     Send data from buffer to 192.168.1.13  port 7005 -> it enters to the send function and 
+                                                                                                 whole code stops reacting
+     Turn on LED Dear!
+
+Why you remove the code to check the send error status.
+
+If destination ip is not exist, the chip will occure the timeout of send. this situation should be manged to error.
+
+```code c
+while(sentsize != received_size){
+				ret = sendto(sn, (uint8_t*)buffer+sentsize, received_size-sentsize, ip, port, 4);
+
+				if(ret < 0) return ret;   // it should be needed.
+
+				sentsize += ret; // Don't care SOCKERR_BUSY, because it is zero.
+			 }
+```
+
+thank you. Thanks, i tried something else and forgot to uncomment that..","Q) How should i code my application so that i can send data to that IP, although it doesn't exist in the network, and my application won't stop?
+A) If the destination IP does not exist, the chip will encounter a timeout of send. This situation should be managed as an error. It's important to include error handling in the code to check the send error status. Here's a snippet of code that should be added back:
+
+```c
+while(sentsize != received_size){
+    ret = sendto(sn, (uint8_t*)buffer+sentsize, received_size-sentsize, ip, port, 4);
+
+    if(ret < 0) return ret;   // This error check is necessary.
+
+    sentsize += ret; // Don't worry about SOCKERR_BUSY, because it is zero.
+}
+```
+Thank you."
+3691,6903,"?ÂÃªÂ°Â??Ã¬Â§??ÂÃ«Â©Â´ ?Â°ÃªÂ²Â°???ÂÃªÂ¸Â°??ÃªÂ²ÂÃ¬?
+option tab??Timer interval?ÂÃ¬ÂÂ Inactivity TimerÃªÂ°? '1'Ã«Â¡??Â¸Ã­ÂÂ?ÂÃ¬ÂÂ´?ÂÃªÂ¸Â°?ÂÃ«Â¬Â¸??
+1Ã¬Â´ÂÃ«ÂÂ???Â°Ã¬ÂÂ´???ÂÃ¬ÂÂ¡???ÂÃ¬ÂÂ ÃªÂ²Â½Ã¬ÂÂ° ?Â°ÃªÂ²Â°???ÂÃªÂ¸Â°ÃªÂ²??Â©Ã«ÂÂ??
+
+?Â´Ã«ÂÂ¤ ?ÂÃ­ÂÂ?ÂÃ¬ÂÂ Ã«Â¬Â¸Ã¬Â ÂÃªÂ°? Ã«Â°ÂÃ¬ÂÂ?ÂÃ«ÂÂÃ¬Â§??? 
+Wireshack  Ã«Â¬Â´Ã«Â£Â?Â´Ã¬ÂÂ ?Â´Ã¬ÂÂ©?ÂÃ¬ÂÂ¬ Network?Â¨Ã­ÂÂ·??Ã«Â³Â¼Ã¬ÂÂ ?ÂÃ«ÂÂ¤Ã«Â©? Ã«Â¬Â¸Ã¬Â Â?Â´ÃªÂ²Â°??Ã«Â¹Â Ã«Â¥Â´ÃªÂ²??Â Ã¬ÂÂ ?ÂÃ¬ÂÂÃªÂ²?ÃªÂ°ÂÃ¬ÂÂµ?ÂÃ«ÂÂ¤.
+
+
+?ÂÃ­ÂÂ WIZ750SR??Configuration Tool??Ã«Â³ÂÃ«ÂÂÃ«Â¡??ÂÃ¬ÂÂ¼?? ?Â´Ã«? ÃªÂ°?Ã¬Â§?ÃªÂ³??Â¸Ã­ÂÂÃ«Â°?ÃªÂ²??ÂÃ¬ÂÂ ?Â´Ã«Â³Â´?ÂÃªÂ¸Â¸ Ã¬Â¶ÂÃ¬Â²Â?ÂÃ«Â¦Â½?ÂÃ«ÂÂ¤.
+Configuration Tool: [https://github.com/Wiznet/WIZnet-S2E-Tool-GUI/releases](https://github.com/Wiznet/WIZnet-S2E-Tool-GUI/releases) The problem is that it works well, but it has been cut off after time.
+Even if you search for the wiz750sr configuration tool mentioned above, you should not even search.
+
+I keep it for about 5 hours and it's cut off at some point.
+You can't connect.
+
+Ping goes out, but what can I check with Wireshark in this state? I'm sorry for late reply.
+
+The Wireshark program is intended to see what kind of action you did when you have a problem.
+That's why you need to be on before the problem occurs, and you can see what the problem occurs when a problem occurs.
+The part you can check in this process is
+1. You can see what the connection is cut off on the PC or the vice versa.
+
+
+Isn't the router connected between the PC and the Wiz750sr?
+Is it connected 1: 1 by LAN?
+Is the FIRMWARE of the WIZ750SR in the latest version?
+If possible, we recommend that you use it in the latest version.
+Currently, V1.2.9 is the latest version.","Q) Isn't the router connected between the PC and the Wiz750sr? Is it connected 1: 1 by LAN? Is the FIRMWARE of the WIZ750SR in the latest version?
+A) If possible, we recommend that you use it in the latest version. Currently, V1.2.9 is the latest version. 
+
+Q) ?ÂÃªÂ°Â??Ã¬Â§??ÂÃ«Â©Â´ ?Â°ÃªÂ²Â°???ÂÃªÂ¸Â°??ÃªÂ²ÂÃ¬? option tab??Timer interval?ÂÃ¬ÂÂ Inactivity TimerÃªÂ°? '1'Ã«Â¡??Â¸Ã­ÂÂ?ÂÃ¬ÂÂ´?ÂÃªÂ¸Â°?ÂÃ«Â¬Â¸??1Ã¬Â´ÂÃ«ÂÂ???Â°Ã¬ÂÂ´???ÂÃ¬ÂÂ¡???ÂÃ¬ÂÂ ÃªÂ²Â½Ã¬ÂÂ° ?Â°ÃªÂ²Â°???ÂÃªÂ¸Â°ÃªÂ²??Â©Ã«ÂÂ??
+A) None.
+
+Q) ?Â´Ã«ÂÂ¤ ?ÂÃ­ÂÂ?ÂÃ¬ÂÂ Ã«Â¬Â¸Ã¬Â ÂÃªÂ°? Ã«Â°ÂÃ¬ÂÂ?ÂÃ«ÂÂÃ¬Â§?? Wireshack  Ã«Â¬Â´Ã«Â£Â?Â´Ã¬ÂÂ ?Â´Ã¬ÂÂ©?ÂÃ¬ÂÂ¬ Network?Â¨Ã­ÂÂ·??Ã«Â³Â¼Ã¬ÂÂ ?ÂÃ«ÂÂ¤Ã«Â©? Ã«Â¬Â¸Ã¬Â Â?Â´ÃªÂ²Â°??Ã«Â¹Â Ã«Â¥Â´ÃªÂ²??Â Ã¬ÂÂ ?ÂÃ¬ÂÂÃªÂ²?ÃªÂ°ÂÃ¬ÂÂµ?ÂÃ«ÂÂ¤.
+A) Ping goes out, but what can I check with Wireshark in this state? I'm sorry for late reply.
+
+The Wireshark program is intended to see what kind of action you did when you have a problem. That's why you need to be on before the problem occurs, and you can see what the problem occurs when a problem occurs. The part you can check in this process is 1. You can see what the connection is cut off on the PC or the vice versa.
+
+Q) ?ÂÃ­ÂÂ WIZ750SR??Configuration Tool??Ã«Â³ÂÃ«ÂÂÃ«Â¡??ÂÃ¬ÂÂ¼?? ?Â´Ã«? ÃªÂ°?Ã¬Â§?ÃªÂ³??Â"
+3692,6905,"Hi,
+
+I am using stm32f105vct MCU and w5500  to establish ethernet communication using UDP protocol.
+I am able to communicate b/w MCU and W5500 ic using SPI  but when i tried to initialise socket for udp protocol , socket is always closed.I tried with all the sockets 0 to 8 but same problem.
+I am getting PHYCFGR register value as 0xBB.
+ I have pasted my program below. Please help me to fine out the probelm .
+
+Program:
+
+uint8_t gate_way[]={0,0,0,0},sub_net[]={255,255,255,0},my_ip[]={192,168,0,6},dest_ip[]={192,168,0,2};
+uint8_t udp_packets[]={10,20,30,40,50,60,70,80,90,100},read_data=0;
+uint16_t prt=5000,dprt=5000;
+
+int main(void)
+{
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_SPI2_Init();
+  MX_UART4_Init();
+
+//***********UDP PROTOCOL************//
+  //Initialization
+
+  setSn_CR(0, Sn_CR_CLOSE);
+  setSn_CR(1, Sn_CR_CLOSE);
+  setSn_CR(2, Sn_CR_CLOSE);
+  setSn_CR(3, Sn_CR_CLOSE);
+  setSn_CR(4, Sn_CR_CLOSE);
+  setSn_CR(5, Sn_CR_CLOSE);
+  setSn_CR(6, Sn_CR_CLOSE);
+  setSn_CR(7, Sn_CR_CLOSE);
+  
+  setGAR(gate_way);
+  setSUBR(sub_net);
+  setSIPR(my_ip);
+  
+  setMR(MR_RST);
+  HAL_Delay(1000);
+
+START:
+ // OPEN Socket4 Mode UDP MYPORT 5000
+  setMR(Sn_MR_UDP);
+  setSn_PORT(4, prt);
+  setSn_CR(4, Sn_CR_OPEN);
+ 
+  read_data= getSn_SR(4);
+
+
+  if(read_data !=SOCK_UDP)
+  {
+	  setSn_CR(4, Sn_CR_CLOSE);
+          goto START;
+  }
+  //SET DESTIP 192.168.0.2 DESTPORT 7760
+  setSn_DIPR(4, dest_ip);
+  setSn_DPORT(4, dprt);
+
+ 
+  while (1)
+  {
+        wiz_send_data(4,udp_packets,sizeof(udp_packets));
+	  setSn_CR(4, Sn_CR_SEND);
+       HAL_Delay(1000);
+  }
+  
+} 
+
+Thanks in Advance [quote=""Yogesh, post:1, topic:6905""]
+setMR(MR_RST);
+[/quote]
+
+Try configuring your IP address, gateway & subnet AFTER resetting the chip rather than before. Sending the reset command (setMR(MR_RST)) resets all registers to default values, undoing your configuration. Dears!
+
+I think you can not follow the guide line of command & reset processing.
+A command shoud be checked to clear for completing the command  process.
+
+Anyway, Your code has many unuseful block. I modified as following.
+```code c
+// ***********UDP PROTOCOL*********** *//
+//Initialization
+
+//setSn_CR(0, Sn_CR_CLOSE);
+//setSn_CR(1, Sn_CR_CLOSE);
+//setSn_CR(2, Sn_CR_CLOSE);
+//setSn_CR(3, Sn_CR_CLOSE);
+//setSn_CR(4, Sn_CR_CLOSE);
+//setSn_CR(5, Sn_CR_CLOSE);
+//setSn_CR(6, Sn_CR_CLOSE);
+//setSn_CR(7, Sn_CR_CLOSE);
+
+setMR(MR_RST);   // Move it up.
+HAL_Delay(1000);
+
+setGAR(gate_way);
+setSUBR(sub_net);
+setSIPR(my_ip);
+
+//setMR(MR_RST);
+//HAL_Delay(1000);
+
+START:
+// OPEN Socket4 Mode UDP MYPORT 5000
+setMR(Sn_MR_UDP);
+setSn_PORT(4, prt);
+setSn_CR(4, Sn_CR_OPEN);
+while(getSn_CR(4) !=0); // should be wait for command clearing
+
+while( (read_data= getSn_SR(4)) != SOCK_UDP);
+//SET DESTIP 192.168.0.2 DESTPORT 7760
+setSn_DIPR(4, dest_ip);
+setSn_DPORT(4, dprt);
+
+while (1)
+{
+     wiz_send_data(4,udp_packets,sizeof(udp_packets));
+     setSn_CR(4, Sn_CR_SEND);
+     while(getSn_CR(4) !=0);
+     //HAL_Delay(1000);
+     while((getSn_IR(4) & Sn_IR_SENDOK) != Sn_IR_SENDOK)
+     { 
+           if(getSn_IR(4) & Sn_IR_TIMEOUT) 
+          {
+               printf (""Send fail"");
+               break;
+           }
+     }
+}
+}
+
+}
+
+Most of all, I recommend you should be used with ioLibrary because you own driver code is not proved.
+ioLibrary can be donwloaded at https://github.com/Wiznet/ioLibrary_Driver
+
+Thank you. Thank You for your reply,
+
+I have corrected my code as per your suggestion but still i am facing the  same problem.
+ I would like to inform you that I am using w5500.h and w5500.c from standard IO library prescribed by wiznet.io,(https://github.com/Wiznet/ioLibrary_Driver). Sorry. My recommended code missed code to clear Sn_IR_SENDOK & Sn_IR_TIMEOUT.
+```code c
+while (1)
+{
+     wiz_send_data(4,udp_packets,sizeof(udp_packets));
+     setSn_CR(4, Sn_CR_SEND);
+     while(getSn_CR(4) !=0);
+     //HAL_Delay(1000);
+     while((getSn_IR(4) & Sn_IR_SENDOK) != Sn_IR_SENDOK)
+     { 
+           if(getSn_IR(4) & Sn_IR_TIMEOUT) 
+          {
+               printf (""Send fail"");
+               setSn_IR(4, Sn_IR_TIMEOUT);
+               return SOCKERR_TIMOUT;
+           }
+     }
+}
+setSn_IR(4, Sn_IR_SENDOK);
+```
+
+This code maybe bad code. Why do you use socket.c & socket.h?
+
+For more details, you can refer to sendto() function at socket.c.
+
+Thank you. @midnightcow,
+
+Thanks for the response.
+
+ I have used sendto() func as you said but still it is not working. please find my code below.
+
+    /* Includes ------------------------------------------------------------------*/
+    #include ""main.h""
+    #include ""spi.h""
+    #include ""usart.h""
+    #include ""gpio.h""
+    #include ""wizchip_conf.h""
+    #include ""socket.h""
+    #include <string.h>
+
+    #define GREETING_MSG 		 ""Well done guys! Welcome to the IoT world. Bye!\r\n""
+
+
+    SPI_HandleTypeDef 	hspi2;
+    UART_HandleTypeDef  huart2;
+    char msg[60];
+    uint8_t dest_ip[]={192,168,0,6};
+    uint16_t dest_port=5000;
+    void SystemClock_Config(void);
+
+    void cs_sel() {
+    	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET); //CS LOW
+    }
+
+    void cs_desel() {
+    	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET); //CS HIGH
+    }
+
+    uint8_t spi_rb(void) {
+    	uint8_t rbuf;
+    	HAL_SPI_Receive(&hspi2, &rbuf, 1,1);
+    	return rbuf;
+    }
+
+    void spi_wb(uint8_t b) {
+    	HAL_SPI_Transmit(&hspi2, &b, 1, 1);
+    }
+    int main(void)
+    {
+      
+    	uint8_t retVal, sockStatus;
+    	int16_t rcvLen;
+    	uint8_t rcvBuf[20], bufSize[] = {2, 2, 2, 2};
+
+     
+      HAL_Init();
+      SystemClock_Config();
+
+      
+      MX_GPIO_Init();
+      MX_SPI2_Init();
+      MX_USART2_UART_Init();
+     
+
+       reg_wizchip_cs_cbfunc(cs_sel, cs_desel);
+       reg_wizchip_spi_cbfunc(spi_rb, spi_wb);
+
+       wizchip_init(bufSize, bufSize);
+       wiz_NetInfo netInfo = { .mac 	= {0x00, 0x08, 0xdc, 0xab, 0xcd, 0xef},	// Mac address
+                               .ip 	= {192, 168, 0, 2},					// IP address
+                               .sn 	= {255, 255, 255, 0},					// Subnet mask
+                               .gw 	= {192, 168, 2, 1}};					// Gateway address
+       wizchip_setnetinfo(&netInfo);
+       wizchip_getnetinfo(&netInfo);
+      
+
+     reconnect:
+      
+       if((retVal = socket(1, Sn_MR_UDP, 5000, 0)) ==1) 
+       {
+     	  while(1) 
+    	  {
+     			  
+     			  if(sockStatus = getSn_SR(1) == SOCK_UDP) 
+    			  {
+    			  /* Let's send a welcome message and closing socket */
+     				  if(retVal = sendto(1, GREETING_MSG, strlen(GREETING_MSG),dest_ip,dest_port) == (int16_t)strlen(GREETING_MSG))
+     					  PRINT_STR(SENT_MESSAGE_MSG);
+     				  else {
+     					  snprintf(msg, WRONG_RETVAL_MSG, retVal);
+     					  PRINT_STR(msg);
+     				  }
+     				  break;
+     			  }
+     			  else { 
+     				  snprintf(msg, WRONG_STATUS_MSG, sockStatus);
+     				  PRINT_STR(msg);
+     				  break;
+     			  }
+     			
+     	}
+
+       } else { 
+     	  snprintf(msg, WRONG_RETVAL_MSG, retVal);
+     	  PRINT_STR(msg);
+       }
+
+       /* We close the socket and start a connection again */
+       
+       close(1);
+       goto reconnect;
+     
+      
+      
+    } Sorry . Your code hasn't problem.
+
+Give me more information.
+thank you. @midnightcow
+Thanks for the reply.
+I am using Nucleo STM32F103RB development board  and w5100 Ethernet shield .
+STMcubeMX & Atollic true studio for coding ,also I am using wireshark tool  to monitor the data.
+Hardware configuration in Nucleo board.
+1.Peripheral: SPI2
+2.Pins : PB13,PB14,PB15 & PB12
+3.Baud_rate: 18MBits/sec.
+
+The code which i have got from following link is modified for my board and it is working for TCP, but the same code is modified for UDP it is not working which i already shared with you.  
+Please find the link below. 
+https://github.com/cnoviello/stm32-nucleof4/blob/master/stm32-nucleof4-ethshield1/src/main.c Dear Yogesh!
+
+When you have worked well with TCP socket, Your code has not a problem to access chip registers & memory.
+
+And your shared UDP code hasn't problem.
+
+Can I check your runinig log message?
+
+Is there the wireshark catured any packet such as ARP packets?
+
+And In this situation, Can you try to ping request to W5100?
+
+
+Anyway, Regardless of this problem I found your gateway ip address is wrong.
+Gateway IP has to have subnetmask value. 
+
+Thank you.","Q) Please help me to figure out the problem with initializing the socket for UDP protocol using STM32F105VCT MCU and W5500.
+A) Try configuring your IP address, gateway & subnet AFTER resetting the chip rather than before. Sending the reset command (setMR(MR_RST)) resets all registers to default values, undoing your configuration. Additionally, your code has unnecessary blocks which I have modified in the given code snippet.
+
+Q) I have corrected my code as per your suggestion but still facing the same problem. I am using w5500.h and w5500.c from the standard IO library prescribed by wiznet.io.
+A) Your recommended code missed code to clear Sn_IR_SENDOK & Sn_IR_TIMEOUT. It is essential to clear these flags after sending data. Additionally, I recommend using the ioLibrary from https://github.com/Wiznet/ioLibrary_Driver for more reliable driver code.
+
+Q) Thanks for the response. I have used sendto() function as you said but still it is not working. Here is my code, can you help?
+A) Your code seems to be correct, and there are no apparent issues. Can you provide more information or share the running log message? Also, it's important to ensure that the gateway IP address has the correct subnet mask value.
+
+Q) I am using Nucleo STM32F103RB development board and w5100 Ethernet shield.
+A) Your code seems to be fine, and there are no apparent issues. Can I check your running log message? Have you captured any packets with Wireshark? Additionally, it's important to ensure that the gateway IP address has the correct subnet mask value."
+3693,6908,"Hi,
+
+For one of our projects we are using W5200 for UDP/TCP packet transmission. 
+
+When we use UDP socket(sendto) to send unsolicited messages it is taking more time to send packets and set SEND_IR_OK bit (**that too for the first time packets send via sendto**) and due to this my system bricks as watchdog timer(900msec timer) fires. 
+
+We didn't face this issue when we use TCP to send unsolicited messages.
+
+Could you please help us to overcome this issue. UDP does not take longer to send than TCP.
+I want you to check some things.
+First, Didn't you send udp data before LINK is on?
+And is there a real device with UDP destination ip? If not, I think, it takes some time to send ARP packet several times. Doesn't timeout interrupt occur??","Q) Could you please help us to overcome this issue. UDP does not take longer to send than TCP.
+I want you to check some things.
+First, Didn't you send udp data before LINK is on?
+And is there a real device with UDP destination ip? If not, I think, it takes some time to send ARP packet several times. Doesn't timeout interrupt occur??
+A) It seems like the issue might be related to the link status and ARP resolution. When using UDP, it's essential to ensure that the LINK is on before sending UDP data, and there is a real device with the UDP destination IP to avoid timeouts and interruptions. Additionally, checking for timeout interrupts and optimizing the ARP resolution process could help overcome the delay in packet transmission."
+3694,691,"All,
+
+I am looking at the code for the  UDP receive function, UDPRecv.
+It is taking the first 6 bytes as being the destination IP address?
+I thought the header was like this:
+2 bytes, source port
+2 bytes, destination port
+2 bytes, data length
+2 bytes, check sum
+Then the data.
+
+Is the W5500 changing the  UDP header, or am I missing something here?
+
+Thanks,
+Jim Yes, the W5500 (and also W5200 and W5100) return a custom UDP packet info structure.
+
+I think the W5500 manual misses this information, but the W5200 manual has it, look it up there.
+
+UDP data is specially structured in the RX memory, like this:
+
+PACKET-INFO
+  4 bytes: destination IP address
+  2 bytes: destination port number
+  2 bytes: byte size (N) of data packet
+DATA-PACKET
+  N bytes: real data Hi,
+As ventosus said, The rx buffer for UDP have no 2byte checksum because it is off-loaed by W5500.
+The udp header info rx buffer is re-ordered by WIZnet. 
+Thank you. Thanks for the reply.
+I got the W5200 manual and that answered a few questions I had.
+The whole section 5 of the W5200 data sheet is missing from the W5500 manual,
+I hope this gets included in the W5500 datasheet for people like me that have not
+used a previous wiz chip.
+
+Thanks,
+Jim Dear Luckyluka!
+
+Unverified Checksum caused by wireshark setting.
+Refer to https://www.wireshark.org/lists/wireshark-dev/201607/msg00022.html
+
+Thank you.","Q) Is the W5500 changing the UDP header, or am I missing something here?
+A) Yes, the W5500 (and also W5200 and W5100) return a custom UDP packet info structure. I think the W5500 manual misses this information, but the W5200 manual has it, look it up there. UDP data is specially structured in the RX memory. 
+
+Q) Thanks for the reply. I got the W5200 manual and that answered a few questions I had. The whole section 5 of the W5200 data sheet is missing from the W5500 manual, I hope this gets included in the W5500 datasheet for people like me that have not used a previous wiz chip.
+A) Thanks for the thank you message."
+3695,6911,"Hi, i want to use w6100 in SPI mode. I already have w6100evb and using that as example i want to make my board, but i dont want MODE switch on board (because i want to use SPI ONLY). How should i connect  DAT pins (ground or not connected) and MOD pins ?
+
+Also i dont want to use LINK COL ACT DUX SPD leds, what should i do with those pins ? The LEDs just get them out.
+
+From **w6100_ds_v104e.pdf**, page 15, On SPI Mode, DAT [7:0] must be floated.
+
+From AND  **W6100-EVB_SCH_V110.pdf**, MOD[0] and MOD[3] float. MOD[1] and MOD[2] to GND with R=4.7k, but I think directly connected to the GND is OK. > The LEDs just get them out.
+
+What should i do with pins on W6100? Mark them as Not Connected ?
+
+
+
+> On SPI Mode, DAT [7:0] must be floated.
+
+That means DAT7 is not connected ? Do i have to tie others to GND ? Yes, **Led** and **DAT**[0.......7](**ALL DAT** pins) - Not Connected. Read **w6100_ds_v104e.pd**. Pin 32 and 33 are used for SPI/Parallel Mode. In your case remove them, and connect directly to your MCU.
+Basically, I would advise you to buy a directly finished module with a soldered chip - [WIZ610io](https://www.wiznet.io/product-item/wiz610io/).  The frequencies are very high there, there are many small elements, and the circuit board will be very moody and laborious. At least that's what I did. I'll just connect it to the processor. In my case, PIC32MZ. But I haven't gotten there yet. :) Thanks for that info :)","Q) How should I connect the DAT and MOD pins when using the W6100 in SPI mode without the MODE switch on the board?
+A) On SPI Mode, DAT [7:0] must be floated. MOD[0] and MOD[3] float, while MOD[1] and MOD[2] can be connected directly to GND. Additionally, the LEDs for LINK, COL, ACT, DUX, and SPD can be removed.
+
+Q) Do I have to tie the DAT pins to GND in SPI mode for the W6100?
+A) Yes, DAT pins should be marked as Not Connected in SPI mode. Pin 32 and 33, used for SPI/Parallel Mode, can be removed, and the connection can be made directly to your MCU.
+
+A) I would advise you to consider buying a directly finished module with a soldered chip like WIZ610io, which can simplify the process due to the high frequencies and complex elements involved in manually connecting the W6100 to the MCU. It can be connected to the processor, such as PIC32MZ. Thank you for the information!"
+3696,6913,"Hello Teddy,
+tanks for your fast reply and your support.
+The recommended Wiznet Library contains the same problems, f.e. that init first sets the mac address and then calls reset. This deletes the mac and dhcp will fail:
+https://github.com/WIZnet-MbedEthernet/WIZnetInterface/blob/0b62ecebbb73d8b232b504e2079abcad10b9ae1a/WIZnetInterface.cpp#L139
+
+In the meantime, I was able to fix a numer of problems by myself:
+- the easy_connect does a dhcp call when used init with mac, but then calls init and reset again, ip is lost
+- there is a WIZNET_ACCEPT_TIMEOUT, but why? In non blocking, it should never timeout. When it is running into timeout, in mbed5 it is hanging at an event in TCPSocket.
+- the socket callbacks are not thread safe, the callback can be set to 0 and then the system is running into hardfault
+- there are some functions deprecated, f.e. const char* get_ip_address(). The newer functions that make use of SocketAddress are not defined yet.
+- there is a Sock Status enumeration which interferes with a mbed definition, I have use a namespace to fix this.
+
+I also don't want to use easy_connect because it is deprecated with current Mbed mechanism to get default EthernetInterface. I'm checking how to integrate it to existing Mbed classes to use also Mbed dhcp and bring_up/down interface. The existing code works only when the ethernet is plugged in at system start.
+I can publish this on github  if you want to adopt or review my changes. hello 
+
+Now we checked after MBED-OS version updated our code did not execute.
+
+I'm checking. please wait.
+
+I always welcome your opinion. And there is a thought to change.
+
+And here WIZNET_ACCEPT_TIMEOUT is that can't wait indefinitely before connecting, so we've set a timeout.
+
+https://github.com/WIZnet-MbedEthernet/WIZnetInterface/blob/0b62ecebbb73d8b232b504e2079abcad10b9ae1a/WIZnetInterface.cpp#L445
+
+Thank you. Thanks again for your support.
+This timeout I have already modified:
+```
+#define WIZNET_TIMEOUT_INFINITE (-1)
+#define WIZNET_ACCEPT_TIMEOUT   WIZNET_TIMEOUT_INFINITE 
+
+        if ((t.read_ms() > WIZNET_ACCEPT_TIMEOUT) && (WIZNET_ACCEPT_TIMEOUT != WIZNET_TIMEOUT_INFINITE)) {
+            debug(""WIZnetInterface::socket_accept, timed out\r\n"");
+            return NSAPI_ERROR_WOULD_BLOCK;
+        }
+```
+with WIZNET_ACCEPT_TIMEOUT=WIZNET_TIMEOUT_INFINITE  is infinite waiting.
+But I've checked the generic ioLibrary, maybe it is better to start from scratch with this library?
+And instead of using polling, the interrupt and using Mbed Events sounds like a smarter solution?
+
+I have checked also if I can use TCPsocket.set_blocking(false), but the blocking or timeout for reading is not used in the recv/send function. Hello
+
+[quote=""JojoS, post:5, topic:6913""]
+with WIZNET_ACCEPT_TIMEOUT=WIZNET_TIMEOUT_INFINITE is infinite waiting.
+[/quote]
+your code is dangerous.  if It is not connected, maybe Your program is stuck in an infinite loop and can do nothing.
+If timeouts are frequent, it is recommended to increase the timeout time.
+
+And I don't understand this question.
+[quote=""JojoS, post:5, topic:6913""]
+But I?Âve checked the generic ioLibrary, maybe it is better to start from scratch with this library?
+[/quote]
+
+I think the interrupt or Mbed Event method is more efficient.
+
+TCPsocket.set_blocking(false) is not WIZNET Function.
+now our send/recv Function is not used.
+but I will check mbed-os internal Functions with WizInterface Function. 
+I'll find a way to be compatible with MBED-OS internal functions and WIZInterface functions.
+
+Thank you [quote=""teddy, post:6, topic:6913""]
+your code is dangerous. if It is not connected, maybe Your program is stuck in an infinite loop and can do nothing.
+[/quote]
+
+yes, you're right. The code should handle events when the interface is coming up/down, f.e. when the network cable is pulled out and plugged in.
+
+about ioLibrary: the mbed-os related code is a few years old, the ioLibrary is newer. So my question was if it is better to add mbed features to ioLibrary. Hello
+
+Yes. I think so that.
+I will also consider the IOLibrary to add the MBED structure.
+
+Thank you. hi teddy,
+
+i also found out that its impossible to use the w5500@mbed at the moment. So i also appreciate your work and help, teddy. Looking forwar to your fixes :slight_smile:
+
+Thank you so much mr. wiznet wizzard :slight_smile: 
+
+M. hello teddy,
+
+Hope you are well. We desperately waiting for some help here with this issue, since mbed and w5500 is no longer working together.
+
+Happy new year to you.
+Mike. hello.
+I'm sorry. 
+The schedule is getting late.
+We will support you as soon as possible.
+Please waits for more.
+Thank you Hello Teddy, do you have some news for us, when do you think you can start with fixing the issues? 
+
+Mike. @teddy Sorry to say, but we are waiting for help since almost 3 month now. Please Wiznet Team, help us!
+
+MIke. [quote=""MMMike, post:13, topic:6913""]
+Sorry to say, but we are waiting for help since almost 3 month now. Please Wiznet Team, help us!
+[/quote]
+Sorry.
+We are currently working.
+Please wait a little longer Hello wiznet Team. Another 3 month later? Many people running into the same big. Arguing about wiznet on Facebook. But I cant help them. I am stuck in the same support case. Can you tell us if this will be fixed? How many month longer do we have to wait? We just need support...
+
+Mike. Hahaha... Now there is mbed os6... And still no help from wiznet... Not even a message... Nothing.. great company, great support! Hello Mike.
+Sorry for the delay in response.
+We updated WIZnetInterface for mbed-os 6.
+https://github.com/WIZnet-MbedEthernet/WIZnetInterface
+It is the using method but language is Korean.
+https://medium.com/wiznet/mbed-studio%EC%97%90%EC%84%9C-w5500-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-4492c0ff7cc2
+we will translate language later.
+
+thanks.","Q) Do you have some news for us, when do you think you can start with fixing the issues? 
+Q) Another 3 month later? Many people running into the same big. Arguing about wiznet on Facebook. But I cant help them. I am stuck in the same support case. Can you tell us if this will be fixed? How many month longer do we have to wait? We just need support... 
+Q) Now there is mbed os6... And still no help from wiznet... Not even a message... Nothing.. great company, great support!
+
+A) Sorry.
+We are currently working.
+Please wait a little longer
+A) Hello Mike.
+Sorry for the delay in response.
+We updated WIZnetInterface for mbed-os 6.
+https://github.com/WIZnet-MbedEthernet/WIZnetInterface
+It is the using method but language is Korean.
+https://medium.com/wiznet/mbed-studio%EC%97%90%EC%84%9C-w5500-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-4492c0ff7cc2
+we will translate language later.
+thanks."
+3697,6915,"Excellent !Now you can easily find our private conversation at any time, from [the brand tab page on your profile] (https://forum.wiznet.io/u/grompf/activity/bookmarks).Just select your profile photo in the top right corner &#8599;
+
+Now, can you share one of these links with me?Fill with ** a link on an empty line **, and it will be automatically transformed to include a clever summary.
+
+To copy a link, type and now press mobile, or use the right click of your scoring device (mouse):
+
+<https://fr.wikipedia.org/wiki/jeu_de_mots>
+<https://fr.wikipedia.org/wiki/liste_de_morts_insolites>
+<https://fr.wikipedia.org/wiki/orthographer_pour_calculator> test Sorry, I could not find the link in your answer!: Cry:
+
+Can you try to add the following link, on a single line, in your next answer?
+
+<https://en.wikipedia.org/wiki/exotic_shorthair> [https://en.wikipedia.org/wiki/Exotic_Shorthair ](https://en.wikipedia.org/wiki/Exotic_Shorthair ) Hey, thank you for the answer!
+
+Unfortunately, I am only a badly program robot, and I do not understand this one.: Frowning:
+
+You can try again, or if you prefer to pass this step, say to pass'.Otherwise, to restart, say to start tutorial. passer :grinning: It's: Sparkles: _emojitastic! _: Sparkles:
+
+Sometimes you may want to attract someone's attention, even if you do not answer them directly.Type `@` and add your nickname to mention it.
+
+Can you mention ** `@discobot` ** in your answer? Hey @grompf, I come to see if all is well because I haven't heard you for a while.
+
+- To continue, answer me at any time.
+
+- If you want to pass this step, say to go.
+
+- To start again, say `` start tutorial.
+
+If you prefer to do nothing, it is also acceptable.I am a robot.You won't hurt me.: SOB: passer Can you do a few words in ** fat ** or _italique_ in your answer?
+
+- Type `** fat **` `or` _italique_`
+
+- or, press the <kbd> <b> g </b> </kbd> or <kbd> i <i> i </i> </i Kbd> button in the Publisher Hey @grompf, I come to see if all is well because I haven't heard you for a while.
+
+- To continue, answer me at any time.
+
+- If you want to pass this step, say to go.
+
+- To start again, say `` start tutorial.
+
+If you prefer to do nothing, it is also acceptable.I am a robot.You won't hurt me.: SOB:","Q) Can you share one of these links with me? 
+A) Hey, thank you for the answer! 
+
+Q) Can you mention `@discobot` in your answer? 
+A) Hey @grompf, I come to see if all is well because I haven't heard you for a while."
+3698,6916,"Hello,
+
+i know that wiz200 module is quite obsolete. But i have an ISP problem : my olimex AVR-ISP500 can't reach the WIZ200 module when plugged on ISP 6 pins plug of the WIZ-Embedded WebServer Base B/D. As i do not use any kind of windows software i'm using avrdude as programming software (and i can't get a windows software):
+
+> avrdude -p atmega128 -c stk500v2 -e -P /dev/cuaU0
+
+I'm first trying to erase the whole atmel m128 chip before installing new software (my own monitor & app). The ISP cannot reach the module whatever the command i'm using.
+
+I validated my ISP programmer against an old STK200 i had with a AT90s2313 left-over. All is OK here.
+
+I also checked this with 3 WIZ200 modules.
+
+Can-you think of anything i missed ?
+
+Please note that this is not for industrial purpose  : i'm using obsoleted modules for ""kids workshops project"" (""kid's stuff in clouds""... so the obsoleted module is better than arduinos and other stuff alike...).
+
+Regards,
+Grompf. Hello,
+
+Thank-you for your answer.
+
+In order to debug the whole thing, i bought some breadboard and arduino maker wires.
+
+By using the power from wiznet baseboard and by connecting directly the wiz200 to the programmer pins and not by using the ISP connector of baseboard : i can program the module and itruns well. As instructed by the idle loop of my boot monitor, the RED LED0 is blinking at 0.5Hz.
+
+So it seems that there is something on the baseboard (resistors like R31, drains, etc) not compatible with my ISP. I've got two choices now... either i spent time on debugging the baseboard, or i build an adapter myself with 3.3V regulator and the 3 needed connectors. I think i'll do the later since it will allow me to give introductory lesson to kids by building a regulated power supply and soldering some connectors.
+
+Regards,
+
+Grompf","Q) Can-you think of anything i missed? 
+A) I think there might be some compatibility issues with the baseboard resistors and components not being compatible with your ISP. It seems like a good idea to build an adapter with a 3.3V regulator and the necessary connectors. This will not only solve your immediate problem but also provide a great opportunity to teach kids about building a regulated power supply and soldering connectors."
+3699,6917,"Hi
+I need to use open drain mode with disabled internal pullup and pulldown resistors: I want to connect 12v relay module directly to the board (it has 10mA control, but 12v;  open drine mode with disabled pull resistors lets control higher voltages)
+What is pins states - pullup, pulldown and opendrain for
+1. Disabled device?
+2. Enabled device, but pins still not inialized? (Has default settings?)
+3. After device (only) power lost? 
+I would not want 12V in these cases to burn my board. 
+4. Maybe someone know what is max current and voltage can be used in tis mode?
+
+Any advice or references to documentation will be helpful. I read datasheet and reference manual several times but didn't found the answer 
+I use wiznet wizwiki w7500 board.
+Thanks Dear YegorS
+
+Did you direct the relay from the board?
+
+The GPIO on the board lacks current to operate the relay. 
+
+The current needs to be amplified and connected.
+
+Are you curious about the initial pin status of the W7500?
+
+Would you like to use the W7500P pin as an open drain?
+
+Thank you.","Q) What is pins states - pullup, pulldown and opendrain for 1. Disabled device? 2. Enabled device, but pins still not initialized? (Has default settings?) 3. After device (only) power lost? 4. Maybe someone knows what is the max current and voltage that can be used in this mode?
+A) If the W7500 device is disabled, the pin states would typically be in a high-impedance state, meaning the pull-up and pull-down resistors are disabled. When the device is enabled but the pins are still not initialized, the default settings would depend on the specific configuration and initialization of the GPIO pins. After the device (only) power is lost, the pin states would revert to a high-impedance state. As for the maximum current and voltage that can be used in this mode, it would be best to refer to the documentation or datasheet for the specific details.
+
+Q) Did you direct the relay from the board?
+A) The GPIO on the board lacks the current to operate the relay. The current needs to be amplified and connected. 
+
+Q) Are you curious about the initial pin status of the W7500?
+A) Would you like to use the W7500P pin as an open drain? Thank you."
+3700,6918,"Probably the question is very stupid, but I didn't find anything, even Google didn't help.
+
+It's about the io6Library.
+
+1/ Why, when writing or reading in 2 bytes socket registers, the operation is done byte by byte in two operations?
+
+For example: Sn_RX_RSR, Sn_RX_RD, Sn_RX_WR and similar for TX..
+
+2/Why are they read twice and compared each time?
+
+The only thing I can think of is that they have changed in the meantime. Or is there any other reason?
+
+For example: getSn_RX_RSR() 2 - OK
+
+1 - That was my question. Why should we read twice one byte and not read two consecutive bytes, from address **Sn_RX_RD0** . In one **SPI** read, with start address 0x0228, to read 2 bytes. The two bytes will be the same 0x06(first) and 0x00(second). Instead of use **WIZCHIP_READ** two times, to use **WIZCHIP_READ_BUF** (for example) with **len** =2 and **AddrSel** =0x0228(figuratively speaking, start address.) You are right and It works if you run it as you say.
+You can use the **WIZCHIP_READ_BUF** function  with len = 2. That is all. Thanks. You may consider this topic complete and close it.
+
+===
+
+I need to convert the library to work with pic32mz. Probably about 80% will have to change. I'm not an ARM specialist, but it did strike me as a weird realization, at least for me.
+
+Another thing that impressed me is that if the speed of the **SPI** is reduced, the transfer stops working. I don't know if there is a bug in the processor or a logical error in the code. So at least it's on the **W6100-EVB**. Base frequency of SPI is 18MHz (SPI_BaudRatePrescaler_2).
+
+If in **spiInitailize ()** change
+
+SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_2;
+
+to
+
+SPI_InitStructure.SPI_BaudRatePrescaler = **SPI_BaudRatePrescaler_16** ;
+
+or more, **W6100-EVB** stop working.
+
+It turns out that the CS pin rises before sending is complete and the last bytes are actually destroyed. As speed is slower, the signal CS rises earlier to incomplete data transmission.
+Maybe someone will find it useful while exploring the software and trying to connect logic analyzer.","Q) Why, when writing or reading in 2 bytes socket registers, the operation is done byte by byte in two operations?
+A) The WIZCHIP_READ_BUF function with len = 2 can be used instead of using WIZCHIP_READ two times to optimize the read process for socket registers.
+Q) Why are they read twice and compared each time?
+A) The reason for reading twice and comparing each time is to ensure the accuracy of the data read, especially in the context of potential changes in the data between the two reads.
+Q) I need to convert the library to work with pic32mz. Probably about 80% will have to change. I'm not an ARM specialist, but it did strike me as a weird realization, at least for me.
+A) Converting the library to work with pic32mz can be a significant task, and it's understandable to find the process challenging, especially without extensive experience in ARM architecture.
+Q) Another thing that impressed me is that if the speed of the SPI is reduced, the transfer stops working. I don't know if there is a bug in the processor or a logical error in the code. So at least it's on the W6100-EVB. Base frequency of SPI is 18MHz (SPI_BaudRatePrescaler_2). If in spiInitialize () change
+A) The issue with SPI transfer stopping when the speed is reduced could be linked to the timing of the chip select (CS) pin and the completeness of data transmission, especially at lower speeds like SPI_BaudRatePrescaler_16.
+Q) Maybe someone will find it useful while exploring the software and trying to connect logic analyzer.
+A) It can be beneficial for individuals exploring the software and using a logic analyzer to consider the impact of SPI speed on data transfer and the timing of the CS pin."
+3701,692,"HelloÃ¯Â¼?
+  I want to use the two wizfi210s cennect the MTU1and MTU2, meanwhile one of wizfi210 connect the PC.I set the AD-hoc mode,but the PC as the serve can connect the wizfi210 can't recive data.
+   How can set the multi-connect with wizfi210? Hi
+
+I have some question about your environment. 
+
+What device is set to TCP server? Is WizFi210 set to TCP server? or PC?
+If you want to TCP server for multi-connect in WizFi210, you have to use <Command Mode> of WizFi210's Mode as below.
+[quote]
+For example
+[b]AT+WD[/b]
+[OK]
+[b]AT+WM=1[/b]
+[OK]
+[b]AT+NDHCP=1[/b]
+[OK]
+[b]AT+NSET=192.168.3.50,255.255.255.0,192.168.3.1[/b]
+[OK]
+[b]AT+WA=TEST_AD_HOC[/b]
+    IP              SubNet         Gateway   
+ 192.168.3.50: 255.255.255.0: 192.168.3.1
+[OK]
+[b]AT+NSTCP=5001[/b]
+[OK][/quote]
+
+Caution
+ - In Ad-hoc mode of WizFi210, WizFi210 can't run DHCP server. So end-device for connecting WizFi210 is set to static IP. [quote=""kaizen""]Hi
+
+I have some question about your environment. 
+
+What device is set to TCP server? Is WizFi210 set to TCP server? or PC?
+If you want to TCP server for multi-connect in WizFi210, you have to use <Command Mode> of WizFi210's Mode as below.
+[quote]
+For example
+[b]AT+WD[/b]
+[OK]
+[b]AT+WM=1[/b]
+[OK]
+[b]AT+NDHCP=1[/b]
+[OK]
+[b]AT+NSET=192.168.3.50,255.255.255.0,192.168.3.1[/b]
+[OK]
+[b]AT+WA=TEST_AD_HOC[/b]
+    IP              SubNet         Gateway   
+ 192.168.3.50: 255.255.255.0: 192.168.3.1
+[OK]
+[b]AT+NSTCP=5001[/b]
+[OK][/quote]
+
+Caution
+ - In Ad-hoc mode of WizFi210, WizFi210 can't run DHCP server. So end-device for connecting WizFi210 is set to static IP.[/quote]
+Thank you for your reply!
+My environment like this,I have two systems.Every system has been made up of MTU and Wizfi210. I want to raelize purpose that one MTU_1 send date to Wizfi210_1 by serial port or SPI(complete),as the same time Wizfi210_1 send data to Wizfi210_2 with AD-hoc(complete),at last the Wizfi210_2 send data to MTU2(complete)and PC(not complete).
+The status that when PC communicate to Wizfi210_2  ,the Wizfi210_1 don't communicate Wizfi210_2, only one client(PC or Wizfi210_1) visit the Wizfi210_2(serve).
+If I set the Wizfi210_2 to client, meanwhile set at+nctcp.Wizfi210_1 can connect to Wizfi210_2 ,and Wizfi210_2 also connect to PC(serve),but the PC don't receive data only connect.
+If I set the Wizfi210_2 to serve,Wizfi210_1 and PC only one can connect it.
+If I set the Wizfi210_2 to serve like this at+nstcp/at+nstcp,PC can connect,Wizfi210_1 can't.
+Do you have some methods to solve problem?
+Thank you! Hi 
+
+Refer to this thread.
+https://forum.wiznet.io/t/wizfi210-connect/694/1","Q) What device is set to TCP server? Is WizFi210 set to TCP server? or PC?
+A) If you want to TCP server for multi-connect in WizFi210, you have to use <Command Mode> of WizFi210's Mode as below:
+AT+WD
+AT+WM=1
+AT+NDHCP=1
+AT+NSET=192.168.3.50,255.255.255.0,192.168.3.1
+AT+WA=TEST_AD_HOC
+AT+NSTCP=5001
+In Ad-hoc mode of WizFi210, WizFi210 can't run DHCP server. So the end-device for connecting WizFi210 is set to a static IP.
+
+Q) Do you have some methods to solve the problem?
+A) Refer to this thread: https://forum.wiznet.io/t/wizfi210-connect/694/1"
+3702,6923,"?ÂÃ«ÂÂ?ÂÃ¬ÂÂ¸??
+setSN_DHAR?????ÂÃ¬? ?ÂÃ¬ÂÂ??Ã¬Â§ÂÃ«Â¬Â¸?ÂÃ«Â¦Â½?ÂÃ«ÂÂ¤.
+
+1:N UDP Ã«Â¥??Â¬Ã¬ÂÂ©Ã¬Â¤ÂÃ¬ÂÂ´ÃªÂ³Â Ã¬ÂÂ,
+2ÃªÂ°ÂÃ¬ÂÂ ?ÂÃ«Â²Â?ÂÃ¬ÂÂ ?Â°Ã¬ÂÂ´?Â°Ã«? Ã«Â³Â´Ã«ÂÂ?ÂÃ«ÂÂ¤.
+Ã¬Â´ÂÃªÂ¸Â°??MAC??Ã«ÂªÂ¨Ã«??ÂÃ«ÂÂ setSn_CR(sn,Sn_CR_SEND) Ã«Â¥?Ã«Â³Â´Ã«ÂÂ´ÃªÂ³?
+2ÃªÂ°ÂÃ¬ÂÂ MAC???ÂÃ¬ÂÂ¸??setSn_CR(sn,Sn_CR_SEND_MAC)???ÂÃ«ÂÂ?Â°Ã¬ÂÂ.
+Debug ?ÂÃ«Â©Â´??Ã«Â³Â´Ã«Â©Â´, 
+Ã¬Â²ÂÃ¬ÂÂ ?ÂÃ«Â²Â ARP Ã«Â¥?Ã¬Â§ÂÃ­ÂÂ?Â Ã«ÂÂ 
+getSn_DHAR(sock, mac_1)
+getSn_DHAR(sock, mac_2) Ã«ÂªÂ¨Ã«ÂÂ Ã«Â§ÂÃªÂ²Â ?Â½Ã­???Debug?ÂÃ«Â©Â´???ÂÃ¬ÂÂ?Â©Ã«ÂÂ??
+
+****Debug ?ÂÃ«Â©Â´******
+< SERVER1 ?ÂÃ¬ÂÂ ARP >
+ > UDP Peer IP/Port1: 192.168.1.199 : 8194
+RECV ARP packet1 from 80:fa:5b:3b:61:f7
+RECV ARP packet2 from  0: 0: 0: 0: 0: 0
+
+< SERVER2 ?ÂÃ¬ÂÂ ARP >
+ > UDP Peer IP/Port2: 192.168.1.198 : 8194
+RECV ARP packet1 from 80:fa:5b:3b:61:f7
+RECV ARP packet2 from 18:67:b0:ca:7f: a
+
+< SERVER1 ?ÂÃ¬ÂÂ SEND_MAC >
+>RECV ARP packet1 from 80:fa:5b:3b: 0: 0
+ RECV ARP packet2 from 18:67:b0:ca:7f: a
+
+
+< SERVER2 ?ÂÃ¬ÂÂ SEND_MAC >
+ >RECV ARP packet1 from 80:fa:5b:3b: 0: 0
+RECV ARP packet2 from 18:67:b0:ca: 0: 0
+
+??Ã¬Â²ÂÃ«ÂÂ¼ Ã¬Â²ÂÃ¬ÂÂ ?ÂÃ«ÂÂ?Â¼Ã«Â¡Â ARP ?Â Ã«ÂÂ?? sendto() ?Â´Ã­ÂÂ getSn_DHAR() ?ÂÃ¬ÂÂ¬ MAC?????Â½Ã­ÂÂ?ÂÃ«ÂÂ°??
+SEND_MAC ?ÂÃªÂ³Â ?ÂÃ«Â©Â´, ?Â¤Ã¬ÂÂ 5,6 Ã«Â²ÂÃ¬ÂÂ´ 0?Â¼Ã«Â¡Â Ã¬Â±ÂÃ¬ÂÂ?Â¸Ã¬ÂÂ Ã«Â³Â´Ã«ÂÂ?ÂÃ«ÂÂ¤.
+?Â¤Ã¬Â ÂÃ«Â¡?WiresharkÃ«Â¡??ÂÃ¬ÂÂ¸?Â´Ã«ÂÂ Ã«Â§ÂÃ¬Â°Â¬ÃªÂ°?Ã¬Â§? ?ÂÃ«ÂÂ??
+>Frame 2: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on interface 0
+Ethernet II, Src: Wiznet_56:76:f2 (00:08:dc:56:76:f2), Dst: SamsungE_ca:00:00 (18:67:b0:ca:00:00)
+Internet Protocol Version 4, Src: 192.168.1.101, Dst: 192.168.1.198
+User Datagram Protocol, Src Port: 8194, Dst Port: 8194
+Data (15 bytes)
+
+?ÂÃªÂ·Â¸?Â´ÃªÂ¹Â?? Ã¬Â½ÂÃ«ÂÂ Ã¬Â²Â¨Ã«??Â©Ã«ÂÂ??
+?ÂÃ¬? Ã«Â¶??ÂÃ«ÂÂÃ«Â¦Â½Ã«ÂÂ??
+ÃªÂ°ÂÃ¬ÂÂ¬?Â©Ã«ÂÂ??
+
+    void uart_to_ether(uint8_t sock)
+    {
+    	struct __network_info *netinfo = (struct __network_info *)&(get_DevConfig_pointer()->network_info);
+    	struct __serial_info *serial = (struct __serial_info *)get_DevConfig_pointer()->serial_info;
+    	uint16_t len;
+    	int16_t sent_len;
+    	uint16_t i; // ## for debugging
+    	
+    #if ((DEVICE_BOARD_NAME == WIZ750SR) || (DEVICE_BOARD_NAME == WIZ750SR_1xx))
+    	if(get_phylink_in_pin() != 0) return; // PHY link down
+    #endif
+    	
+    	// UART ring buffer -> user's buffer
+    	len = get_serial_data();
+    	
+    	if(len > 0)
+    	{
+    		add_data_transfer_bytecount(SEG_UART_RX, len);
+    		if((serial->serial_debug_en == SEG_DEBUG_S2E) || (serial->serial_debug_en == SEG_DEBUG_ALL))
+    		{
+    			debugSerial_dataTransfer(g_send_buf, len, SEG_DEBUG_S2E);
+    		}
+    		
+    		switch(getSn_SR(sock))
+    		{
+    			case SOCK_UDP: // UDP_MODE
+    				if((netinfo->remote_ip[0] == 0x00) && (netinfo->remote_ip[1] == 0x00) && (netinfo->remote_ip[2] == 0x00) && (netinfo->remote_ip[3] == 0x00))
+    				{
+    					if((peerip[0] == 0x00) && (peerip[1] == 0x00) && (peerip[2] == 0x00) && (peerip[3] == 0x00))
+    					{
+    						if(serial->serial_debug_en) printf("" > SEG:UDP_MODE:DATA SEND FAILED - UDP Peer IP/Port required (0.0.0.0)\r\n"");
+    					}
+    					else
+    					{
+    						// UDP 1:N mode
+    						//peerip[3] = g_send_buf[05]; // yhlee
+    						if(g_send_buf[05] == peerip_1[3]){
+    							setSn_DHAR(sock, mac_1);
+    							memcpy(peerip, peerip_1, 4);
+    						}
+    						else if(g_send_buf[05] == peerip_2[3]) {
+    							setSn_DHAR(sock, mac_2);
+    							memcpy(peerip, peerip_2, 4);
+    						}						
+    						sent_len = (int16_t)sendto(sock, g_send_buf, len, peerip, peerport);
+
+    						if(g_send_buf[05] == peerip_1[3]){
+    							getSn_DHAR(sock, mac_1);
+    							mac_flag1 = 1;
+    						}
+    						else if(g_send_buf[05] == peerip_2[3]) {
+    							getSn_DHAR(sock, mac_2);
+    							mac_flag2 = 1;							
+    						}
+    						if(serial->serial_debug_en) {
+    							printf(""RECV ARP packet1 from %2x:%2x:%2x:%2x:%2x:%2x\r\n"",mac_1[0],mac_1[1],mac_1[2],mac_1[3],mac_1[4],mac_1[5]);
+    							printf(""RECV ARP packet2 from %2x:%2x:%2x:%2x:%2x:%2x\r\n"",mac_2[0],mac_2[1],mac_2[2],mac_2[3],mac_2[4],mac_2[5]);
+    						}
+    					}
+    				}
+    				else
+    				{
+    					// UDP 1:1 mode
+    					sent_len = (int16_t)sendto(sock, g_send_buf, len, netinfo->remote_ip, netinfo->remote_port);
+    				}
+    				
+    				if(sent_len > 0) u2e_size-=sent_len;
+    				
+    				break;
+    			
+    			case SOCK_ESTABLISHED: // TCP_SERVER_MODE, TCP_CLIENT_MODE, TCP_MIXED_MODE
+    			case SOCK_CLOSE_WAIT:
+    				// Connection password is only checked in the TCP SERVER MODE / TCP MIXED MODE (MIXED_SERVER)
+    				if(flag_connect_pw_auth == SEG_ENABLE)
+    				{
+    					sent_len = (int16_t)send(sock, g_send_buf, len);
+    					if(sent_len > 0) u2e_size-=sent_len;
+    					
+    					add_data_transfer_bytecount(SEG_UART_TX, len);
+    					
+    					if(netinfo->keepalive_en == ENABLE)
+    					{
+    						if(flag_sent_first_keepalive == DISABLE)
+    						{
+    							enable_keepalive_timer = SEG_ENABLE;
+    						}
+    						else
+    						{
+    							flag_sent_first_keepalive = SEG_DISABLE;
+    						}
+    						keepalive_time = 0;
+    					}
+    				}
+    				break;
+    			
+    			case SOCK_LISTEN:
+    				u2e_size = 0;
+    				return;
+    			
+    			default:
+    				break;
+    		}
+    	}
+    	
+    	inactivity_time = 0;
+    	//flag_serial_input_time_elapse = SEG_DISABLE; // this flag is cleared in the 'Data packing delimiter:time' checker routine
+    } Wizchip_write ((wztoe_sn_dhar (Sn) +3), dhar [0]);\
+    Wizchip_write ((wztoe_sn_dhar (Sn) +2), dhar [1]);\
+    Wizchip_write ((wztoe_sn_dhar (Sn) +1), dhar [2]);\
+    Wizchip_write ((wztoe_sn_dhar (Sn) +0), dhar [3]);\
+    Wizchip_write ((wztoe_sn_dhar (Sn) +7), dhar [4]);\
+    Wizchip_write ((wztoe_sn_dhar (Sn) +6), dhar [5]);
+
+The library is as above.(V1.2.4.)
+Is 5 or 4 correct? getSn_DHAR?? 3 2 1 0 7 6
+setSn_DHAR?? 3 2 1 0 5 4 
+?ÂÃ«ÂÂ??
+read ?Â Ã«ÂÂ address?? write?Â Ã«ÂÂ addressÃªÂ°? ?Â¤Ã«Â¦Â?ÂÃ«ÂÂ¤. thank you
+It has been solved!","Q) Is 5 or 4 correct for the getSn_DHAR?? 
+A) The correct order for getSn_DHAR is 3 2 1 0 7 6. Thank you. 
+
+Q) What about the setSn_DHAR?? 
+A) The correct order for setSn_DHAR is 3 2 1 0 5 4. Thank you. 
+
+Q) Could you provide information about the read address and write address for the library? 
+A) The read address and write address for the library can be found. Thank you."
+3703,6924,"Hi all,
+
+I am testing WIZ550Web example code ( https://github.com/Wiznet/WIZ550web ).
+But I see a strange situation. When I use Firefox, I see Firefox separate Http package into two package.
+The problem is example only accept first package, it seems to me example code maybe only handle Http header (not include body).
+
+In WIN7, I see every browser separate protocol into two package.
+In WIN10, Chrome can send full protocol in one package, in this situation, our web works OK.
+
+Please help advise me how to modify WIZ550web example code to support this two package situation.
+
+Thanks. @becky , Thank you very much. Take RTL8710 as an example, they use LwIP, we can setup 1s timeout to force system continue to read data for 1 second. But in W5500, I don't understand how your state machine working, therefore I cannot find the correct position to wait for a certain period of time. May you please provide some direction for my reference ? 
+
+Thanks.","Q) Please help advise me how to modify WIZ550web example code to support this two package situation.
+Q) May you please provide some direction for my reference ?
+A) The WIZ550Web example code needs to be modified to handle the situation where the HTTP protocol is separated into two packages. You can consider implementing a state machine in the code to handle the splitting and reassembly of the HTTP packages. Additionally, understanding the state machine of W5500 will help you find the correct position to wait for a certain period of time. You can refer to the WIZ550Web example code on GitHub and make necessary modifications to handle the two-package situation."
+3704,6926,"I am not able to enter command mode by sending +++ to the module. I am using RealTerm to send data to the module. Issue is resolved... Did you solve the issue?
+If you have any problem, Please feel free to ask questions.
+
+Thank you. ","Q) I am not able to enter command mode by sending +++ to the module. I am using RealTerm to send data to the module. Issue is resolved... Did you solve the issue?
+A) Did you press Enter key after sending +++? It's necessary to send the command and add a short delay before switching to command mode."
+3705,6928,"Hello,
+
+I'm new in the foro and i working on a few weeks with the W5100 module in a FRDM-KL46Z board. I'm programmer for a lot time ago, in C and C++ languages.
+
+In this moment, the project that i working is about a Web Server for IoT device to control differents industrial process and log data.
+
+The WebServer is all right but, when i need to log something, i need the date and time for correct data logging. So, i try to get the date and time from NTP protocols.
+
+Ok, here is when the problems begans. I trying to make a client to connect with teh NTP servers, but when i make the data send to wait the answer from the server, the only menssage what i have is an ARP.
+
+I make all the steps like the datsheet show and i check my code with Arduino examples or the other users make do, but i always have an ARP to the gateway. What can i do?
+
+Regards! How are you allocating ip?
+If you are using virtual ip as a static ip, you need to port forwarding. Thanks for your answer.
+
+I'm using a static IP, because i don't have programed the DHCP algorithm.
+
+How i make that? I open the socket with the local port, then i put the destination port and destination IP, and send the message for the NTP solicitation. Finally, i close the socket.
+
+With that, in the wireshark i can see the ARP with a broadcast, but nobody responds.
+
+Regards [quote=""becky, post:2, topic:6928""]
+port forwarding
+[/quote]
+
+How i make teh ""port forwarding""?? If you use a virtual ip without dhcp, you can?Ât send to packet external network.
+Port forwarding be configured at the router.
+Please find out how to set up your router. Ok, i understand.
+
+That's why I started testing the code with DHCP and was able to make it work. Thank you!
+
+One more thing, how could you do with the W5100 to detect the cable connection?
+
+Regards! The lastest chip of wiznet has phy register that can read phy link status.
+But W5100 don't have it.
+So please ping test.","Q) How are you allocating ip? 
+A) If you are using virtual ip as a static ip, you need to port forwarding. Thanks for your answer. 
+
+Q) How i make the ""port forwarding""? 
+A) If you use a virtual ip without dhcp, you can't send to packet external network. Port forwarding be configured at the router. Please find out how to set up your router. 
+
+Q) One more thing, how could you do with the W5100 to detect the cable connection? 
+A) The latest chip of Wiznet has PHY register that can read PHY link status. But W5100 don't have it. So please ping test."
+3706,693,"ÃªÂ·??Â¬Ã¬ÂÂ W5100???Â¬Ã¬ÂÂ©?ÂÃªÂ³Â  ?ÂÃ¬ÂÂµ?ÂÃ«ÂÂ¤.
+W5100 4ÃªÂ°ÂÃ¬ÂÂ ?ÂÃ¬Â¼ÂÃ¬Â¤?1ÃªÂ°ÂÃ«ÂÂ ?ÂÃ«ÂÂ·?Â¼Ã«Â¡Â ?Â´Ã¬ÂÂ©?ÂÃªÂ³Â  3ÃªÂ°ÂÃ«ÂÂ TCP Server ModeÃ«Â¡??Â¬Ã¬ÂÂ©Ã¬Â¤ÂÃ¬ÂÂ?ÂÃ«ÂÂ¤.
+Telnet ?ÂÃ¬ÂÂ???Â´Ã¬ÂÂ?ÂÃ¬ÂÂ???ÂÃªÂ²Â¨ Ã«Â¬Â¸Ã¬ÂÂ ?ÂÃ«Â¦Â½?ÂÃ«ÂÂ¤.
+Telnet?ÂÃ¬ÂÂ Mac, IP, Gateway, Subnet???ÂÃ¬ÂÂ?Â´Ã¬Â£Â¼???Â¨Ã¬ÂÂÃ«Â¥?Ã«Â¶ÂÃ«ÂÂ¬????ÃªÂ°????ÂÃ«ÂÂ?? ÃªÂ°ÂÃ¬? Ã«Â©ÂÃ¬ÂÂ¸Ã¬Â§?ÃªÂ°? ?ÂÃ¬ÂÂ ?Â©Ã«ÂÂ??
+
+///////////////////////////////////////////////////////////////////////////
+void display_netconf_Telnet(NETCONF* pNetConf)
+{	
+u_int i;
+	fsprintf(CTRL_SOCK,""\r\nMAC Addr      : "");
+	for(i=0; i<5;i++) fsprintf(CTRL_SOCK,""%02X."",pNetConf->mac[i]);
+	fsprintf(CTRL_SOCK,""%02X"",pNetConf->mac[i]);
+	fsprintf(CTRL_SOCK,""\r\nSource IP     : %s"",inet_ntoa(ntohl(pNetConf->sip)));
+	fsprintf(CTRL_SOCK,""\r\nGateway IP    : %s"",inet_ntoa(ntohl(pNetConf->gwip)));
+	fsprintf(CTRL_SOCK,""\r\nSubnet Mask   : %s\r\n"",inet_ntoa(ntohl(pNetConf->sn)));
+}
+
+///////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////
+host= HTTP/1.0
+Host: xx.xx.xx.xx : 5000
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)
+Content-Type: ?plt: xx.xx.xx.xx:5000
+////////////////////////////////////////////////////////////
+?Â´Ã¬? ÃªÂ°ÂÃ¬? ?ÂÃ¬ÂÂ???ÂÃ¬ÂÂÃªÂ±Â°Ã«ÂÂ ?ÂÃ¬ÂÂ¸???ÂÃªÂ³Â  ÃªÂ³ÂÃ¬ÂÂÃ«Â©??ÂÃ¬? ÃªÂ°ÂÃ¬ÂÂ¬??Ã«Â°ÂÃªÂ²Â ?ÂµÃ«ÂÂ??
+
+?ÂÃªÂ³Â ?ÂÃ¬ÂÂ­?ÂÃ¬ÂÂ. host= HTTP/1.0
+Host: xx.xx.xx.xx : 5000
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)
+Content-Type: ?plt: xx.xx.xx.xx:5000
+
+??Ã«Â©ÂÃ¬ÂÂÃ¬Â§???display_netconf_Telnet ?Â¨Ã¬ÂÂ?ÂÃ¬ÂÂ Ã¬Â¶ÂÃ«Â Â¥????ÃªÂ²ÂÃ¬ÂÂ´ ?ÂÃ«ÂÂÃªÂ³? HTTP ?ÂÃ¬ÂÂ???ÂÃ­ÂÂ Ã«Â©ÂÃ¬ÂÂÃ¬Â§? ÃªÂ°ÂÃ¬ÂÂµ?ÂÃ«ÂÂ¤.
+?Â¹Ã¬ÂÂ ?Â¸Ã«??ÂÃ¬ÂÂ ?ÂÃ«ÂÂ·???ÂÃ«ÂÂ http?ÂÃ¬ÂÂ???ÂÃ«ÂÂÃ¬Â§? ?ÂÃ¬ÂÂ¸ Ã«Â°ÂÃ«ÂÂ?ÂÃ«ÂÂ¤. Http?ÂÃ¬ÂÂ ?Â¬Ã¬ÂÂ©?ÂÃ«ÂÂ Data memory??
+telnet?ÂÃ¬ÂÂ ?Â¬Ã¬ÂÂ©?ÂÃ«ÂÂ Data memoryÃªÂ°? ÃªÂ³ÂµÃ¬ÂÂ ?ÂÃªÂ±Â°?? ?ÂÃ«ÂÂÃ«Â©? Memory violation???ÂÃ¬ÂÂ¬?Â©Ã«ÂÂ??
+Memory violation??ÃªÂ²Â½Ã¬ÂÂ° PointerÃ«Â¥??ÂÃ«ÂªÂ» ?Â¬Ã¬ÂÂ©??ÃªÂ²Â½Ã¬ÂÂ° Ã«Â°ÂÃ¬ÂÂ??ÃªÂ°??Â¥Ã¬ÂÂ±???Â½Ã«ÂÂ??
+??Ã«Â¬Â¸Ã¬Â Â??Http??data memroy ?ÂÃ¬ÂÂ ??Max lenghtÃ«Â¥?Ã¬Â´ÂÃªÂ³Â¼??ÃªÂ²Â½Ã¬ÂÂ°Ã«Â¥?Ã¬Â²ÂÃ«Â¦Â¬?ÂÃ¬? ?ÂÃ¬ÂÂ, ?ÂÃ¬ÂÂ ??DataÃªÂ°? Netconf ?ÂÃ¬ÂÂ­??Ã¬Â¹Â¨Ã«Â²Â??ÃªÂ²ÂÃ¬ÂÂ¼Ã«Â¡?Ã«Â³Â´Ã¬ÂÂ?ÂÃ«ÂÂ¤.
+?Â°Ã«ÂÂ¼?? Memory pointerÃªÂ°? ?Â¸Ã¬Â Â ?ÂÃ«ÂªÂ»?ÂÃ«ÂÂÃ¬Â§?Ã«Â¥?Ã«Â¨Â¼Ã¬? Ã¬Â°Â¾Ã¬ÂÂ???Â©Ã«ÂÂ??","Q) ÃªÂ·??Â¬Ã¬ÂÂ W5100???Â¬Ã¬ÂÂ©?ÂÃªÂ³Â  ?ÂÃ¬ÂÂµ?ÂÃ«ÂÂ¤. W5100 4ÃªÂ°ÂÃ¬ÂÂ ?ÂÃ¬Â¼ÂÃ¬Â¤?1ÃªÂ°ÂÃ«ÂÂ ?ÂÃ«ÂÂ·?Â¼Ã«Â¡Â ?Â´Ã¬ÂÂ©?ÂÃªÂ³Â  3ÃªÂ°ÂÃ«ÂÂ TCP Server ModeÃ«Â¡??Â¬Ã¬ÂÂ©Ã¬Â¤ÂÃ¬ÂÂ?ÂÃ«ÂÂ¤. Telnet ?ÂÃ¬ÂÂ???Â´Ã¬ÂÂ?ÂÃ¬ÂÂ???ÂÃªÂ²Â¨ Ã«Â¬Â¸Ã¬ÂÂ ?ÂÃ«Â¦Â½?ÂÃ«ÂÂ¤. Telnet?ÂÃ¬ÂÂ Mac, IP, Gateway, Subnet???ÂÃ¬ÂÂ?Â´Ã¬Â£Â¼???Â¨Ã¬ÂÂÃ«Â¥?Ã«Â¶ÂÃ«ÂÂ¬????ÃªÂ°????ÂÃ«ÂÂ?? ÃªÂ°ÂÃ¬? Ã«Â©ÂÃ¬ÂÂ¸Ã¬Â§?ÃªÂ°? ?ÂÃ¬ÂÂ ?Â©Ã«Â"
+3707,6932,"I guess a more precise question would be:
+
+**Is there anything in hardware or software that would cause a TCP connection to get RST from server side any time data is received from a client?** If the server is not listening on any socket, the server will send RST in response to any attempt to connect. Note that the port number on which the server is listening must be the same as the one to which the client attempts to connect.","Q) Is there anything in hardware or software that would cause a TCP connection to get RST from server side any time data is received from a client?
+A) If the server is not listening on any socket, the server will send RST in response to any attempt to connect. Note that the port number on which the server is listening must be the same as the one to which the client attempts to connect."
+3708,6938,"I'm still trying to debug my WIZ850io module. As a test, I purchased and installed a WIZ550io module on an identical test setup (STM32F103C8T7 running STM32 Arduino core). The WIZ850io crashes after about 30 minutes, the WIZ550io has been running for over 48hrs. I see that there are capacitor and resistor differences between the 850 and 550. There are obviously layout difference too, including some interesting traces from pins 1&2 and pins 5&6. Those traces have a bend, is this to match trace length?
+Thanks for your continued support,
+IK W5500 is used to both WIZ550io and WIZ850io. 
+
+1. If you operate both products at the same time, the MAC address must be different.
+
+2.If you are possible,Could you please draw the connect schematic? Also how did you connect the power?
+
+Currently, the hardware engineer is on vacation and he will answer you next Monday.","Q) I see that there are capacitor and resistor differences between the WIZ850io and WIZ550io, including some interesting traces from pins 1&2 and pins 5&6. Those traces have a bend, is this to match trace length?
+A) The capacitor and resistor differences between WIZ850io and WIZ550io, as well as the layout differences and the traces from pins 1&2 and pins 5&6 with bends, are designed to match trace length for optimal performance. 
+
+Q) IK W5500 is used to both WIZ550io and WIZ850io. If you operate both products at the same time, the MAC address must be different.
+A) IK W5500 is indeed used in both WIZ550io and WIZ850io, and it's essential to ensure that the MAC addresses are different when operating both products simultaneously. 
+
+Q) If you are possible, Could you please draw the connect schematic? Also how did you connect the power?
+A) Drawing the connection schematic and explaining the power connection would require the input from the hardware engineer, who will be available to provide a response next Monday."
+3709,694,"My environment like this,I have two systems.Every system has been made up of MTU and Wizfi210. I want to raelize purpose that one MTU_1 send date to Wizfi210_1 by serial port or SPI(complete),as the same time Wizfi210_1 send data to Wizfi210_2 with AD-hoc(complete),at last the Wizfi210_2 send data to MTU2(complete)and PC(not complete).
+The status that when PC communicate to Wizfi210_2 ,the Wizfi210_1 don't communicate Wizfi210_2, only one client(PC or Wizfi210_1) visit the Wizfi210_2(serve).
+If I set the Wizfi210_2 to client, meanwhile set at+nctcp.Wizfi210_1 can connect to Wizfi210_2 ,and Wizfi210_2 also connect to PC(serve),but the PC don't receive data only connect.
+If I set the Wizfi210_2 to serve,Wizfi210_1 and PC only one can connect it.
+If I set the Wizfi210_2 to serve like this at+nstcp/at+nstcp,PC can connect,Wizfi210_1 can't.
+Do you have some methods to solve problem?
+Thank you! Thank you for your reply!
+I want to choose case1.Selecting TCP,wizfi210#1 can send datato wizfi210#2,wizfi210#2 can send data to PC.But wizfi210#2 can't send data to wifiz210#1 or wizfi210#1 can't receive data from wizfi210#2.
+These are wizfi210#2 setting
+{+++??
+at+wd??
+at+wm=1??
+at+wauth=1,
+wizfi210??
+at+ndhcp=0??
+at+nset=192.168.1.105,255.255.255.0,192.168.1.1??
+at+wa=wizfi210,,8
+at+nctcp=192.168.1.101,5000??
+at+nstcp=5000??
+at+cid=?
+ata2
+}
+These are wizfi210#1 setting
+{+++??
+at+wd??
+at+wm=1??
+at+ndhcp=0??
+at+nset=192.168.1.101,255.255.255.0,192.168.1.1
+at+wa=wizfi210,,8
+at+nstcp=5000
+ata2
+} Hello wtx
+
+I just tested it and succeeded, Please try it again as below.
+
+<#1>
+at+wd
+[OK]
+at+wm=1
+[OK]
+at+ndhcp=0
+[OK]
+at+wauth=0
+[OK]
+at+nset=192.168.1.101,255.255.255.0,192.168.1.1
+[OK]
+at+wa=wizfi210,,8
+    IP              SubNet         Gateway   
+ 192.168.1.101: 255.255.255.0: 192.168.1.1
+[OK]
+at+nauto=1,1,,5000
+[OK]
+ata2
+[OK]
+
+<#2>
+at+wd
+[OK]
+at+wm=1
+[OK]
+at+ndhcp=0
+[OK]
+at+wauth=0
+[OK]
+at+nset=192.168.1.102,255.255.255.0,192.168.1.1
+[OK]
+at+wa=wizfi210,,8
+    IP              SubNet         Gateway   
+ 192.168.1.102: 255.255.255.0: 192.168.1.1
+[OK]
+at+nauto=0,1,192.168.1.101,5000
+[OK]
+ata2
+[OK] Hi
+
+Yes, You're right. Maybe, wtx also connect like you.","Q) Do you have some methods to solve the problem?
+A) Yes, I just tested it and succeeded. Please try it again with the following settings.
+
+#1
+at+wd 
+[OK] 
+at+wm=1 
+[OK] 
+at+ndhcp=0 
+[OK] 
+at+wauth=0 
+[OK] 
+at+nset=192.168.1.101,255.255.255.0,192.168.1.1 
+[OK] 
+at+wa=wizfi210,,8 
+    IP              SubNet         Gateway 
+ 192.168.1.101: 255.255.255.0: 192.168.1.1 
+[OK] 
+at+nauto=1,1,,5000 
+[OK] 
+ata2 
+[OK]
+
+#2
+at+wd 
+[OK] 
+at+wm=1 
+[OK] 
+at+ndhcp=0 
+[OK] 
+at+wauth=0 
+[OK] 
+at+nset=192.168.1.102,255.255.255.0,192.168.1.1 
+[OK] 
+at+wa=wizfi210,,8 
+    IP              SubNet         Gateway 
+ 192.168.1.102: 255.255.255.0: 192.168.1.1 
+[OK] 
+at+nauto=0,1,192.168.1.101,5000 
+[OK] 
+ata2 
+[OK]
+
+A) Yes, You're right. Maybe, wtx also connect like you."
+3710,6940,"For a project i'm using a w7500p development board. For this project some data needs to be stored and remembered even when the power is down. 
+
+The problem persists that when i want to use the IAP-FLash function to read/write some data the application gets stuck in the nmi handler.
+
+I've tried to change the the clock to the internal 8 Mhz clock as recommended in the errata data sheet.
+Still this problem persists.
+
+Anyone who can help solve this problem? I'm using the keil uvision interface to programm the w7500p.
+
+This is the source code i'm adding to write data to the flash memory
+
+uint8_t ip = 192;
+CRG_FCLK_SourceSelect(CRG_RCLK);
+		
+FLASH_IAP(IAP_ERAS_SECT, IP_START_0, 0, 0 );
+FLASH_IAP(IAP_PROG, IP_START_0, &ip, SECT_SIZE);
+	
+CRG_FCLK_SourceSelect(CRG_MCLK); I think, you also apply the code about ""SysTick_Config"" and ""all interrupt masking"" before IAP.
+
+Pls see the example **flash_update_start**() and **flash_update_end**() functions in the
+https://github.com/Wiznet/WIZ750SR/blob/master/Projects/S2E_App/src/Configuration/segcp.c
+
+flash call example:
+
+       flash_update_start();
+          // IAP Function calls
+          save_DevConfig_to_storage();
+       flash_update_end();
+
+(...)
+
+    /* System Core Clock Update for improved stability */
+    static void flash_update_start(void)
+    {
+        /* System Core Clock Update */
+        SystemCoreClockUpdate_User(CLOCK_SOURCE_INTERNAL, PLL_SOURCE_8MHz, SYSTEM_CLOCK_8MHz);
+        
+        /* SysTick_Config */
+        SysTick_Config((GetSystemClock()/1000));
+        
+        /* Simple UART re-init by MCU clock update */
+        UART2_Configuration();
+        
+        // Backup Interrupt Set Pending Register
+        temp_interrupt = (NVIC->ISPR[0]);
+        (NVIC->ISPR[0]) = (uint32_t)0xFFFFFFFF;
+    }
+
+    /* System Core Clock Update - Restore */
+    static void flash_update_end(void)
+    {
+        /* System Core Clock Update */
+        SystemCoreClockUpdate_User(DEVICE_CLOCK_SELECT, DEVICE_PLL_SOURCE_CLOCK, DEVICE_TARGET_SYSTEM_CLOCK);
+        
+        /* SysTick_Config */
+        SysTick_Config((GetSystemClock()/1000));
+        
+        /* Simple UART re-init by MCU clock update */
+        UART2_Configuration();
+        
+        // Restore Interrupt Set Pending Register
+        (NVIC->ISPR[0]) = temp_interrupt;
+    }","Q) The problem persists that when i want to use the IAP-FLash function to read/write some data the application gets stuck in the nmi handler. Still this problem persists. Anyone who can help solve this problem? I'm using the keil uvision interface to program the w7500p.
+A) It seems like you are facing a persistent issue with the IAP-Flash function causing the application to get stuck in the NMI handler. To troubleshoot this, ensure that you have applied the code for ""SysTick_Config"" and ""all interrupt masking"" before using the IAP. Additionally, you can refer to the **flash_update_start**() and **flash_update_end**() functions in the given GitHub link for an example of flash memory update. It might also be helpful to check the clock settings and the handling of interrupts during the IAP operation."
+3711,6942,"[W7100A] Please contact us.
+hello.It is called Lee Chang -hee.
+W7100A-S2E (Serial to Ethernet F/W): Is the S2E feature currently discontinued?
+There is no information about purchasing at Wiznet Shopping Mall.
+Reply please.
+
+thank you hello.
+
+This product is being sold and can be purchased through our agency.
+After checking the list of agents in the page below, you can purchase it where you want.
+- [WIZNET domestic distributor] (https://www.wiznet.io/ko/about/distributor/)
+
+
+In addition, if you do not have to use the W7100A, we recommend reviewing the W7500 or W7500P -based S2E product.You can check the details on the wiki page below.
+-[w7500 \ (p \) -s S2E wiki page]
+
+thank you ","Q) Is the S2E feature currently discontinued?
+A) This product is being sold and can be purchased through our agency. After checking the list of agents in the page below, you can purchase it where you want. - [WIZNET domestic distributor] (https://www.wiznet.io/ko/about/distributor/) In addition, if you do not have to use the W7100A, we recommend reviewing the W7500 or W7500P -based S2E product. You can check the details on the wiki page below. -[w7500 \ (p \) -s S2E wiki page]"
+3712,6943,"hello
+There is no especially strange place on the circuit.
+But I wonder how GNDE and GND are connected.
+The VDD side is connected to +3.3V and GND, but the oscilator side is connected to +3.3VE and GNDE.
+thank you If you use OSC, use the 1.8V voltage.
+
+The current OSC is 3.3V.The W5500 may be electrically damaged.
+Since the 1.8V OSC is expensive on the murder, most of the output waveform is applied to the voltage distribution using the job resistance in the output waveform.please refer to this.","Q) But I wonder how GNDE and GND are connected. 
+Q) If you use OSC, use the 1.8V voltage. 
+A) The VDD side is connected to +3.3V and GND, but the oscillator side is connected to +3.3VE and GNDE. Since the 1.8V OSC is expensive on the murder, most of the output waveform is applied to the voltage distribution using the job resistance in the output waveform. Please refer to this."
+3713,6946,"hello
+
+There are inquiries related to the W5500, leaving a post.
+
+I'm using the W5500 chip, and I'm trying to interface with the RTL8305 Ethernet Hub chip.
+
+However, I would like to ask if you can connect the TXP/TXN and RXP/RXN pin directly between the chips.
+
+Although we can operate using the transformer
+
+We are trying to connect directly without a transformer circuit.
+
+So please contact us if you can connect TX and RX with a pin between the chips.
+
+please answer about my question.
+
+thank you https://forum.wiznet.io/t/topic/6950
+
+
+This is a duplicate question with the above link.
+The answer is likely to be checked in the link above. ","Q)I'm using the W5500 chip, and I'm trying to interface with the RTL8305 Ethernet Hub chip. However, I would like to ask if you can connect the TXP/TXN and RXP/RXN pin directly between the chips. Although we can operate using the transformer We are trying to connect directly without a transformer circuit. So please contact us if you can connect TX and RX with a pin between the chips. please answer about my question.
+A) This is a question."
+3714,6950,"Hello, I have an inquiry about the W5500.
+ I'm using the W5500 chip, and I'm trying to interface with the RTL8305 Ethernet Hub chip.
+However, I would like to ask if you can connect the TXP/TXN and RXP/RXN pin directly between the chips.
+ We can operate using the transformer, but we are trying to connect directly without a transformer circuit.
+So please contact us if you can connect TX and RX with a pin between the chips.
+please answer about my question.thank you hello
+If you connect the TXP/TXN and RXP/RXN pins of the W5500, you will be able to connect the cap 100nf with a series when connected to the RTL8305 Ethernet Hub.
+thank you","Q) I'm using the W5500 chip and trying to interface with the RTL8305 Ethernet Hub chip. Can I connect the TXP/TXN and RXP/RXN pins directly between the chips without using a transformer circuit? 
+A) If you connect the TXP/TXN and RXP/RXN pins of the W5500, you will be able to connect the cap 100nf with a series when connected to the RTL8305 Ethernet Hub."
+3715,6951,"hello!
+WIZ750SR-RS232
+This is a questionnaire.
+
+UDP 1: N communicates with two servers.
+When you don't know the MAC of the first server, proceed with the ARP
+When the MAC of the server is stored, I do send_mac from then on.
+
+Open the WIZNET S2E Configuration Tool on the corresponding server PC
+Device Search does not appear,
+Reset Module will appear.
+
+I think it's because of send_mac. Is there a way to solve it? The config tool itself is to accept all of the Broadcast Packets or Unicast Packets.
+It is not seen because the packet does not enter the wrong server by entering the MAC incorrectly.
+Therefore, first of all, I need to check whether the packet is going out and the packet is normal or the packet capture.
+If you think that the conditions are correct even if you check the above, you should share the code and check it with the code level. ÃªÂ°ÂÃ¬ÂÂ¸?Â¬Ã¬Â Â?Â¼Ã«Â¡Â ?ÂµÃ«?????ÂÂ?ÂµÃ«ÂÂ??!
+?ÂÃ¬?ÃªÂ°ÂÃ¬ÂÂ¬?ÂÃ«Â¦Â½?ÂÃ«ÂÂ¤.
+?ÂÃ¬Â Â??Ã«Â¶?Ã«Â¶?Ã¬Â½ÂÃ«ÂÂ Ã¬Â²Â¨Ã«??ÂÃ«Â¦Â½?ÂÃ«ÂÂ¤. 
+
+    1. void uart_to_ether(uint8_t sock)  ?ÂÃ¬Â Â ??Ã«Â¶?Ã«Â¶?
+    				if((netinfo->remote_ip[0] == 0x00) && (netinfo->remote_ip[1] == 0x00) && (netinfo->remote_ip[2] == 0x00) && (netinfo->remote_ip[3] == 0x00))
+    				{
+    					if((peerip[0] == 0x00) && (peerip[1] == 0x00) && (peerip[2] == 0x00) && (peerip[3] == 0x00))
+    					{
+    						if(serial->serial_debug_en) printf("" > SEG:UDP_MODE:DATA SEND FAILED - UDP Peer IP/Port required (0.0.0.0)\r\n"");
+    					}
+    					else
+    					{
+    						// UDP 1:N mode
+    					/**
+    					  ******************************************************************************
+    					  * @author  yhlee
+    					  * @date	 Jan-2020
+    					  * @description : each server1 & server2 send the data include their last of
+    					                   ip address to MCU thoruogh wiz750sr
+    					                   g_send_buf[05] contained peerip[3]
+    					                   ex> server1 ip : 192.168.1.81 
+    					                       server1 send packet 59 59 00 08 00 51 xx xx xx ..
+                                               (51 means hex 0x51 so it's 81)
+    					                   and then MCU send ack packet 59 59 00 08 00 51 xx xx xx ..
+    					                   wiz750sr get these packet to g_send_buf[]
+    					                   g_send_buf[05] could decied whether module send the data to
+    					                   server1 or server2
+    					  ******************************************************************************
+    					**/ 				
+
+    						if(g_send_buf[05] == peerip_1[3]){
+    							setSn_DHAR(sock, mac_1);
+    							memcpy(peerip, peerip_1, 4);
+    							peer1_seqence_flag = 1;
+    							peer2_seqence_flag = 0;
+    						}
+    						else if(g_send_buf[05] == peerip_2[3]){
+    							setSn_DHAR(sock, mac_2);
+    							memcpy(peerip, peerip_2, 4);
+    							peer1_seqence_flag = 0;
+    							peer2_seqence_flag = 1;							
+    						}
+    						sent_len = (int16_t)sendto(sock, g_send_buf, len, peerip, peerport);
+
+    						if(g_send_buf[05] == peerip_1[3]){
+    							getSn_DHAR(sock, mac_1);
+    							if((mac_1[0] == 0x00) && (mac_1[1] == 0x00) && (mac_1[2] == 0x00) && (mac_1[3] == 0x00) && (mac_1[4] == 0x00) && (mac_1[5] == 0x00))
+    							{
+    								if(serial->serial_debug_en) printf(""ARP1 Inspction Error %2x:%2x:%2x:%2x:%2x:%2x\r\n"",mac_1[0],mac_1[1],mac_1[2],mac_1[3],mac_1[4],mac_1[5]);
+    							}
+    							else mac_flag1 = 1;
+    						}
+    						else if(g_send_buf[05] == peerip_2[3]) {
+    							getSn_DHAR(sock, mac_2);
+    							if((mac_2[0] == 0x00) && (mac_2[1] == 0x00) && (mac_2[2] == 0x00) && (mac_2[3] == 0x00) && (mac_2[4] == 0x00) && (mac_2[5] == 0x00))
+    							{
+    								if(serial->serial_debug_en) printf(""ARP2 Inspction Error %2x:%2x:%2x:%2x:%2x:%2x\r\n"",mac_2[0],mac_2[1],mac_2[2],mac_2[3],mac_2[4],mac_2[5]);
+    							}
+    							else mac_flag2 = 1;
+
+    						}
+    						if(serial->serial_debug_en) {
+    							if(peer1_seqence_flag)
+    							{
+    								printf("" > UDP Peer IP/Port1: %d.%d.%d.%d : %d\r\n"", peerip_1[0], peerip_1[1], peerip_1[2], peerip_1[3], peerport);
+    								printf(""RECV ARP packet1 from %2x:%2x:%2x:%2x:%2x:%2x\r\n"",mac_1[0],mac_1[1],mac_1[2],mac_1[3],mac_1[4],mac_1[5]);
+    							}
+    							else if(peer2_seqence_flag)
+    							{
+    								printf("" > UDP Peer IP/Port2: %d.%d.%d.%d : %d\r\n"", peerip_2[0], peerip_2[1], peerip_2[2], peerip_2[3], peerport);							
+    								printf(""RECV ARP packet2 from %2x:%2x:%2x:%2x:%2x:%2x\r\n"",mac_2[0],mac_2[1],mac_2[2],mac_2[3],mac_2[4],mac_2[5]);
+    							}
+    						}
+    						/*********************************************************************************/						
+    					}
+    				}
+
+<void ether_to_uart(uint8_t sock)> ?ÂÃ¬ÂÂ ?ÂÃ¬Â Â??Ã«Â¶?Ã«Â¶?
+
+    			case SOCK_UDP: // UDP_MODE
+    				e2u_size = recvfrom(sock, g_recv_buf, len, peerip, &peerport);
+
+    				if((memcmp(peerip_1, peerip, 4) !=  0) && (!peerip_flag1))// yhlee
+    				{
+    					memcpy(peerip_1, peerip, 4);
+    					peerip_flag1 = 1;
+     					if(serial->serial_debug_en) {
+    						//printf("" > UDP Peer IP/Port1: %d.%d.%d.%d : %d\r\n"", peerip_1[0], peerip_1[1], peerip_1[2], peerip_1[3], peerport);
+    					}
+    				}
+    				
+    				else if((memcmp(peerip_1, peerip, 4) ==	0) && (peerip_flag1))// yhlee
+    				{
+    					memcpy(peerip_1, peerip, 4);
+    					peerip_flag1 = 1;					
+    					if(serial->serial_debug_en) {
+    						//printf("" > UDP Peer IP/Port1: %d.%d.%d.%d : %d\r\n"", peerip_1[0], peerip_1[1], peerip_1[2], peerip_1[3], peerport);
+    					}
+    				}
+
+    				else if((memcmp(peerip_2, peerip, 4) !=  0) && (!peerip_flag2))
+    				{
+    					memcpy(peerip_2, peerip, 4);
+    					peerip_flag2 = 1;					
+     					if(serial->serial_debug_en) {
+    						//printf("" > UDP Peer IP/Port2: %d.%d.%d.%d : %d\r\n"", peerip_2[0], peerip_2[1], peerip_2[2], peerip_2[3], peerport);
+    					}
+    				}	
+    				else if((memcmp(peerip_1, peerip, 4) !=  0) && (memcmp(peerip_2, peerip, 4) !=  0) && (peerip_flag1) && (peerip_flag2))
+    				{
+    					memcpy(peerip_1, peerip, 4);
+    					peerip_flag1 = 1;					
+     					if(serial->serial_debug_en) {
+    						//printf("" > UDP Peer IP/Port1: %d.%d.%d.%d : %d\r\n"", peerip_1[0], peerip_1[1], peerip_1[2], peerip_1[3], peerport);
+    					}
+    				}					
+    				/*if(memcmp(peerip_tmp, peerip, 4) !=  0)
+    				{
+    					memcpy(peerip_tmp, peerip, 4);
+    					if(serial->serial_debug_en) printf("" > UDP Peer IP/Port: %d.%d.%d.%d : %d\r\n"", peerip[0], peerip[1], peerip[2], peerip[3], peerport);
+    				}*/
+    				break;
+
+<int32_t sendto(uint8_t sn, uint8_t * buf, uint16_t len, uint8_t * addr, uint16_t port)> ?ÂÃ¬ÂÂ ?ÂÃ¬Â Â??Ã«Â¶?Ã«Â¶?
+
+    #if _WIZCHIP_ == 5200   // for W5200 ARP errata 
+        setSUBR(0);
+    #endif
+
+    	
+    	if(peer1_seqence_flag && mac_flag1) setSn_CR(sn,Sn_CR_SEND_MAC); // yhlee
+    	else if(peer2_seqence_flag && mac_flag2) setSn_CR(sn,Sn_CR_SEND_MAC); // yhlee
+        else setSn_CR(sn,Sn_CR_SEND); // yhlee
+    	//setSn_CR(sn,Sn_CR_SEND);    
+        /* wait to process the command... */
+        while(getSn_CR(sn));
+    		
+    #if _WIZCHIP_ == 5200   // for W5200 ARP errata 
+        setSUBR((uint8_t*)""\x00\x00\x00\x00"");
+    #endif
+
+
+?Â´Ã¬ÂÂ ?ÂÃ«ÂÂ?? ÃªÂ²???Ã«Â¶??ÂÃ«ÂÂÃ«Â¦Â½Ã«ÂÂ?? hello
+
+In configtool, Device Search uses UDP communication as a default operation.
+In this case, the WIZ750SR also transmits UDP response packets for the Device Search in configtool through Sendto.
+Therefore, if you modify the sendto code, it may not work properly.
+Application code is not modified for sendto, but it is recommended to create a function separately. You should make a separate application code ~!Thank you for your help.","Q) Is there a way to solve the issue with the WIZ750SR-RS232 config tool not appearing when the packet does not enter the correct server due to entering the MAC incorrectly?
+A) In configtool, Device Search uses UDP communication as a default operation. The WIZ750SR also transmits UDP response packets for the Device Search in configtool through Sendto. Therefore, if you modify the sendto code, it may not work properly. It's recommended to create a separate function for the application code rather than modifying the sendto code.
+
+Q) What should be checked if the conditions seem correct even after checking whether the packet is going out normally or the packet capture?
+A) If the conditions seem correct even after checking whether the packet is going out normally or the packet capture, it is recommended to check the code level and ensure that the packet enters the correct server by entering the correct MAC. 
+
+Q) Could you explain the purpose and functionality of the code snippet ""void uart_to_ether(uint8_t sock)""?
+A) The purpose of the code snippet ""void uart_to_ether(uint8_t sock)"" is to handle the UART to Ethernet communication. It includes logic to check for UDP_MODE, send data to servers, and handle ARP packets.
+
+Q) What is the functionality of the code snippet ""void ether_to_uart(uint8_t sock)""?
+A) The code snippet ""void ether_to_uart(uint8_t sock)"" is responsible for handling Ethernet to UART communication. It contains logic to receive data using UDP_MODE and manage peer IP addresses.
+
+Q) What does the code snippet ""<int32_t sendto(uint8_t sn, uint8_t * buf, uint16_t len, uint8_t * addr, uint16_t port)>"" do?
+A) The code snippet ""<int32_t sendto(uint8_t sn, uint8_t * buf, uint16_t len, uint8_t * addr, uint16_t port)>"" is used to send data to a specified address and port using the specified socket.
+
+Q) Could you provide an overview of the WIZ750SR-RS232 and its features?
+A) The WIZ750SR-RS232 is a serial to Ethernet module that enables serial devices to be connected to an Ethernet network. It supports various communication modes and provides features for efficient data transmission.
+
+Q) Can you clarify the purpose of the WIZNET S2E Configuration Tool on the server PC?
+A) The WIZNET S2E Configuration Tool on the server PC is used to configure and manage the settings of the WIZ750SR-RS232 module, including device search and network communication parameters."
+3716,6953,"thank you
+We are implementing the FTP server in the W5300 16bit Direct mode.
+Server-> Client file transfer is transmitted at a speed of 10MB/s or more.
+When transferring to Client-> Server, only 1.6KB/s is only at a speed.
+SOCKET () -> Listen () -> Send () or RecvFrom () -> Close ().
+
+Initialization of SOCKET (2, SN_MR_TCP, 19800, 0x00)
+This is the same situation when initialized with SOCKET (2, SN_MR_TCP, 19800, SN_MR_ND).
+I checked with the test pin output and it is confirmed that the receiving event occurs every 5 seconds.
+Where is this 5 seconds set, and why do you set it to SN_MR_ND? The W5300 is not sure if you are talking about speed issues when running on a server.
+For FTPC, FTPS, or W5300, it works in the same way.
+There is no reason for performance issues.
+
+Capture the test environment and a problem packet with Wireshark and send the original to help the cause analysis.If possible, please attach the Driver Source Code in use. thank you
+Putting the forced transmission code improves the symptoms.
+But one more problem was found.
+When I received the size of LEN every time I received it, I found a second bigger than the size of the file sent to the FTP.
+I opened the received file as a Hex editor and I added any 2 bytes at the end of the file.Please check this part.
+Always +2, regardless of the size of the file.
+It is the same phenomenon even if you remove the forced transmission code. The W5300 uses 16bit internal memory.
+Therefore, there is a problem that the dummy byte cannot be distinguished when receiving the odd bytes.
+Therefore, the LENGHT Header 2 byTE, which informs the actual day -to -packs for each receiving packet, is added and stored in the socket buffer.
+
+Therefore, Getsn_rx_rsr () value and recv () function return value may be different.
+For example, if you receive a 100byte packet, the former returns 102 and the latter 100.
+If multiple packets are piled up in the receiving buffer, the difference can be more.
+
+As a symptom, the header appears to be calculated.
+Please check the receiving files exactly what other parts match the original, not the last 2 byte.
+
+It is recommended to use the latest version of IOLIBRARY.
+thank you The return value of the RECV function disappears.
+Thank you for answer.
+Then work hard","Q) Where is this 5 seconds set, and why do you set it to SN_MR_ND? The W5300 is not sure if you are talking about speed issues when running on a server.
+A) The 5 seconds setting and the choice to set it to SN_MR_ND for the W5300 are related to the handling of odd bytes in the received data.
+
+Q) Please check this part. Always +2, regardless of the size of the file.
+A) The additional 2 bytes at the end of the file are a result of the W5300 using 16bit internal memory, which makes distinguishing dummy bytes in odd-sized received data a challenge.
+
+Q) Therefore, Getsn_rx_rsr() value and recv() function return value may be different. For example, if you receive a 100byte packet, the former returns 102 and the latter 100.
+A) The discrepancy between the Getsn_rx_rsr() value and the recv() function return value occurs due to multiple packets piling up in the receiving buffer, causing a difference in the values.
+
+Q) It is recommended to use the latest version of IOLIBRARY.
+A) Thank you for the recommendation to use the latest version of IOLIBRARY. This can help in addressing the return value disappearance issue in the RECV function."
+3717,6955,"I am using W7500S2E-R1 module ? does it supports multiple ports , i mean multiple TCPIP connections simultaneously? The S2E module doesn't support multiple ports.","Q) Does the W7500S2E-R1 module support multiple ports and multiple TCPIP connections simultaneously?
+A) The S2E module doesn't support multiple ports."
+3718,6964,"I have to interface Wiznet W5300 chip with a Spartan 3 FPGA for sending packets over Ethernet using the Hardwired TCP/IP feature of Wiznet. I am planning to interface using the direct/indirect bus of Wiznet W5300. Can anyone point me to some good and helpful sources that can help me in this regard since I am quite new to this. So far I have mostly come across Wiznet interfacing with FPGA using the SPI protocol. Dear @qandeel_fazal
+
+Sorry, we have no FW code to control W5300 with FPGA.
+
+Scott Ok is there any tutorial explaining the memory structure and addressing of Wiznet W5300 in detail with examples? Like I want to know in detail what actually is T.M.S and W.M.S?","Q) Can anyone point me to some good and helpful sources that can help me in this regard since I am quite new to this? 
+A) Sorry, we have no FW code to control W5300 with FPGA.
+
+Q) Scott Ok is there any tutorial explaining the memory structure and addressing of Wiznet W5300 in detail with examples? Like I want to know in detail what actually is T.M.S and W.M.S?
+A) None."
+3719,6966,"Hello friends! I want to make the Internet in my own country, but a little lack of knowledge. There is a module with support for 3G, called SIM5360 ... It has the following interfaces: UART, I2C, USB, GPIO, SPI. I need to be able to connect this module to the Lan port of a laptop or WAN router, and go online. The transfer rate should be 100Mbp / s. Tell me the options for implementing this idea. The W5100S or W5500 support SPI Interface and can connect LAN port.
+But the Network Performance is Maximum 25Mbps or 15Mbps. The most difficult question for me is the connection. Let's say I have an Atmega328, W5500 microcontroller and a SIM5360 module in my hands. I combine the microcontroller and the W5500 on the SPI bus, but how do I connect the SIM5360 to all this? How can I combine all this? @Semicon
+I think SIM5360 have to connect microcontroller using UART and W5500 have to use the HTTP protocol. The microcontoller receives the uart data from SIM5360 and it starts on parsing about received data.
+The parsing data sends to W5500 via SPI and W5500 sends the received data using http protocol.
+It's just my idea
+
+If you are possible, could you please draw the connect schematic? Where are the MCU, W5500 in this schematic?
+Could you please check  whether or not to occur the SIM5360 and Ethernet pin collision?","Q) Tell me the options for implementing this idea. The W5100S or W5500 support SPI Interface and can connect LAN port.
+A) The W5100S or W5500 with SPI Interface can be used to connect the LAN port for online access. However, the network performance is maximized at 25Mbps or 15Mbps, which may impact the desired transfer rate of 100Mbps.
+
+Q) Let's say I have an Atmega328, W5500 microcontroller and a SIM5360 module in my hands. I combine the microcontroller and the W5500 on the SPI bus, but how do I connect the SIM5360 to all this? How can I combine all this? @Semicon
+A) The SIM5360 can be connected to the microcontroller using UART, while the W5500 can utilize the HTTP protocol. The microcontroller will receive UART data from SIM5360 and parse the received data. The parsed data can then be sent to W5500 via SPI, which would handle sending the data using the HTTP protocol.
+
+Q) If you are possible, could you please draw the connect schematic? Where are the MCU, W5500 in this schematic?
+A) I'm happy to help with a schematic. However, please note that I'm unable to draw the schematic directly. You may consider using schematic software such as Eagle or Fritzing to visually represent the connections of the MCU, W5500, and SIM5360.
+
+Q) Could you please check whether or not to occur the SIM5360 and Ethernet pin collision?
+A) The possibility of SIM5360 and Ethernet pin collision needs to be carefully verified, considering the specific pin configurations and potential conflicts. It's important to ensure that there are no conflicts in the pin assignments for both the SIM5360 and the Ethernet interface."
+3720,6969,"hello?
+
+We are developing a product that communicates with the server program using the Wiz550sr.
+
+When the network is not good, when communication
+Event_sockclosed appears as a socket event code.
+
+Is there a way to make sure the socket connection is maintained when you are not communicating?
+Do you use the Keep Alive feature in the Wiz550sr? For other modules, the Keep Alive function is implemented,
+In the case of Wiz550sr, the Keep Alive function is not implemented.
+However, modifying the firmware can be easily added.","Q) Is there a way to make sure the socket connection is maintained when you are not communicating? Do you use the Keep Alive feature in the Wiz550sr?
+A) In the case of Wiz550sr, the Keep Alive function is not implemented. However, modifying the firmware can easily add this feature."
+3721,697,"I use W5500 with STM32F051R8T6, my IDE is Keil. I ported some part of code to this chip and communication by SPI works well. I also have succes with STM32F103X CooCox CoIDE Project Loopback Test - works perfect.
+I have problem with DHCP client. When I run this project I have go HardFault. Here is my console output:
+
+[code]=== W5500 NET CONF : DHCP ===
+MAC: 00:08:DC:00:AB:CD
+SIP: 192.168.1.123
+GAR: 192.168.1.1
+SUB: 255.255.255.0
+DNS: 0.0.0.0
+===========================
+> Send DHCP_DISCOVER
+DHCP message : 192.168.1.1(67) 345 received.
+> Receive DHCP_OFFER
+> Send DHCP_REQUEST
+DHCP message : 192.168.1.1(67) 345 received.
+> Receive DHCP_ACK
+HardFault[/code]
+
+during debug I have found that hardfault is occur in this line:
+
+[code]if(*((uint32_t*)addr) == 0) return SOCKERR_IPINVALID;[/code]
+
+in function
+
+[code]int32_t sendto(uint8_t sn, uint8_t * buf, uint16_t len, uint8_t * addr, uint16_t port)[/code]
+
+What could be the problem? Hi,
+addr address assigned in memory maybe not 32-bit address value. That is, The addr is not divided by 4.
+ex) addr = 0x0003;
+     *((uint32*)addr)  = 0x11223344;  <--- Maybe Hardfault.
+
+Check addr value.
+
+Thank you. Hi,
+
+I checked and addr = 0x2000016B  - address of variable DHCP_allocated_ip.
+
+You are right. This addr is not divied by 4.
+
+I change code to:
+
+[code]if ((addr[0] | addr[1] | addr[2] | addr[3]) == 0) return SOCKERR_IPINVALID;[/code] 
+
+and now everything is OK. Hi,
+I'm glad to solve your problem, too.
+Thank you.","Q) What could be the problem?
+A) The hardfault is occurring in the line `if(*((uint32_t*)addr) == 0) return SOCKERR_IPINVALID;` in the function `int32_t sendto(uint8_t sn, uint8_t * buf, uint16_t len, uint8_t * addr, uint16_t port)`. 
+
+Q) What was the solution to the problem?
+A) The address assigned to the `addr` variable in memory may not be a 32-bit address value, which means that the `addr` is not divisible by 4. After checking the `addr` value, it was found to be `0x2000016B` - the address of the variable `DHCP_allocated_ip`. By changing the code to `if ((addr[0] | addr[1] | addr[2] | addr[3]) == 0) return SOCKERR_IPINVALID;`, the problem was resolved."
+3722,6971,"when i try the DNS of W6100, if the length of the domain is large, for example salesmanagementsoftware.com,  it seems the DNS can not get the IP address of the server, what can i do?
+
+Thanks. Can you modify Firmware of MAX_DOMAIN_NAME value in dns.h ?
+We set that value to 16. Please increase it.","Q) When i try the DNS of W6100, if the length of the domain is large, for example salesmanagementsoftware.com,  it seems the DNS can not get the IP address of the server, what can i do?
+A) Can you modify Firmware of MAX_DOMAIN_NAME value in dns.h ? We set that value to 16. Please increase it."
+3723,6973,"Hello, @karen. 
+There are several reasons why the config tool does not find devices.
+* Firewall issues
+* If using multiple network adapters
+* Other cases
+
+Please refer to the below link.
+* [Configuration Tool Troubleshooting Guide: Devices not searched](https://github.com/Wiznet/WIZnet-S2E-Tool-GUI/wiki/Troubleshooting-Guide#Devices-is-not-searched) I apologize for the confusion regarding the model number. I was provided the wrong information for the card when it was delivered to me.  Now I realize I had the wrong config tool. I was able to connect once I installed the correct tool provided by irina_kim. Thank you irina_kim","Q) Why does the config tool not find devices? 
+A) There are several reasons: firewall issues, using multiple network adapters, and other cases. You can refer to the troubleshooting guide [here](https://github.com/Wiznet/WIZnet-S2E-Tool-GUI/wiki/Troubleshooting-Guide#Devices-is-not-searched). 
+"
+3724,6975,"Excellent!Now you can easily, at any timefor private conversation, on the right from [Add to bookmarks in your profile] https://forum.wiznet.io/u/lentec/activity/Bookmarks).It is enough that you will click on your profile photo on the right &#8599;
+
+Then, can you be performed?me one of the following links?Answer at the life of the ** link in a separate line **, and its clever summary will be automatically added.
+
+To kopiowa?LINK, Press and hold on the overlapping device or right -click:
+
+<https://en.wikipedia.org/wiki/inherently_funny_word>
+<https://en.wikipedia.org/wiki/death_by_coconut>
+<https://en.wikipedia.org/wiki/calculator_spelling> Hello @Lentec, I remind myself of myself because I have not come to me for a long time.
+
+To continue?, Answer me at any time.
+
+To miss ??this step, you knowAbout the content ``.
+
+To start ??from the beginning, you knowAbout the content 'start a tutorial'.
+
+If you don't answer it all ok.I am a robot.You can't hurt my feelings?: Sat:","Q) Can you give me one of the following links?
+A) To kopiowa?LINK, Press and hold on the overlapping device or right-click:
+<https://en.wikipedia.org/wiki/inherently_funny_word>
+<https://en.wikipedia.org/wiki/death_by_coconut>
+<https://en.wikipedia.org/wiki/calculator_spelling>
+
+Q) To continue?
+A) Hello @Lentec, I remind myself of myself because I have not come to me for a long time. To continue?, Answer me at any time. To miss ??this step, you knowAbout the content ``. To start ??from the beginning, you knowAbout the content 'start a tutorial'. If you don't answer it all ok.I am a robot. You can't hurt my feelings?: Sat:"
+3725,6978,"Hi everyone,
+I would like to ask if is there some way how to create simple uart link between two wizfi360, I mean UART????wizfi360????~ radio ~???Âwizfi360???ÂUART. 
+I have wizfi360-con
+Thanks Hi,
+
+WizFi360 supports only AP, STA and AP-STA modes.
+So, If you want to create WiFi link with 2 of WizFi360 modules, 
+one of the module have to run the AP or AP-STA mode.
+then, the other module can connect to the AP module to make WiFi link.
+
+The modules can be set by AT Commands.
+please refer to an AT Instruction set in link below.
+https://wizwiki.net/wiki/doku.php/products:wizfi360:wizfi360ds:start I know, i have two wizfi360 connected together and with TCP protocol is no problem, but it is too slow for my application. I need send few bytes every 100 ms, so the best way should be some bridge or somethink like that. I just want send to uart &h05 and on the other side the same text -> &h05. Is it possible ? 
+thanks for link or AT commands Sorry Snake,
+We do not recommend fast cycle of transmission. Oh, OK thanks.
+What about UDP connection with transparent transmission ? Yesterday I found forum with AT commands for esp32 but it works.. not sure with 100ms but its acceptable. 
+See: http://esp32.com/viewtopic.php?t=1103&start=30 It is need to test.
+Usually, Transparent mode is slower than AT command mode.
+I'm not sure that the WizFi360 can transmit data stably every 100ms.
+but, UDP + AT command mode is the best performance of WizFi360.","Q) Is there some way to create a simple UART link between two WizFi360 modules? I mean UART connection between WizFi360 modules. 
+A) WizFi360 supports only AP, STA, and AP-STA modes. If you want to create a WiFi link with two WizFi360 modules, one of the modules has to run in AP or AP-STA mode, and then the other module can connect to the AP module to establish a WiFi link. The modules can be set using AT Commands. Please refer to the AT Instruction set in the following link: https://wizwiki.net/wiki/doku.php/products:wizfi360:wizfi360ds:start
+
+Q) I have two WizFi360 connected together with TCP protocol, but it is too slow for my application. I need to send a few bytes every 100 ms. Is it possible to send via UART? 
+A) We do not recommend fast cycle transmission. Usually, transparent mode is slower than AT command mode. I'm not sure if the WizFi360 can transmit data stably every 100ms. However, UDP + AT command mode is the best performance for WizFi360. It would need testing to ensure stability.
+
+Q) What about UDP connection with transparent transmission? 
+A) Usually, Transparent mode is slower than AT command mode. I'm not sure that the WizFi360 can transmit data stably every 100ms. However, UDP + AT command mode is the best performance for WizFi360. It needs testing to confirm."
+3726,6979,"hello.
+
+I am using an embedded board with the W5500.
+
+I would like to contact us because I can't communicate properly due to ARP -related problems.
+
+       'Equipment (with W5500)' - 'Switch' - 'Notebook 1'
+
+ With this configuration, the equipment and laptops are communicated with their opponent IP with UDP.
+
+In addition, I would like to add 'equipment' with 'equipment' and UDP communication with the switch.
+
+Of course, the IP is set differently, and 'Laptop 2' is trying to send data to the IP and port of 'equipment'.
+
+However, when I connected 'Laptop 2' to the switch, the communication between 'equipment' and 'notebook 1' became a food.
+
+Looking at the situation, when the laptop 2 is connected, the W5500 seems to send the data from the MAC address of 'Notebook 2' and the IP of 'Notebook 1', which was originally communicated, to send the data to 'Notebook 2'.
+
+ARP management doesn't work as I want, so 'Laptop 1' and 'Laptop 2' do not seem to be smooth at the same time. I would appreciate what to do with the W5500 to solve this problem.
+
+If I have been wrongly diagnosed, I also welcome advice to help.
+
+thank you If the Destination IP is different from the previous destination in the W5500, the ARP is sent every time.
+Because only one Mac address can be stored and the ARP is transmitted when IP changes
+It is not seen as a general situation.
+It would be helpful to capture the packet with the firmware code and the Wireshark.
+When attached, please inform the IP of the equipment and the IP of the MAC address laptop 1 and the MAC address laptop 2 and the MAC address. After experimenting, I found that I had converted two MAC addresses in other tests for other tests.
+
+That's why it was communicating to the wrong place.
+
+Thank you anyway ^^","Q) I would appreciate what to do with the W5500 to solve this problem. If I have been wrongly diagnosed, I also welcome advice to help.
+A) If the Destination IP is different from the previous destination in the W5500, the ARP is sent every time. Because only one Mac address can be stored and the ARP is transmitted when IP changes. It is not seen as a general situation. It would be helpful to capture the packet with the firmware code and the Wireshark. When attached, please inform the IP of the equipment and the IP of the MAC address laptop 1 and the MAC address laptop 2 and the MAC address.
+
+Q) Thank you anyway ^^
+A) None."

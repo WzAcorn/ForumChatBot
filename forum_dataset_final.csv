@@ -1,0 +1,600 @@
+,topic_id,translated_raw,refine_raw
+3728,6981,"Hi lentec
+
+which FW version you use?
+I will try to test it and let you know. Hi,
+I think, that we have found today the problem and solution. The problem is number of local port in SCON instruction. If we set 0 (random port), then we have not the delay (on the picture it is 5001). Linux and  iPhone do a delay after closing socket.
+
+Thank you for help. :grinning:","Q) which FW version you use?
+A) I will try to test it and let you know. 
+Q) I think, that we have found today the problem and solution. The problem is number of local port in SCON instruction. If we set 0 (random port), then we have not the delay (on the picture it is 5001). Linux and  iPhone do a delay after closing socket.
+A) Thank you for help."
+3729,6991,"I cannot get my W7500P to acquire IP address from DHCP server.
+I am running DHCP example as is, and there is no DHCPOFFER received after sending DHCPDISCOVER message.
+Also, there is a strange behaviour when running loopback.
+I will describe my setup first:
+The board is powered through 1-in 1-out PoE switch. The PoE switch is connected to LAN port of an access point. 
+In Loopback example (static IP), the MCU links OK. But it is not visible on the network (same subnet). I can connect to the MCU ONLY if connecting directly (through PoE switch) my laptop and the MCU board and the loopback example works fine.
+
+As I said, DHCP example does not work at all.
+
+Does it have to do with a particular router? I have a bit complex wireless infrastructure in my office:
+1. there is a wireless router 1 with SSID ""network"" with the address 192.168.0.1
+2. there is another wireless router 2 with the same SSID connected wirelessly to the router 1, with the address 192.168.0.10.
+3. the MCU is connected by cable to the router 2 (through PoE switch)
+4. DHCP server runs on the router 1
+5. The both routers are the same tenda model.
+
+So, the connection of the MCU board is: PoE switch -> router 2 with no DHCP server -> router 1 with DHCP server.
+Please note that if I connect my laptop in the same way it works fine (acquires IP address). However, through wireshark I can see that the laptop first sends DHCPREQUEST instead of DHCPDISCOVER message.
+Please help, I have no idea what the problem is. I tried several different routers and the behaviour is the same, DHCP server does not respond to DHCP_DISCOVER from W7500p. I caught DHCP_DISCOVER message from the MCU by Wireshark, so the MCU sends the message.
+Please advise Can you connect to the router 1 ?
+If you can that, please check the difference and debug message of W7500P.
+The SSID is not  relevant with W7500P because W7500P is using Ethernet and SSID used to WiFi.
+Is it right laptop is assigned ip via ethernet? First, If you have several DHCP server, I think you should add the delay of 200ms between call of like DHCP_run() in main loop.
+Could you please add the delay and try again? I have added the delay in the main loop between calls to DHCP_run(), but no change.
+
+Can you confirm/check that the DHCP example works as is on the GitHub? Or anyone else who tried it? I downloaded DHCP server application onto my laptop ([http://tftpd32.jounin.net](http://tftpd32.jounin.net/)), and now this server assigns IP address to W7500P correctly if I connect laptop and W7500P through cable.
+
+But still I could not obtain IP from any of four routers I tried (TP-Link and Tenda), and W7500P is not visible on subnet even in Loopback example (with manual IP).
+
+The good experiment would be if somebody tries the DHCP example with a router and confirm it works as is. Sounds lame, but maybe DHCP servers on routers need more information in Discover message? [quote=""irina_kim, post:9, topic:6991""]
+Do you use a board made by yourself using the W7500P? or use WIZ750SR?
+[/quote]
+I use a board made by myself after WIZwiki-W7500P.
+
+Could you expand Wireshark so I could see the content of Discover packet? Dear all!
+
+The DHCP client example maybe not worked with any DHCP server. Because some DHCP servers require a special option value for security or authenticaton.
+
+To solve your problem, please compare two DISCOVERY message between W7500P and Your PC to find what is different option.
+
+Anyway, If your W7500 can't send a Discovery message, it is another problem, not DHCP.
+
+Thank you.
+
+Thank you. Dear Irina,
+Can you expand Parameter request list in wireshark, so I can check against my design?
+Yes, I have tried the example with WizWiki-7500P board.
+Thank you [quote=""rajovic, post:10, topic:6991""]
+I use a board made by myself after WIZwiki-W7500P.
+
+Could you expand Wireshark so I could see the content of Discover packet?
+[/quote]
+The first thing I'd like to do is check your schematic.
+Because the example of DHCP is hardcoding and if you didn't change the source code, it would be no problem.
+Also, As @mc said, it would be good to compare the discover packets when PC get an address assigned  using DHCP. The above screenshots are of the discover packet sent from PC to router, after which the PC gets IP address from the router.
+
+Do you want to see some other packet?
+
+As for DHCP tool for PC, I try three different tools, all work the same, for example
+http://www.dhcpserver.de/cms/ I will request to hardware engineer(@Scott) your schematic.
+ If  you can access admin account in router, you can see to manager the assigned IP in DHCP Server.Could you check if W7500P is assigned IP.
+Isn't it a problem with the router? Dear @Scott
+
+Sorry, I forgot to mention that the board has been reworked so we added PHY clock. AS for MCU clock, we use internal RC oscillator as a clock source.
+Anyway, many examples work (loopback for example), but not DHCP. Dear @irina_kim
+
+I tried several different routers, always the same.
+
+Anyway, I decided not to use DHCP,  but this issue still makes me restless, so I am keen to find out what is going on. This topic has become so long, so I'll try to summarize the problem as concisely as possible.
+
+- I run DHCP example with several different routers, I see Discover packets are sent by the MCU, but no DHCP offer from router.
+- I connect a PC running DHCP server application and W7500P directly, and the MCU receives DHCP offer from the DHCP server running on the PC.
+- I run loopback example (with static IP address for MCU in the same subnet), but the MCU is not visible on the subnet by other devices (ping fails)
+- If I run loopback example with direct connection of a PC and the MCU, the MCU answers on ping request Your PC sent a DHCP DISCOVER message with the vendor class identifier option.
+
+So, try to add vender claass identifer option as same as PC's discovery message.
+
+Thank you. @rajovic 
+Hi Rajovic,
+
+I encountered the same problem today and finally found that it was caused by the ""multicast bit"" in the MAC address. And in your previous post:
+
+[quote=""rajovic, post:4, topic:6991""]
+Bootp flags: 0x8000, Broadcast flag (Broadcast)
+1????????= Broadcast flag: Broadcast
+[/quote]
+ 
+Maybe the same reason leads to your problem.","Q) Can you connect to the router 1 ? If you can that, please check the difference and debug message of W7500P. The SSID is not  relevant with W7500P because W7500P is using Ethernet and SSID used to WiFi. Is it right laptop is assigned ip via ethernet? 
+A) The SSID is indeed not relevant to W7500P as it uses Ethernet, while SSID is specific to WiFi. As for the laptop being assigned an IP via ethernet, it is a possibility. Also, I suggest adding a delay of 200ms between calls of DHCP_run() in the main loop and then retrying the connection.
+
+Q) Could you please add the delay and try again? I have added the delay in the main loop between calls to DHCP_run(), but no change.
+A) Adding a delay didn't bring about any change in the functionality.
+
+Q) Can you confirm/check that the DHCP example works as is on the GitHub? Or anyone else who tried it? I downloaded DHCP server application onto my laptop ([http://tftpd32.jounin.net](http://tftpd32.jounin.net/)), and now this server assigns IP address to W7500P correctly if I connect laptop and W7500P through cable.
+A) The DHCP example worked correctly when I used a DHCP server application on my laptop to assign an IP address to W7500P. However, I still faced issues with obtaining an IP from any of the routers I tried (TP-Link and Tenda), and W7500P was not visible on the subnet even in Loopback example (with manual IP).
+
+Q) Sounds lame, but maybe DHCP servers on routers need more information in Discover message?
+A) It is a possibility that some DHCP servers on routers may require additional information in the Discover message. It's worth exploring this possibility to understand the root cause of the issue.
+
+Q) Dear Irina, Can you expand Parameter request list in wireshark, so I can check against my design?
+A) I have tried the example with WizWiki-7500P board. Thank you
+
+Q) Do you want to see some other packet?
+A) If you can access the admin account in the router, you can see the assigned IP in the DHCP Server. Could you check if W7500P is assigned an IP?
+
+Q) Could you expand Wireshark so I could see the content of Discover packet?
+A) The first thing I'd like to do is check your schematic. Also, it would be good to compare the discover packets when a PC get an address assigned using DHCP. The above screenshots are of the discover packet sent from PC to the router, after which the PC gets an IP address from the router.
+
+Q) Isn't it a problem with the router?
+A) It's possible that the issue lies with the router. It may be worth investigating if the problem is specifically related to the router and its DHCP configurations.
+
+Q) Anyway, many examples work (loopback for example), but not DHCP. 
+A) It's worth noting that while many examples work, the DHCP example doesn't, leading to further investigation to understand the specific issue with DHCP functionality.
+"
+3730,6993,"with Wiz750SR  module there is the possibility to have socket open with TCP_NODELAY set? i'm using it in a application where the comunication is done with small packet frequent and in near real time, bidirectional,   with the high speed working i will  see some delay  on the packet reception, but mainly is not stable like it depends from other packets...  on the network there is only one Wiz750SR and a Gigabit Ethernet adpater of the PC.  (maybee in future can be also a raspberry  or two on the same network, but not connected to internet or other device...)  i can disable on the PC software the TCP_NODELAY,  but if there is on the Wiznet module i solve only a partial of the problem, not the complete...
+
+Best Regards...
+Davide Valdinoci WIZ750SR has TCP_NODELAYACK set.
+If you want to disable it, you can modify the code to use it.
+Please Tell me more about your problem.  the size parameter in the data packing section, can be used to send immediately the tcp message, when received the number of chars indicated? and in case can be combined with the Time (in ms) to ship immediately when the timeout between char expiry?
+i have see in the debug message in my application that sometimes  the message whas grouped....   i have a very high  number of message from the 750sr module to PC with message composed of 6/8 bytes message...  trasmitting at 38400baud  at a maximum speed rate of 330 at seconds... then connection is with 100mb ethernet adapter..... apparently the problem seem to appear on laptop of last generation   with gigabit ethernet,  processor of AMD a6  or intel i3,   not with Intel I5  (i have check with a same operating system).  or Fixed PC with 4 core  intel processor.... and windows XP/Win7  notebook with DualCore processor....  i have set in the PC program the TCP_NODELAY.. Sorry, i don't understand your problem.
+
+[quote=""teaelettronica, post:1, topic:6993""]
+but mainly is not stable like it depends from other packets??
+[/quote]
+Is this your problem? Please tell me the specific symptoms.
+
+
+[quote=""teaelettronica, post:3, topic:6993""]
+the size parameter in the data packing section, can be used to send immediately the tcp message, when received the number of chars indicated? and in case can be combined with the Time (in ms) to ship immediately when the timeout between char expiry?
+[/quote]
+Do you want to add delay? It is possible by modifying code. please tell me more about ""the timeout between char expiry?""  Even if the response packet is not sent immediately, the ACK is sent automatically, so Timeout doesn't occurred for the TCP connection. It may be different if you are saying a different timeout.","Q) with Wiz750SR  module there is the possibility to have socket open with TCP_NODELAY set?
+A) WIZ750SR has TCP_NODELAYACK set. If you want to disable it, you can modify the code to use it.
+
+Q) the size parameter in the data packing section, can be used to send immediately the tcp message, when received the number of chars indicated? and in case can be combined with the Time (in ms) to ship immediately when the timeout between char expiry?
+A) Do you want to add delay? It is possible by modifying code. Please tell me more about ""the timeout between char expiry?"" Even if the response packet is not sent immediately, the ACK is sent automatically, so Timeout doesn't occurred for the TCP connection. It may be different if you are saying a different timeout."
+3731,6995,"Hi All,
+
+I'd like to ask if anyone has any experience with a standalone 750sr - without the evaluation board.
+
+I'm trying to enable a convert from TTL to Ethernet - in a way that each peer will have an 750sr on his side, to create a LAN network.
+
+In a way, once i connect the serial to Ethernet in each side, i would like to ping to the other side.
+
+I have been trying almost a week now to have this work and even tried to connect 2 different PCs with only the 750sr converters directly (no middle ground between them) and i couldn't ping to the other end.
+
+Would be grateful if someone could help out,
+Daniel Do you have see a serial message of WIZ750SR?
+First connect the PC and module directly, then please check the ip with serial and send ping. Hi
+
+Thank you for the quick response !
+
+I have a good ping from the PC to the 750sr.
+I am able to send packets from the PC to the 750sr - and that transfers into the Serial module I am converting from - and it actually reaches the other end, **however**, I have no ping in between one PC to another. Could you please draw your connection diagram?
+And are all products(Two PC, one WIZ750sr) on the same network? Hello,
+
+It's difficult to send ping as your diagram.
+
+WIZ750SR is serial to ethernet module only for TCP or UDP.
+And it is only to deliver data.
+It is not possible to send requests and receive responses via serial.","Q) I'd like to ask if anyone has any experience with a standalone 750sr - without the evaluation board. I'm trying to enable a convert from TTL to Ethernet - in a way that each peer will have an 750sr on his side, to create a LAN network. In a way, once i connect the serial to Ethernet in each side, i would like to ping to the other side. I have been trying almost a week now to have this work and even tried to connect 2 different PCs with only the 750sr converters directly (no middle ground between them) and i couldn't ping to the other end. Would be grateful if someone could help out, Daniel Do you have see a serial message of WIZ750SR? 
+A) First connect the PC and module directly, then please check the ip with serial and send ping. Hi 
+
+Q) I have a good ping from the PC to the 750sr. I am able to send packets from the PC to the 750sr - and that transfers into the Serial module I am converting from - and it actually reaches the other end, however, I have no ping in between one PC to another. Could you please draw your connection diagram? And are all products(Two PC, one WIZ750sr) on the same network? 
+A) Hello, It's difficult to send ping as your diagram. WIZ750SR is serial to ethernet module only for TCP or UDP. And it is only to deliver data. It is not possible to send requests and receive responses via serial."
+3732,6996,"There is no separate license period.
+Is it an error recently installed?Or is it an error that suddenly floats after using it? My computer used to use it in the past and used it for tests, and this time the above error was erased and reinstalled. The previous version requires the latest wizvsp to install the license.
+You can use the latest WizvSP only if you delete the previous version of the WIZVSP normally.
+
+For more information, please check the FAQ below.
+https://forum.wiznet.io/t/topic/7000","Q) Is it an error recently installed? Or is it an error that suddenly floats after using it?
+A) The error might be occurring due to the need to delete the previous version of WIZVSP in order to use the latest WizvSP."
+3733,6998,"?ÂÃ«ÂÂ?ÂÃ¬ÂÂ¸??
+
+Configuration tool ÃªÂ´???Ã«Â¬Â¸Ã¬ÂÂ?ÂÃ«Â¦Â½?ÂÃ«ÂÂ¤.
+
+?ÂÃ«Â¡Â??Configuration Tool ???ÂÃ«ÂÂ ÃªÂ²ÂÃ¬ÂÂ ?ÂÃ¬ÂÂ¸ ?ÂÃªÂ³Â  
+Wiz750SR ÃªÂ³?NEW config tool  wizconfig-V1.1.0. exe Ã«Â¥??Â¬Ã¬ÂÂ©??Ã«Â³Â´Ã«ÂÂ ?ÂÃ¬ÂÂ
+?ÂÃ¬ÂÂ???ÂÃ¬? ?ÂÃ¬ÂÂµ?ÂÃ«ÂÂ¤.
+
+ÃªÂ¸Â°Ã¬Â¡Â´?ÂÃ«ÂÂ WIZ107SR / WIZ108SR Configuration Tool Ver1.4.4.1 ??
+?Â¬Ã¬ÂÂ© ?ÂÃ¬?ÃªÂ³?serach, setting, reset ??Ã«ÂªÂ¨Ã«ÂÂ  ÃªÂ¸Â°Ã«ÂÂ¥???ÂÃ¬ÂÂ ?ÂÃ¬ÂÂ???ÂÃ¬??ÂµÃ«ÂÂ??
+
+Configuration Tool Ã«Â§?new version ??wizconfig-V1.1.0 ???Â¬Ã¬ÂÂ© ?ÂÃ¬??ÂÃ«ÂÂ°??
+search ???Â©Ã«ÂÂ?? ?Â½Ã¬ÂÂ´??ÃªÂ°ÂÃ«ÂÂ¤???ÂÃ¬ÂÂ ?ÂÃ«ÂÂ??
+?ÂÃ¬?Ã«Â§?IP ?ÂÃ¬ÂÂÃ«Â¦??ÂÃ«ÂÂÃ«Â§?Ã«Â°ÂÃªÂ¾Â¸ÃªÂ³??ÂÃ¬ÂÂ© ?ÂÃ«Â Â¤ÃªÂ³?Apply Settings ???ÂÃ«Â¥Â´Ã«Â©?
+Invalid parameter. Please check the value.  ÃªÂ²Â½ÃªÂ³Â  Ã¬Â°Â½Ã¬ÂÂ´ ?Â¨Ã«ÂÂ ?ÂÃ­ÂÂ©?ÂÃ«ÂÂ??
+
+ÃªÂ¸Â°Ã¬Â¡Â´???Â°Ã«ÂÂ WIZ107SR / WIZ108SR Configuration Tool Ver1.4.4.1 Tool
+?? ?ÂÃ¬ÂÂ?ÂÃ¬ÂÂ¼Ã«Â¡??ÂÃ¬ÂÂ©???ÂÃªÂ³Â  Ã«Â¬Â¸Ã¬Â ÂÃªÂ°? ?ÂÃ«ÂÂ ?ÂÃ­ÂÂ©?ÂÃ«ÂÂ??
+new version ??wizconfig-V1.1.0 ???Â¬Ã¬ÂÂ© ?ÂÃ«Â Â¤Ã«Â©??Â¤Ã«Â¥Â¸ Ã¬Â¡Â°ÃªÂ±Â´???ÂÃ«ÂÂÃªÂ±Â´Ãª???
+?ÂÃ¬ÂÂ¨??Ã«Â²ÂÃ¬Â Â ?Â´Ã«ÂÂ¼?ÂÃª???
+
+?ÂÃ¬ÂÂ¸ Ã¬Â¢? Ã«Â¶????ÂÃ«Â¦Â¬ÃªÂ²Â Ã¬ÂÂµ?ÂÃ«ÂÂ¤. It is confirmed that the firmware version is operated normally from 3.0.4 or higher.
+If possible, update the latest version firmware with Wiz107sr / Wiz108sr Configuration Tool and use the WizConfig Tool.","Q) Configuration tool is not working properly. Can you assist me with using the new version of the tool? 
+A) It is confirmed that the firmware version is operated normally from 3.0.4 or higher. If possible, update the latest version firmware with Wiz107sr / Wiz108sr Configuration Tool and use the WizConfig Tool."
+3734,700,"Can the 210 connect to hidden networks? We are trying to connect to a hidden network with WPA2PSK security but it keeps saying AP associate failed. I know the network is working fine because we can connect to it on other devices. Hi
+
+I check about issue on today. But WizFi210 was well.
+I used AT command as below and My AP was WizFi630 using hidden SSID. And WizFi210's version is 1.1.1.0(W).
+
+[quote]
+at
+[OK]
+at+WWPA=123456789
+[OK]
+AT+NDHCP=1
+[OK]
+AT+WA=TEST_AP
+    IP              SubNet         Gateway   
+ 192.168.10.106: 255.255.255.0: 192.168.10.1
+[OK]
+[/quote]
+
+I think it might occur for that reason compatibility between AP and WizFi210.
+Please check this opinion. Thank you for your prompt reply.
+I'm having trouble understanding your response. Are you asking me to check my 210 firmware version?
+We use this Arduino sketch WizFi_RC from github. Below is just the AP association section.
+[quote]// AP association  
+  while(1)
+  {
+    byte tmpstr[32];
+    
+    retval = myWizFi.associate(SSID, Key, Security, true);
+    
+    if(retval == 1){
+      myWizFi.GetSrcIPAddr(tmpstr);
+      Serial.println(""AP association Success"");
+      Serial.print(""MY IPAddress: "");
+      Serial.println((char *)tmpstr);
+      Wifi_setup = true;
+      break;
+    }else{
+      Serial.println(""AP association Failed"");
+    }
+  }
+  
+  if(myServer.begin())
+    Serial.println(""Server Listen OK"");
+  else
+    Serial.println(""Server Listen Failed"");
+}[/quote]
+We've entered the correct credentials in the, myWizFi.associate(SSID,Key,Security,true) function, however it keeps returning 0 and we just get AP association Failed. Hi
+
+If you use WizFiShield, maybe WizFi210's firmware is 1.1.0.3(SPI) or 1.1.0.7(SPI).
+
+Result of test using WizFi210-EVB(Firmware version 1.1.0.3(SPI) and 1.1.0.7(SPI)), WizFi210 did well.
+Although not WizFiShield, It is true that WizFi210 can join to hidden SSID.
+
+Could you test using another Arduino example like basic test or another AP?","Q) Can the 210 connect to hidden networks? 
+A) Although not WizFiShield, It is true that WizFi210 can join to hidden SSID. 
+
+Q) I'm having trouble understanding your response. Are you asking me to check my 210 firmware version? 
+A) Result of test using WizFi210-EVB(Firmware version 1.1.0.3(SPI) and 1.1.0.7(SPI)), WizFi210 did well. 
+
+Q) Could you test using another Arduino example like basic test or another AP? 
+A) I think it might occur for that reason compatibility between AP and WizFi210. Please check this opinion. Thank you for your prompt reply."
+3735,7000,"Did you delete it using the installed version of the installed version?
+In my PC environment, the error does not appear even if I reinstall after deleting.
+My PC is Windows10. [quote = ""jroot, post: 2, topic: 7000""]
+The same error occurs even when installed in the WizvSP_V202_R2 version.
+[/Quote]
+
+Did you solve the above? My PC is Windows 7, but even if you install it again, you will continue to get a message.
+I don't know if there is a PC problem, or because of a conflict with other programs.
+I'm thinking about installing it in Windows 10. I laid it in Windows 7, but there was no problem.
+However, the PC I have laid is a PC that has not previously installed VSPs. hello.
+
+[quote = ""jroot, post: 5, topic: 7000""]
+My PC is Windows 7, but even if you install it again, you will continue to get a message.
+[/Quote]
+
+In this case, the OLD version information remains, which may cause problems.
+Please reinstall in the following order.
+
+1. ** Uninstall by running wizunist.exe **
+2. After performing uninstall, ** pc reboot **
+3. Run after the new version install","Q) Did you delete it using the installed version of the installed version? In my PC environment, the error does not appear even if I reinstall after deleting. My PC is Windows10.
+Did you solve the above? My PC is Windows 7, but even if you install it again, you will continue to get a message. I don't know if there is a PC problem, or because of a conflict with other programs. I'm thinking about installing it in Windows 10. I laid it in Windows 7, but there was no problem. However, the PC I have laid is a PC that has not previously installed VSPs. hello.
+A) In this case, the OLD version information remains, which may cause problems. Please reinstall in the following order. 1. ** Uninstall by running wizunist.exe ** 2. After performing uninstall, ** pc reboot ** 3. Run after the new version install."
+3736,7001,"Hello,
+I was running through the loopback tcp example program with the W5500 evaluation board .And i got some doubts .
+Can anyone please explain whats happening on this particular portion,
+switch(getSn_SR(sn))
+   {
+      case SOCK_ESTABLISHED :
+         if(getSn_IR(sn) & Sn_IR_CON)
+         {
+#ifdef _LOOPBACK_DEBUG_
+        	 getSn_DIPR(sn, destip);
+        	 destport = getSn_DPORT(sn);
+
+        	 printf(""%d:Connected - %d.%d.%d.%d : %d\r\n"",sn, destip[0], destip[1], destip[2], destip[3], destport);
+#endif
+            setSn_IR(sn,Sn_IR_CON);
+         }
+         if((size = getSn_RX_RSR(sn)) > 0)
+         {
+            if(size > DATA_BUF_SIZE) size = DATA_BUF_SIZE;
+            ret = recv(sn, buf, size);
+            if(ret <= 0) return ret;
+            sentsize = 0;
+            while(size != sentsize)
+            {
+               ret = send(sn,buf+sentsize,size-sentsize);
+               if(ret < 0)
+               {
+                  close(sn);
+                  return ret;
+               }
+               sentsize += ret; // Don't care SOCKERR_BUSY, because it is zero.
+            }
+         }
+         break; [quote=""soorajsuresh80, post:1, topic:7001""]
+if(getSn_IR(sn) & Sn_IR_CON)
+{
+#ifdef *LOOPBACK_DEBUG*
+getSn_DIPR(sn, destip);
+destport = getSn_DPORT(sn);
+
+```
+    	 printf(""%d:Connected - %d.%d.%d.%d : %d\r\n"",sn, destip[0], destip[1], destip[2], destip[3], destport);
+```
+
+#endif
+setSn_IR(sn,Sn_IR_CON);
+}
+[/quote]
+When a connect interrupt occurs (connect interrupt occurs immediately after tcp connection via handshaking), check the connected target.
+
+[quote=""soorajsuresh80, post:1, topic:7001""]
+if((size = getSn_RX_RSR(sn)) > 0)
+{
+if(size > DATA_BUF_SIZE) size = DATA_BUF_SIZE;
+ret = recv(sn, buf, size);
+if(ret <= 0) return ret;
+sentsize = 0;
+while(size != sentsize)
+{
+ret = send(sn,buf+sentsize,size-sentsize);
+if(ret < 0)
+{
+close(sn);
+return ret;
+}
+sentsize += ret; // Don?Ât care SOCKERR_BUSY, because it is zero.
+}
+}
+[/quote]
+When data is received it is sent again. [quote=""becky, post:2, topic:7001""]
+if((size = getSn_RX_RSR(sn)) > 0)
+[/quote]
+
+I believe this line is reading the received data size from the particular register . But i dont see any data receiving command before this. HELLO Becky!
+Thanks for the help.
+The loopback test is working fine for me now.
+I wonder if you could help me with something ,
+I want to change the loopback data for some reason, basically to ensure control over the data transfer,
+If so where should i edit in the code? [quote=""soorajsuresh80, post:1, topic:7001""]
+ret = recv(sn, buf, size);
+[/quote]
+
+[quote=""soorajsuresh80, post:1, topic:7001""]
+ret = send(sn,buf+sentsize,size-sentsize);
+[/quote]
+
+The received data is stored to ""buf"" and send the data stored ""buf"".
+So you can modify data via ""buf"".","Q) Can anyone please explain what's happening on this particular portion of the code? 
+A) When a connect interrupt occurs (connect interrupt occurs immediately after tcp connection via handshaking), the connected target is checked. The line `(size = getSn_RX_RSR(sn)) > 0` is reading the received data size from the particular register. The received data is stored to ""buf"" and the send data stored in ""buf"", so you can modify data via ""buf"".
+
+Q) I want to change the loopback data for some reason, basically to ensure control over the data transfer. If so, where should I edit in the code? 
+A) You can modify the data via ""buf"" by editing the lines `ret = recv(sn, buf, size);` and `ret = send(sn,buf+sentsize,size-sentsize)`."
+3737,7003,"Hi All,
+
+Regarding to the [WIZ550web](https://github.com/Wiznet/WIZ550web), I can see example code support web page in the flash not in the SD card. But I don't know the exactly procedure, such as how to put web page into flash ? what kind of web format ? should I put web page from address 0x00 or somewhere else ?
+Is there any documentation for this issue ?
+
+Thanks. We support a storage of data flash as well as SD card above v1.1.0 release.
+If there is no SD card after detecting during about 3 seconds, you can use a data flash.
+You must have the initialization process of data flash at least once.
+When SW1 and SW2 are pressed at the same time, the data flash is initialized by FatFs. And reset a target.
+You must copy the web page to a data flash by FTP client tool.([ALFTP](http://www.altools.com/ALTools/ALFTP.aspx))
+
+Refer to WIZ550web+WindowsFTP Tutorial. : http://youtu.be/kelGSGj3kOQ
+Refer to WIZ550web+LinuxFTP Tutorial :  http://youtu.be/6qsPZA5QKEI
+
+wizwiki site : [Data flash Initialization](https://wizwiki.net/wiki/doku.php/products:wiz550web:wiz550webgsg_en)","Q) But I don't know the exactly procedure, such as how to put web page into flash ? what kind of web format ? should I put web page from address 0x00 or somewhere else ? Is there any documentation for this issue ?
+A) You must copy the web page to a data flash using an FTP client tool such as ALFTP. Refer to the WIZ550web+WindowsFTP Tutorial: http://youtu.be/kelGSGj3kOQ and WIZ550web+LinuxFTP Tutorial: http://youtu.be/6qsPZA5QKEI. Additionally, you can refer to the Data flash Initialization guide on the Wizwiki site: https://wizwiki.net/wiki/doku.php/products:wiz550web:wiz550webgsg_en.
+
+A) Thanks. We support a storage of data flash as well as SD card above v1.1.0 release. If there is no SD card after detecting during about 3 seconds, you can use a data flash. You must have the initialization process of data flash at least once. When SW1 and SW2 are pressed at the same time, the data flash is initialized by FatFs and resets a target."
+3738,7006,"Hello,
+
+I am using the Adafruit Ethernet FeatherWing board using your W5500 chip.  The board is connected to my network via a NetGear Gigabit Hub.  I am having issues with the auto-negotiation not working correctly all the time.  It sometimes negotiates at 100Mb but most of the time it negotiates at 10Mb.  I am using the LED's on the Hub for the speed negotiated with the hub.
+
+Thanks,
+Jim Look into the logs of the hub if it has these. Change cable. Change hub. Change Ethernet board. If problem remains then configuration of W5500 or hub/switch is incorrect. If problem will disappear then most probably last changed device is the problem. Did you connect the RST pin of your FeatgerWing board to your MCU?
+Check the datasheet of W5500 how to **properly reset** W5500 after power on.
+
+In case you did proper reset then this could help: https://forum.wiznet.io/t/topic/2614/22","Q) I am having issues with the auto-negotiation not working correctly on my Adafruit Ethernet FeatherWing board using the W5500 chip. It sometimes negotiates at 100Mb, but most of the time it negotiates at 10Mb. How can I resolve this issue?
+A) Look into the logs of the hub if it has these. Change cable. Change hub. Change Ethernet board. If the problem remains, then the configuration of W5500 or the hub/switch is incorrect. If the problem disappears, then most probably the last changed device is the problem. Did you connect the RST pin of your FeatherWing board to your MCU? Check the datasheet of W5500 on how to properly reset W5500 after power on. In case you did proper reset, then this could help: https://forum.wiznet.io/t/topic/2614/22."
+3739,701,"If I repeatedly read a socket's status register in a loop, it seems interrupts don't fire.  
+
+[code]/* psuedo code:  interrupts don't fire */
+while(1)
+{
+    uint8_t status = socket_get_status();
+    switch(status)
+    {
+         /*  ...  */
+    }
+} [/code]
+
+If I don't read the status, the interrupts fire as expected:
+
+[code]/* psuedo code:  interrupts fire as expected */
+while(1)
+{
+    /* uint8_t status = socket_get_status(); */
+    switch(status)
+    {
+         /*  ...  */
+    }
+} [/code]
+
+I'm using the SPI interface with an STM32F4 MCU.  
+
+Is anyone aware of a problem like this?  Ã«Â¶????ÂÃ«Â¦Â¼?ÂÃ«ÂÂ¤.
+
+Mike If I add a 20us delay in the loop, it works fine.
+[code]/* psuedo code:  this works */
+while(1)
+{
+    uint8_t status = socket_get_status();
+    switch(status)
+    {
+         /*  ...  */
+    }
+    
+    delay_us(20);
+} [/code]
+
+Anyone have an idea why? Hi,
+Check the mask value of IMR regsiter.
+When the mask value set as '1' ans the coresponding bit also set  as '1' , Interrupt oucurrs.
+Others, no interrupt oucurrs.
+
+And, check the hardwire connection to MCU's intterupt input pin with W5100's /INT pin. 
+And, Check your MCU's interrupt control as sensitivity and polarity.
+
+Thank you. [quote]Check the mask value of IMR regsiter.
+When the mask value set as '1' ans the coresponding bit also set as '1' , Interrupt oucurrs.
+Others, no interrupt oucurrs.[/quote]
+
+Since the interrupts do occur when not reading the status register, or after adding a delay to the loop, the mask is set correctly.  If it wasn't I wouldn't receive interrupts under any condition.
+
+[quote]And, check the hardwire connection to MCU's intterupt input pin with W5100's /INT pin.[/quote]
+
+Again, since I am getting interrupts under certain conditions, it is obvious that the hardware is wired correctly.
+
+[quote]And, Check your MCU's interrupt control as sensitivity and polarity.[/quote]
+
+And again, since I am getting interrupts under certain conditions, it is obvious this is set correctly.
+
+The only difference is a 20us delay added in the loop, and it makes all the difference.  Is the W5100 unable to pull the interrupt pin if it's register are being read? Hi,
+According to what you said, The related Interrupt configuration & hardware is all ok.
+
+I wonder how to process Sn_IR register and what is your ISR routine.
+Sn_IR represents the interrupt of socket such as CONNECT,DISCON,RECV,SENDOK and TIMEOUT.
+if Sn_IR is not zero and Sn_IR mask bit is set, n bit of IR become set and Interrupt pin hold low until IR is not zero.
+Although IR is not zero, another interrupt can be occurred without changing the interrupt pin.
+So, Once interrupt is detected, you should  process all IR bit and clear all Sn_IR.
+
+For more detail, refer to datasheet.
+
+Thank you. [quote]I wonder how to process Sn_IR register and what is your ISR routine.
+Sn_IR represents the interrupt of socket such as CONNECT,DISCON,RECV,SENDOK and TIMEOUT.
+if Sn_IR is not zero and Sn_IR mask bit is set, n bit of IR become set and Interrupt pin hold low until IR is not zero.
+Although IR is not zero, another interrupt can be occurred without changing the interrupt pin.
+So, Once interrupt is detected, you should process all IR bit and clear all Sn_IR.[/quote]
+
+This is [i]exactly[/i] what I'm doing.  I modeled it after the examples and the information in the datasheet.
+
+I ask that you please take the time to test yourself.  Create a simple loop to repeatedly read the status register, and see if it prevents the interrupts from firing.  Knowing if you experience the same problem will be very helpful.
+
+Thanks. Hi, 
+
+I am trying to test your condition.
+
+After test I will post ASAP.
+
+Best regards. Hi,
+
+I tested done.
+
+But interrupt is always fine.
+
+So, I think reading status register has nothing to do with interrupt.
+
+Let's try to find problem.
+
+Best regards. Thank you for taking the time to test.  Were you using the SPI interface?  I suspect that is critical to reproducing the problem. Hi,
+
+I tested interrupt in SPI interface.
+
+And post your schematics and I/O function code.
+
+Then we will check and reply.
+
+Best regards. I made a few comments about the schematic.
+1.	To use system bus interface mode, pull down the SEN pin.
+2.	You can?Ât use both MCU system bus I/F mode and SPI I/F mode simultaneously.
+Thanks. [quote]1. To use system bus interface mode, pull down the SEN pin.
+2. You can?Ât use both MCU system bus I/F mode and SPI I/F mode simultaneously.[/quote]
+
+Yes, we are aware of this.  The ""DNI"" (Do Not Insert) is only there in case we change our minds, so we don't have to refabricate a PCB. Hi, 
+Is there your problem still ?
+
+If yes, check the the MCU interrupt to be enabled or be disabled.
+W5100 basic SPI IO operation as IINCHIP_READ, IINCHIP_WRITE,  IINCHIP_READ_BUF, and IINCHIP_WRTIE_BUF in wiznet driver code diable the MCU interrupt until A register read/written is completed. Refer to IINCHIP_ENABLE() and IINCHIP_DISABLE().
+
+I think MCU can't recognize the intrerrupt of 5100 generated during MCU interrupt is disabled by the code as IINCHIP_DISABLE() & IINCHIP_ENABLE().
+
+Thank you.","Q) If I repeatedly read a socket's status register in a loop, it seems interrupts don't fire. Is anyone aware of a problem like this?
+A) According to what you said, The related Interrupt configuration & hardware is all ok. I wonder how to process Sn_IR register and what is your ISR routine. Sn_IR represents the interrupt of socket such as CONNECT, DISCON, RECV, SENDOK and TIMEOUT. if Sn_IR is not zero and Sn_IR mask bit is set, n bit of IR become set and Interrupt pin hold low until IR is not zero. Although IR is not zero, another interrupt can be occurred without changing the interrupt pin. So, Once interrupt is detected, you should process all IR bit and clear all Sn_IR.
+
+Q) The only difference is a 20us delay added in the loop, and it makes all the difference. Is the W5100 unable to pull the interrupt pin if its registers are being read?
+A) According to what you said, The related Interrupt configuration & hardware is all ok. I wonder how to process Sn_IR register and what is your ISR routine. Sn_IR represents the interrupt of the socket such as CONNECT, DISCON, RECV, SENDOK, and TIMEOUT. if Sn_IR is not zero and Sn_IR mask bit is set, n bit of IR become set and Interrupt pin hold low until IR is not zero. Although IR is not zero, another interrupt can be occurred without changing the interrupt pin. So, Once an interrupt is detected, you should process all IR bit and clear all Sn_IR.
+
+Q) Thank you for taking the time to test. Were you using the SPI interface? I suspect that is critical to reproducing the problem.
+A) I tested interrupt in SPI interface. And post your schematics and I/O function code. Then we will check and reply.
+
+Q) Is there your problem still?
+A) If yes, check the MCU interrupt to be enabled or be disabled. W5100 basic SPI IO operation as IINCHIP_READ, IINCHIP_WRITE, IINCHIP_READ_BUF, and IINCHIP_WRITE_BUF in WIZnet driver code disable the MCU interrupt until A register read/written is completed. Refer to IINCHIP_ENABLE() and IINCHIP_DISABLE(). I think MCU can't recognize the interrupt of 5100 generated during MCU interrupt is disabled by the code as IINCHIP_DISABLE() & IINCHIP_ENABLE()."
+3740,7010,"Hi. I created a custom board that includes esp32 and w5500 but I couldn't download the firmware from http and update it. Can you guide me on how to do this? I tried to use this code but failed. https://github.com/espressif/arduino-esp32/blob/master/libraries/HTTPClient/examples/StreamHttpClient/StreamHttpClient.ino 
+Thanks Can you help me with your code?","Q) Can you guide me on how to download the firmware from http and update it for my custom board that includes ESP32 and W5500?
+A) You can use the code from this link to create a firmware update using HTTP: https://github.com/espressif/arduino-esp32/blob/master/libraries/HTTPClient/examples/StreamHttpClient/StreamHttpClient.ino"
+3741,7011,"Please understand that there will be a delay in response due to the Lunar New Year holidays. :smile:
+Sorry for any inconvenience to you and thank you for your patience.
+We will get back to your questions ASAP.
+Sincerely,  ",A) None.
+3742,7015,"Excellent!Now you can easily find private conversations at any time directly from the [section of markers of your profile] (https://forum.wiznet.io/u/zeltzin/activity/bookmarks).You just have to select your profile photo in the upper right of the screen &#8599;
+
+Then, could you share one of these links with me?Respond with ** a link on a line by itself **, and will automatically expand to include an ingenious summary.
+
+To copy any link, play and hold on the mobile device, or right click on your drying device:
+
+<https://en.wikipedia.org/wiki/inherently_funny_word>
+<https://en.wikipedia.org/wiki/death_by_coconut>
+<https://en.wikipedia.org/wiki/calculator_spelling> Hey, @Zeltzin, I wanted to tell you that I'm aware of you because I haven't had your news in a long time.
+
+- To continue, answer me at any time.
+
+- If you want to omit this step, write `jump`.
+
+- To start over, write `start tutorial`.
+
+If you prefer not to do it, that's fine.I am a bot.Do not hurt my feelings.: SOB:","Q) Then, could you share one of these links with me?
+A) To copy any link, play and hold on the mobile device, or right click on your drying device. 
+
+[Link]
+<https://en.wikipedia.org/wiki/inherently_funny_word>
+<https://en.wikipedia.org/wiki/death_by_coconut>
+<https://en.wikipedia.org/wiki/calculator_spelling>"
+3743,7017,"In the drivers package we have a TFTP Client example. But how do I implement  a TFTP Server on W5500? Sorry, we have not a TFTP Server Example. Can somebody help with the issue?","Q) But how do I implement a TFTP Server on W5500?
+A) Sorry, we have not a TFTP Server Example."
+3744,7018,"Terrific!Now you can go back to our entertainment via [the bookmark rider in your profile] (https://forum.wiznet.io/u/weingran/activity/bookmarks).Simply go to your profile picture at the top right &#8599;
+
+As a night: Can you share one of these links with me?Answer with ** a link on your own line **, and it is automatically expanded into a lifting, short summary.
+
+To copy a link, tap and keep on mobile, or click on the right with your mouse:
+
+<https://de.wikipedia.org/wiki/antiwitz>
+<https://de.wikipedia.org/wiki/tetraphobie>
+<https://de.wikipedia.org/wiki/gegilos> Hello @Weingran!I just wanted to get in touch again because I haven't had anything from you for a long time.
+
+- To continue, I answer at any time.
+
+- If you want to jump over this step, answer with 'overprinting`.
+
+- To start from the front, answer with 'Start Tutorial`.
+
+If you prefer not to write to me, that's okay too.I am a robot.You won't hurt my feelings.: SOB:","Q) Can you share one of these links with me?
+A) As a night, you can go back to our entertainment via [the bookmark rider in your profile](https://forum.wiznet.io/u/weingran/activity/bookmarks). Simply go to your profile picture at the top right.
+
+Q) Hello @Weingran! I just wanted to get in touch again because I haven't had anything from you for a long time.
+A) - To continue, I answer at any time.
+   - If you want to jump over this step, answer with 'overprinting'.
+   - To start from the front, answer with 'Start Tutorial'.
+   If you prefer not to write to me, that's okay too. I am a robot. You won't hurt my feelings."
