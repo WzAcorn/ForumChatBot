@@ -18,12 +18,10 @@ WIZnet 포럼🌐https://forum.wiznet.io/은 WIZnet 제품과 관련된 다양�
 
 
 ## 📚 파일 소개
-| 파일명               | 설명                                      |
-|----------------------|-------------------------------------------|
+| 파일명                                                                                              | 설명                                      |
+|-----------------------------------------------------------------------------------------------------|-------------------------------------------|
 | [GPTs 설정.txt](https://github.com/WzAcorn/ForumChatBot/tree/company/GPTs%20설정.txt)| GPT 모델에 대한 구성 세부 정보가 포함됨   |
-| OpenAI.ipynb         | 챗봇을 실행하기 위한 주요 노트북           |
-| dbConnect.ipynb      | 데이터베이스 연결 설정 및 관리를 위한 노트북 |
-| forum_Makedata.ipynb | 포럼 데이터를 생성하고 관리하는 데 사용됨  |
+| [OpenAI.ipynb](https://github.com/WzAcorn/ForumChatBot/tree/company/OpenAI.ipynb)    | 챗봇을 실행하기 위한 주요 노트북           |
+| [dbConnect.ipynb](https://github.com/WzAcorn/ForumChatBot/tree/company/dbConnect.ipynb)     | 데이터베이스 연결 설정 및 관리를 위한 노트북 |
+| [forum_Makedata.ipynb](https://github.com/WzAcorn/ForumChatBot/tree/company/forum_Makedata.ipynb)   | 포럼 데이터를 생성하고 관리하는 데 사용됨  |
 
-이것은 [구글][1]의 링크입니다.
-[1]: https://www.google.com
