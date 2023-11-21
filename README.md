@@ -11,17 +11,19 @@ WIZnet 포럼🌐https://forum.wiznet.io/은 WIZnet 제품과 관련된 다양�
 - 🤖 QnA를 구분할 수 있는 chatbot을 만들고 instruction을 부여한다. (개인정보 삭제, 무응답 내용 설정 등)
 - 📩 chatbot에게 가공된 QnA 데이터 세트를 제공받는다.
  
-## 🔧 주요 기능
+## 📌 주요 기능
 - GPT 통합: 인간과 같은 반응을 생성하기 위해 고급 GPT3.5 turbo와 GPT4-turbo 모델을 사용합니다. (금액적인 측면에서 필요한 내용만 4-turbo를 사용.)
 - 데이터베이스 전처리: DB로 구조화된 forum데이터에서 특정 열의 데이터만 추출하고 개인정보, 무응답, 재촉하는 글 등의 비활용적 요소들을 제거해나가는 작업을 합니다.
 - 데이터 생성: QnA를 구분할 수 있는 간단한 instruction을 부여한 chatbot에게 기존 DB에 있는 내용을 재가공 시킵니다.
 
-  
-## 🚀 시작하기
-ForumChatBot을 시작하기 위해서는 환경을 설정하고 필요한 종속성을 설치해야 합니다. 다음 단계를 따르세요:
 
-## 📚 문서화
-GPTs 설정.txt: GPT 모델에 대한 구성 세부 정보가 포함되어 있습니다.
-OpenAI.ipynb: 챗봇을 실행하기 위한 주요 노트북입니다.
-dbConnect.ipynb: 데이터베이스 연결 설정 및 관리를 위한 노트북입니다.
-forum_Makedata.ipynb: 포럼 데이터를 생성하고 관리하는 데 사용됩니다.
+## 📚 파일 소개
+| 파일명               | 설명                                      |
+|----------------------|-------------------------------------------|
+| [GPTs 설정.txt](https://github.com/WzAcorn/ForumChatBot/tree/company/GPTs%20설정.txt)| GPT 모델에 대한 구성 세부 정보가 포함됨   |
+| OpenAI.ipynb         | 챗봇을 실행하기 위한 주요 노트북           |
+| dbConnect.ipynb      | 데이터베이스 연결 설정 및 관리를 위한 노트북 |
+| forum_Makedata.ipynb | 포럼 데이터를 생성하고 관리하는 데 사용됨  |
+
+이것은 [구글][1]의 링크입니다.
+[1]: https://www.google.com
