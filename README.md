@@ -20,7 +20,8 @@ WIZnet 포럼🌐https://forum.wiznet.io/은 WIZnet 제품과 관련된 다양�
 ## 📚 파일 소개
 | 파일명                                                                                              | 설명                                      |
 |-----------------------------------------------------------------------------------------------------|-------------------------------------------|
-| [GPTs 설정.txt](https://github.com/WzAcorn/ForumChatBot/tree/company/GPTs%20설정.txt)| GPT 모델에 대한 구성 세부 정보가 포함됨   |
-| [OpenAI.ipynb](https://github.com/WzAcorn/ForumChatBot/tree/company/OpenAI.ipynb)    | 챗봇을 실행하기 위한 주요 노트북           |
-| [dbConnect.ipynb](https://github.com/WzAcorn/ForumChatBot/tree/company/dbConnect.ipynb)     | 데이터베이스 연결 설정 및 관리를 위한 노트북 |
-| [forum_Makedata.ipynb](https://github.com/WzAcorn/ForumChatBot/tree/company/forum_Makedata.ipynb)   | 포럼 데이터를 생성하고 관리하는 데 사용됨  |
+| [GPTs 설정.txt](https://github.com/WzAcorn/ForumChatBot/tree/main/GPTs%20설정.txt)| GPTs 모델에 부여한 role 확인 파일    |
+| [dbConnect.ipynb](https://github.com/WzAcorn/ForumChatBot/tree/main/dbConnect.ipynb)   | forumdb를 가져와 필요한 정보만 남기고 제거하는 코드  |
+| [forum_makedata_by_Chatbase.ipynb](https://github.com/WzAcorn/ForumChatBot/tree/main/forum_makedata_by_Chatbase.ipynb)    | Chatbase로 QnA데이터를 정제시킨 코드          |
+| [forum_makedata_by_OpenAi.ipynb](https://github.com/WzAcorn/ForumChatBot/tree/main/forum_makedata_by_OpenAi.ipynb)     | OpenAi로 QnA데이터를 정제시킨 코드  |
+| [forum_dataset_reduced1~N.ipynb](https://github.com/WzAcorn/ForumChatBot/tree/main/forum_dataset_reduced1~4698.csv)     | 챗봇을 통해 정제된 data.csv파일  |
